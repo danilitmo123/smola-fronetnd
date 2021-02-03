@@ -1,0 +1,49 @@
+.product-item-wrapper {
+  margin-top: 30px;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .id {
+    margin-right: 64px;
+  }
+
+  .name {
+    margin-right: 64px;
+  }
+
+  .price {
+    margin-right: 116px;
+  }
+
+  .count {
+    margin-right: 125px;
+  }
+
+  .diller {
+    max-width: 20px;
+    white-space: pre-wrap;
+    margin-right: 125px;
+  }
+
+  .last-price-change {
+    margin-right: 215px;
+  }
+
+
+  &:after {
+    display: block;
+    width: 80vw;
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid #737B7D;
+    top: 45px;
+  }
+
+  .product-item {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
