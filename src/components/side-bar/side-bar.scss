@@ -47,6 +47,10 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      
+      &:hover {
+        cursor: pointer;
+      }
 
       .dashboard-text {
         vertical-align: middle;
@@ -60,6 +64,10 @@
       justify-content: flex-start;
       align-items: center;
 
+      &:hover {
+        cursor: pointer;
+      }
+
       .dashboard-text {
         vertical-align: middle;
         margin-top: 20px;
@@ -71,6 +79,10 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
+
+      &:hover {
+        cursor: pointer;
+      }
 
       .dashboard-text {
         vertical-align: middle;

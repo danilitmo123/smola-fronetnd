@@ -1,0 +1,27 @@
+.specification-screen-wrapper {
+  margin-top: 30px;
+  position: relative;
+
+  &:after {
+    display: block;
+    width: 80vw;
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid #737B7D;
+    top: 35px;
+  }
+
+  .menu-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 0;
+
+    .nav-item {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: #737B7D;
+    }
+  }
+}

@@ -7,7 +7,7 @@ import ErrorMessage from "../../components/error-message";
 import './home-screen.scss'
 import ProductItem from "../../components/product-item";
 
-const HomeScreen = () => {
+const ResourceScreen = () => {
 
     const dispatch = useDispatch()
     const productList = useSelector( state => state.productList)
@@ -29,21 +29,21 @@ const HomeScreen = () => {
                 <div className="nav-item">Последнее изменение цены</div>
                 <div className="nav-item">Последнее изменение количетсва</div>.
             </div>
-            {
-                loading ? <Loader/>
-                    : error ? <ErrorMessage variant={'danger'}>{error}</ErrorMessage>
-                    :
-                    <div>
-                        {
-                            Object.entries(products).map(product => {
-                                return <ProductItem key={product.id} product={product}/>
-                            })
-                        }
-                    </div>
-            }
+            {/*{*/}
+            {/*    loading ? <Loader/>*/}
+            {/*        : error ? <ErrorMessage variant={'danger'}>{error}</ErrorMessage>*/}
+            {/*        :*/}
+            {/*        <div>*/}
+            {/*            {*/}
+            {/*                Object.entries(products).map(product => {*/}
+            {/*                    return <ProductItem key={product.id} product={product}/>*/}
+            {/*                })*/}
+            {/*            }*/}
+            {/*        </div>*/}
+            {/*}*/}
 
         </div>
     )
 }
 
-export default HomeScreen
+export default ResourceScreen

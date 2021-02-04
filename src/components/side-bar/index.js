@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 import logo from '../../images/avatar.svg'
 import dashboard from '../../images/dashboard.svg'
 import deals from '../../images/deals.svg'
@@ -15,18 +16,24 @@ const SideBar = () => {
                 <div className="user">Филлип Пузырев<br/>smola20@info.ru</div>
             </div>
             <div className="side-nav-bar">
-                <div className="dashboard items">
-                    <img src={dashboard} alt={'dashboard'}/>
-                    <div className="dashboard-text">Спецификации</div>
-                </div>
-                <div className="deals items">
-                    <img src={vector} alt={'deals'}/>
-                    <div className="dashboard-text">Закупки</div>
-                </div>
-                <div className="vector items">
-                    <img src={deals} alt={'vector'}/>
-                    <div className="dashboard-text">Ресурсы</div>
-                </div>
+                <Link to={'/'}>
+                    <div className="dashboard items">
+                        <img src={dashboard} alt={'dashboard'}/>
+                        <div className="dashboard-text">Спецификации</div>
+                    </div>
+                </Link>
+                <Link to={'/purchases'}>
+                    <div className="deals items">
+                        <img src={vector} alt={'deals'}/>
+                        <div className="dashboard-text">Закупки</div>
+                    </div>
+                </Link>
+                <Link to={'/resources'}>
+                    <div className="vector items">
+                        <img src={deals} alt={'vector'}/>
+                        <div className="dashboard-text">Ресурсы</div>
+                    </div>
+                </Link>
             </div>
         </div>
     )
