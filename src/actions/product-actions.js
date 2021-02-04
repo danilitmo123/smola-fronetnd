@@ -9,11 +9,11 @@ export const listProducts = () => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_LIST_REQUEST})
 
-        const { data } = await axios.get()
+        const { data } = await axios.get('https://api-smola-20.herokuapp.com/resource/list/')
 
         dispatch({
             type: PRODUCT_LIST_SUCCESS,
-            payload: data
+            payload: data.results
         })
 
     } catch (error) {

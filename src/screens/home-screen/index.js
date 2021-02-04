@@ -13,10 +13,9 @@ const HomeScreen = () => {
     const productList = useSelector( state => state.productList)
     const { error, loading, products } = productList
 
-
     useEffect(() => {
         dispatch(listProducts())
-    })
+    }, [dispatch])
 
 
     return (
@@ -36,7 +35,7 @@ const HomeScreen = () => {
                     :
                     <div>
                         {
-                            products.map(product => {
+                            Object.entries(products).map(product => {
                                 return <ProductItem key={product.id} product={product}/>
                             })
                         }
