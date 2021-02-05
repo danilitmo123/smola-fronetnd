@@ -12,6 +12,8 @@ const ResourceScreen = () => {
     const dispatch = useDispatch()
     const productList = useSelector( state => state.productList)
     const { error, loading, products } = productList
+    console.log(products)
+    console.log(typeof products)
 
     useEffect(() => {
         dispatch(listProducts())
@@ -29,18 +31,18 @@ const ResourceScreen = () => {
                 <div className="nav-item">Последнее изменение цены</div>
                 <div className="nav-item">Последнее изменение количетсва</div>.
             </div>
-            {/*{*/}
-            {/*    loading ? <Loader/>*/}
-            {/*        : error ? <ErrorMessage variant={'danger'}>{error}</ErrorMessage>*/}
-            {/*        :*/}
-            {/*        <div>*/}
-            {/*            {*/}
-            {/*                Object.entries(products).map(product => {*/}
-            {/*                    return <ProductItem key={product.id} product={product}/>*/}
-            {/*                })*/}
-            {/*            }*/}
-            {/*        </div>*/}
-            {/*}*/}
+            {
+                loading ? <Loader/>
+                    : error ? <ErrorMessage variant={'danger'}>{error}</ErrorMessage>
+                    :
+                    <div>
+                        {
+                            Object.values(products).map(product => {
+                                return <ProductItem key={product.id} product={product}/>
+                            })
+                        }
+                    </div>
+            }
 
         </div>
     )

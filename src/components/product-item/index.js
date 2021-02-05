@@ -2,18 +2,18 @@ import React from 'react'
 
 import './product-item.scss'
 
-const ProductItem = ({product}) => {
-    console.log(product)
-    product.map(item => console.log(item.name))
+const ProductItem = ({product: {id, name, cost, amount, last_change_cost, last_change_amount}}) => {
     return (
         <div className="product-item-wrapper">
-            <div className="product-item id">{product.id}</div>
-            <div className="product-item name">{product.name}</div>
-            <div className="product-item price">{product.cost}</div>
-            <div className="product-item count">{product.amount}</div>
-            <div className="product-item diller">{}</div>
-            <div className="product-item last-price-change">{}</div>
-            <div className="product-item last-count-change">{}</div>
+            <div className="item-wrapper">
+                <div className="product-item id">{id}</div>
+                <div className="product-item name">{name}</div>
+                <div className={'product-item price'}>{cost}</div>
+                <div className="product-item count">{amount}</div>
+                <div className="product-item diller">{name}</div>
+                <div className="product-item last-price-change">{last_change_cost}</div>
+                <div className="product-item last-count-change">{last_change_amount}</div>
+            </div>
         </div>
     )
 }

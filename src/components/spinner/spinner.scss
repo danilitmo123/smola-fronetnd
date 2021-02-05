@@ -1,6 +1,18 @@
-.spinner {
-  height: 100px;
-  width: 100px;
-  margin: auto;
-  display: block;
+.loader {
+  margin-top: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .loader-img{
+    width: 100px;
+  }
+
+  .loader-text {
+    color: #737B7D;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+  }
 }

@@ -37,6 +37,10 @@
     justify-content: flex-start;
     flex-direction: column;
 
+    .link {
+      text-decoration: none;
+    }
+
     img {
       margin-top: 20px;
       width: 40px;
@@ -47,7 +51,14 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      
+
+      img {
+
+        &.active {
+          fill: #F1DB10;
+        }
+      }
+
       &:hover {
         cursor: pointer;
       }
@@ -55,7 +66,11 @@
       .dashboard-text {
         vertical-align: middle;
         margin-top: 20px;
-        margin-left: 5px;
+        margin-left: 10px;
+
+        &.active {
+          color: #F1DB10;
+        }
       }
     }
 
@@ -71,7 +86,11 @@
       .dashboard-text {
         vertical-align: middle;
         margin-top: 20px;
-        margin-left: 5px;
+        margin-left: 10px;
+
+        &.active {
+          color: #F1DB10;
+        }
       }
     }
 
@@ -87,7 +106,17 @@
       .dashboard-text {
         vertical-align: middle;
         margin-top: 20px;
-        margin-left: 5px;
+        margin-left: 10px;
+        text-decoration: none;
+
+        &:focus,
+        &:hover {
+          text-underline: none;
+        }
+
+        &.active {
+          color: #F1DB10;
+        }
       }
     }
 
@@ -96,6 +125,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 16px;
       font-weight: 500;
+      text-decoration: none;
     }
   }
 }

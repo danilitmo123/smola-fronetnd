@@ -8,7 +8,7 @@ const FilterModal = ({active, setActive}) => {
         <div
             onClick={() => setActive(false)}
             className={active ? 'filter-modal active' : 'filter-modal'}>
-            <div onClick={e => e.stopPropagation()} className={active ? 'modal-content active' : 'modal-content' }>
+            <form onClick={e => e.stopPropagation()} className={active ? 'modal-content active' : 'modal-content' }>
                 <div className="filter-wrapper">
                     <div className="filter-title">СОРТИРОВАТЬ ПО:</div>
                     <div className="checkbox-wrapper">
@@ -50,7 +50,7 @@ const FilterModal = ({active, setActive}) => {
                     </div>
                 </div>
                 <button className={'filter-btn'} onClick={() => setActive(false)}>Применить</button>
-            </div>
+            </form>
         </div>
     )
 }

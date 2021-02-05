@@ -5,40 +5,65 @@
   justify-content: flex-start;
   align-items: center;
 
-  .id {
-    margin-right: 64px;
+  &:hover {
+    cursor: pointer;
   }
 
-  .name {
-    margin-right: 64px;
-  }
-
-  .price {
-    margin-right: 116px;
-  }
-
-  .count {
-    margin-right: 125px;
-  }
-
-  .diller {
-    max-width: 20px;
-    white-space: pre-wrap;
-    margin-right: 125px;
-  }
-
-  .last-price-change {
-    margin-right: 215px;
-  }
-
-
-  &:after {
-    display: block;
+  .item-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
     width: 80vw;
-    content: '';
-    position: absolute;
-    border-bottom: 1px solid #737B7D;
-    top: 45px;
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(34, 60, 80, 0.13);
+
+    .cost-wrapper {
+
+      input {
+        width: 90px;
+        height: 30px;
+        padding: 10px;
+        border: 1px solid #F1DB10;
+        border-radius: 6px;
+        box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
+      }
+    }
+
+    .id {
+      margin-right: 30px;
+    }
+
+    .name {
+      width: 100px;
+      text-align: center;
+      margin-right: 30px;
+    }
+
+    .price {
+      text-align: center;
+      width: 90px;
+      margin-right: 45px;
+    }
+
+    .count {
+      text-align: center;
+      width: 90px;
+      margin-right: 45px;
+    }
+
+    .diller {
+      text-align: center;
+      width: 120px;
+      margin-right: 40px;
+    }
+
+    .last-price-change {
+      margin-right: 85px;
+    }
+
+
+
   }
 
   .product-item {

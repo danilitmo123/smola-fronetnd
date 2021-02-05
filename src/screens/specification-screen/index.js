@@ -5,13 +5,14 @@ import Loader from "../../components/spinner";
 import ErrorMessage from "../../components/error-message";
 
 import './specification-screen.scss'
-import ProductItem from "../../components/product-item";
+
+import SpecificationItem from "../../components/specification-item";
 
 const SpecificationScreen = () => {
 
     const dispatch = useDispatch()
     const specificationList = useSelector( state => state.specificationList)
-    const { error, loading, products } = specificationList
+    const { error, loading, specifications } = specificationList
 
     useEffect(() => {
         dispatch(listSpecifications())
@@ -27,21 +28,21 @@ const SpecificationScreen = () => {
                 <div className="nav-item">Коэф наценки</div>
                 <div className="nav-item">Реком цена</div>
                 <div className="nav-item">Текущая цена</div>
-                <div className="nav-item">Категория</div>.
+                <div className="nav-item">Категория</div>
+                <div className="nav-item">ID продукта</div>
             </div>
-            {/*{*/}
-            {/*    loading ? <Loader/>*/}
-            {/*        : error ? <ErrorMessage variant={'danger'}>{error}</ErrorMessage>*/}
-            {/*        :*/}
-            {/*        <div>*/}
-            {/*            {*/}
-            {/*                Object.entries(products).map(product => {*/}
-            {/*                    return <ProductItem key={product.id} product={product}/>*/}
-            {/*                })*/}
-            {/*            }*/}
-            {/*        </div>*/}
-            {/*}*/}
-
+            {
+                loading ? <Loader/>
+                    : error ? <ErrorMessage variant={'danger'}>{error}</ErrorMessage>
+                    :
+                    <div>
+                        {
+                            Object.values(specifications).map(specification => {
+                                return <SpecificationItem key={specification.id} specification={specification}/>
+                            })
+                        }
+                    </div>
+            }
         </div>
     )
 }
