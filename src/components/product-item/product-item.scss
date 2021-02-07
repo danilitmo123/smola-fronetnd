@@ -18,15 +18,29 @@
     border-radius: 6px;
     box-shadow: 0 0 20px rgba(34, 60, 80, 0.13);
 
-    .cost-wrapper {
+    .form-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 30px;
 
       input {
-        width: 90px;
-        height: 30px;
-        padding: 10px;
+        padding-left: 10px;
         border: 1px solid #F1DB10;
         border-radius: 6px;
+        display: flex;
+        align-items: center;
         box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
+      }
+
+      button {
+        margin-left: -40px;
+        border-radius: 50%;
+        background-color: #F1DB10;
+        border: none;
+        width: 25px;
+        height: 25px;
+        color: #fff;
       }
     }
 

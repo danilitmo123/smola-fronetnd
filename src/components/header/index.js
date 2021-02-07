@@ -6,10 +6,12 @@ import settings from '../../images/settings.svg'
 
 import './header.scss'
 import FilterModal from "../filter-modal";
+import CreateResourceModal from "../create-resource-modal";
 
 const Header = () => {
 
     const [modalActive, setModalActive] = useState(false)
+    const [resourceModalActive, setResourceModalActive] = useState(false)
 
     return (
         <div className="header-wrapper">
@@ -20,7 +22,7 @@ const Header = () => {
                 <input type="text" placeholder={'Поиск по названию'}/>
             </div>
             <div className="add-btn">
-                <button>Добавить ресурс</button>
+                <button onClick={() => setResourceModalActive(true)}>Добавить ресурс</button>
             </div>
             <div className="nav-bar">
                 <img src={notifications} alt={'notifications'}/>
@@ -28,6 +30,7 @@ const Header = () => {
                 <img src={avatar} alt={'profile'}/>
             </div>
             <FilterModal active={modalActive} setActive={setModalActive}/>
+            <CreateResourceModal active={resourceModalActive} setActive={setResourceModalActive}/>
         </div>
     )
 }

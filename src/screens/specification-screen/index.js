@@ -13,6 +13,7 @@ const SpecificationScreen = () => {
     const dispatch = useDispatch()
     const specificationList = useSelector( state => state.specificationList)
     const { error, loading, specifications } = specificationList
+    console.log(specifications)
 
     useEffect(() => {
         dispatch(listSpecifications())

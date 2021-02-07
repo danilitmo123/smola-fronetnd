@@ -12,8 +12,6 @@ const ResourceScreen = () => {
     const dispatch = useDispatch()
     const productList = useSelector( state => state.productList)
     const { error, loading, products } = productList
-    console.log(products)
-    console.log(typeof products)
 
     useEffect(() => {
         dispatch(listProducts())
