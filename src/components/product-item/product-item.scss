@@ -46,6 +46,7 @@
 
     .id {
       margin-right: 30px;
+      width: 100px;
     }
 
     .name {
@@ -58,6 +59,11 @@
       text-align: center;
       width: 90px;
       margin-right: 45px;
+
+      &:hover,
+      &:focus{
+        outline: none;
+      }
     }
 
     .count {

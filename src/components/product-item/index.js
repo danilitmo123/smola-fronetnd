@@ -19,7 +19,7 @@ const ProductItem = ({product}) => {
     return (
         <div className="product-item-wrapper">
             <div className="item-wrapper">
-                <div className="product-item id">{product.id}</div>
+                <div className="product-item id">{product.external_id}</div>
                 <div className="product-item name">{product.name}</div>
                 <form className="form-wrapper" onSubmit={submitHandler}>
                     <input

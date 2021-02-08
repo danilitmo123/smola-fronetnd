@@ -52,13 +52,13 @@ const SideBar = () => {
                         <div className={specificationNavActive ? 'dashboard-text active' : 'dashboard-text'}>Спецификации</div>
                     </div>
                 </Link>
-                <Link to={'/purchases'} className={'link'}>
+                <Link to={'/orders'} className={'link'}>
                     <div className="deals items" onClick={purchasesChangeColor}>
                         {
                             purchasesNavActive ? <img src={secondItemActive} alt="dashboardActive" /> :
                                 <img src={secondItem} alt="dashboard"/>
                         }
-                        <div className={purchasesNavActive ? 'dashboard-text active' : 'dashboard-text'}>Закупки</div>
+                        <div className={purchasesNavActive ? 'dashboard-text active' : 'dashboard-text'}>Заказы</div>
                     </div>
                 </Link>
                 <Link to={'/resources'} className={'link'}>

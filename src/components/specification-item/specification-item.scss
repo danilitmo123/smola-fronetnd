@@ -73,6 +73,11 @@
       text-align: center;
       width: 100px;
       margin-right: 80px;
+
+      &:hover,
+      &:focus{
+        outline: none;
+      }
     }
   }
 
