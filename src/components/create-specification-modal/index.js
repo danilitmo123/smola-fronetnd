@@ -77,7 +77,7 @@ const CreateSpecificationModal = ({active, setActive}) => {
                     <input type="text" name="categoryName" id="categoryName"
                            onChange={e => setCategoryName(e.target.value)}
                            value={categoryName}/><br/>
-                    <label htmlFor="storageAmount">Название категории</label><br/>
+                    <label htmlFor="storageAmount">Количесество</label><br/>
                     <input type="number" name="storageAmount" id="storageAmount"
                            onChange={e => setStorageAmount(parseInt(e.target.value))}
                            value={storageAmount}/><br/>

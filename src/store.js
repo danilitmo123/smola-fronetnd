@@ -11,6 +11,7 @@ import {createSpecificationReducers} from "./reducers/specification-create-reduc
 import {resourcesShortListReducers} from "./reducers/resource-shortlist-reducers"
 import {resourcesUploadReducers} from "./reducers/resource-upload-reducers"
 import {orderListReducers} from "./reducers/order-list-reducers"
+import {orderDetailReducer} from "./reducers/order-deatail-reducers";
 
 const reducer = combineReducers({
     productList: productListReducers,
@@ -22,7 +23,8 @@ const reducer = combineReducers({
     createSpecification: createSpecificationReducers,
     resourcesShortlist: resourcesShortListReducers,
     uploadResource: resourcesUploadReducers,
-    orderList: orderListReducers
+    orderList: orderListReducers,
+    orderDetail: orderDetailReducer
 })
 
 const initialState = {}
