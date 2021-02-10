@@ -15,11 +15,19 @@ const CreateResourceModal = ({active, setActive}) => {
     const [amount, setAmount] = useState(0.0);
     const [external_id, setExternalId] = useState("");
 
+    const reloadData = () => {
+        setCost(0.0)
+        setName('')
+        setProviderName('')
+        setAmount(0.0)
+        setExternalId('')
+    }
+
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(createResourceAction(name, external_id, provider_name, cost, amount));
         setActive(false);
-        // document.location.reload();
+        reloadData()
     }
 
     return (

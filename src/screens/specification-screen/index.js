@@ -18,13 +18,18 @@ const SpecificationScreen = () => {
         dispatch(listSpecifications())
     }, [dispatch])
 
+    const getId = () => {
+        return specifications.id
+    }
+
 
     return (
         <div className="specification-screen-wrapper">
             <div className="menu-wrapper">
-                <div className="nav-item">ID</div>
+                <div className="nav-item id">ID</div>
                 <div className="nav-item">Название</div>
                 <div className="nav-item">Себестоимость</div>
+                <div className="nav-item">Маржинальность</div>
                 <div className="nav-item">Коэф наценки</div>
                 <div className="nav-item">Реком цена</div>
                 <div className="nav-item">Текущая цена</div>
@@ -38,7 +43,7 @@ const SpecificationScreen = () => {
                     <div>
                         {
                             Object.values(specifications).map(specification => {
-                                return <SpecificationItem key={specification.id} specification={specification}/>
+                                return <SpecificationItem key={specification.id} onClick={getId} specification={specification}/>
                             })
                         }
                     </div>

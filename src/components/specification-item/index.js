@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 import './specification-item.scss'
 import {changeSpecPriceAction} from "../../actions/specification-price-actions";
 import {changeCoefficientAction} from '../../actions/coefficient-actions'
+import SpecificationCard from "../specification-card";
 
 const SpecificationItem = ({specification}) => {
 
@@ -11,6 +12,7 @@ const SpecificationItem = ({specification}) => {
     const [coefficient, setCoefficient] = useState(specification.coefficient)
     const [price, setPrice] = useState(specification.price)
     const [bestPrice, setBestPrice] = useState(specification.prime_cost * coefficient)
+    const [cardActive, setCardActive] = useState(false)
 
 
 
@@ -24,13 +26,13 @@ const SpecificationItem = ({specification}) => {
         dispatch(changeSpecPriceAction(specification.id, price))
     }
 
-
     return (
-        <div className="specification-item-wrapper">
+        <div className="specification-item-wrapper" onClick={() => setCardActive(true)} id={specification.id}>
             <div className="item-wrapper">
-                <div className="product-item id">{specification.product_id}</div>
+                <div className="product-item id">{specification.id}</div>
                 <div className="product-item name">{specification.name}</div>
                 <div className="product-item cost-price">{parseInt(specification.prime_cost)}</div>
+                <div className="product-item marja">{parseFloat((price - specification.prime_cost) / price).toFixed(2)}</div>
                 <form className="form-wrapper" onSubmit={submitCoefficientHandler}>
                     <input
                         type={'number'}
@@ -48,11 +50,12 @@ const SpecificationItem = ({specification}) => {
                         onChange={e => setPrice(e.target.value)}
                         value={parseFloat(price)}
                         className={'product-item price'}/>
-                    <button type={'submit'} >✓</button>
+                    <button type={'submit price-submit'} >✓</button>
                 </form>
-                <div className="product-item category">{}</div>
+                <div className="product-item category">{specification.category ? specification.category.name : 'нет'}</div>
                 <div className="product-item product_id">{specification.product_id}</div>
             </div>
+            <SpecificationCard active={cardActive} setActive={setCardActive} id={specification.id}/>
         </div>
     )
 }

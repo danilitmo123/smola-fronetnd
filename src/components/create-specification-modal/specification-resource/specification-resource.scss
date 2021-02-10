@@ -1,3 +1,37 @@
 .option{
   display: flex;
+  .title-spec-resource {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .title-count {
+    margin-left: 40px;
+  }
+
+  .resource-amount-input {
+    margin-left: 40px;
+    height: 30px;
+    width: 120px;
+    padding: 10px;
+    border: 1px solid #F1DB10;
+    border-radius: 6px;
+    box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .resource-select {
+    padding: 10px;
+    border: 1px solid #F1DB10;
+    border-radius: 6px;
+    box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
+
+    &:focus {
+      outline: none;
+    }
+  }
 }

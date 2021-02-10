@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts} from '../../actions/product-actions'
 import Loader from "../../components/spinner";
@@ -8,7 +8,6 @@ import './home-screen.scss'
 import ProductItem from "../../components/product-item";
 
 const ResourceScreen = () => {
-
     const dispatch = useDispatch()
     const productList = useSelector( state => state.productList)
     const { error, loading, products } = productList
@@ -21,13 +20,13 @@ const ResourceScreen = () => {
     return (
         <div className="home-screen-wrapper">
             <div className="menu-wrapper">
-                <div className="nav-item">ID</div>
+                <div className="nav-item id">ID</div>
                 <div className="nav-item">Название</div>
                 <div className="nav-item">Цена, руб</div>
                 <div className="nav-item">Количество</div>
                 <div className="nav-item">Поставщик</div>
                 <div className="nav-item">Последнее изменение цены</div>
-                <div className="nav-item">Последнее изменение количетсва</div>.
+                <div className="nav-item">Последнее изменение количетсва</div>
             </div>
             {
                 loading ? <Loader/>
@@ -36,12 +35,11 @@ const ResourceScreen = () => {
                     <div>
                         {
                             Object.values(products).map(product => {
-                                return <ProductItem key={product.id} product={product}/>
+                                return <ProductItem  key={product.id} product={product}/>
                             })
                         }
                     </div>
             }
-
         </div>
     )
 }

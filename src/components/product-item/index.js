@@ -15,7 +15,6 @@ const ProductItem = ({product}) => {
         dispatch(changePriceAction(product.id, price))
     }
 
-
     return (
         <div className="product-item-wrapper">
             <div className="item-wrapper">

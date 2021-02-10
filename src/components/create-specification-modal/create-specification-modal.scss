@@ -19,12 +19,45 @@
   }
 
   .spec-modal-content {
-    padding: 20px;
+    padding: 40px;
     border-radius: 12px;
     background-color: white;
-    width: 400px;
+    width: 900px;
     transform: scale(0.5);
     transition: 0.4s all;
+
+    .add-resource-wrapper {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: row;
+
+      .spec-content-wrapper {
+        margin-right: 200px;
+
+        .first-title {
+          text-align: center;
+          margin-bottom: 20px;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+
+      .add-block-resource {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .second-title {
+          text-align: center;
+          margin-bottom: 20px;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+    }
 
     .spec-modal-title {
       font-family: 'Montserrat', sans-serif;
@@ -32,7 +65,7 @@
       font-size: 24px;
       text-align: center;
       color: #737B7D;
-      margin-bottom: 15px;
+      margin-bottom: 35px;
     }
 
     .spec-modal-text {
@@ -59,11 +92,13 @@
     }
 
     .add-spec-btn {
+      margin-top: 40px;
+      height: 40px;
+      padding: 5px;
       background: none;
       box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
       border: 1px solid #F1DB10;
       border-radius: 4px;
-      height: 30px;
       font-size: 16px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
@@ -82,7 +117,7 @@
 
     .filter-btn {
       margin-top: 40px;
-      margin-left: 90px;
+      margin-left: 300px;
       background: #F1DB10;
       border: none;
       box-shadow: 0 0 12px rgba(16, 156, 241, 0.24);
