@@ -6,13 +6,12 @@ import {changeSpecPriceAction} from "../../actions/specification-price-actions";
 import {changeCoefficientAction} from '../../actions/coefficient-actions'
 import SpecificationCard from "../specification-card";
 
-const SpecificationItem = ({specification}) => {
+const SpecificationItem = ({onSelect, specification}) => {
 
     const dispatch = useDispatch()
     const [coefficient, setCoefficient] = useState(specification.coefficient)
     const [price, setPrice] = useState(specification.price)
     const [bestPrice, setBestPrice] = useState(specification.prime_cost * coefficient)
-    const [cardActive, setCardActive] = useState(false)
 
 
 
@@ -26,8 +25,13 @@ const SpecificationItem = ({specification}) => {
         dispatch(changeSpecPriceAction(specification.id, price))
     }
 
+    const onClick = () => {
+        // setCardActive(true)
+        onSelect(specification.id)
+    }
+
     return (
-        <div className="specification-item-wrapper" onClick={() => setCardActive(true)} id={specification.id}>
+        <div className="specification-item-wrapper" onClick={onClick} id={specification.id}>
             <div className="item-wrapper">
                 <div className="product-item id">{specification.id}</div>
                 <div className="product-item name">{specification.name}</div>
@@ -55,7 +59,6 @@ const SpecificationItem = ({specification}) => {
                 <div className="product-item category">{specification.category ? specification.category.name : 'нет'}</div>
                 <div className="product-item product_id">{specification.product_id}</div>
             </div>
-            <SpecificationCard active={cardActive} setActive={setCardActive} id={specification.id}/>
         </div>
     )
 }
