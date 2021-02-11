@@ -18,8 +18,6 @@ const SpecificationCard = ({active, setActive, id}) => {
         dispatch(getResourcesInSpecification(id))
     }, [id])
 
-
-
     return (
         <div className="close-wrapper">
             <div
