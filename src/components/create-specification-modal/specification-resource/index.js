@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 
+import './specification-resource.scss'
+
 
 const SpecificationResource = ({number, resourceList, onResourceAdd, onAmountChange}) => {
 
@@ -23,9 +25,9 @@ const SpecificationResource = ({number, resourceList, onResourceAdd, onAmountCha
     return (
         <div className={"option"}>
             <div>
-                <label htmlFor={"resource-" + number + "-id"} className={''}>Ресурс {number}</label>
+                <label htmlFor={"resource-" + number + "-id"} className={'title-spec-resource'}>Ресурс {number}</label>
                 <select name={"resource-" + number + "-id"} id={"resource-" + number + "-id"}
-                        onChange={e => addResource(e.target.value) } value={id}>
+                        onChange={e => addResource(e.target.value) } value={id} className={'resource-select'}>
                     <option name={"default-option-" + number} key={"default-option-" + number}
                             id={"default-option-" + number} value="----">----
                     </option>
@@ -39,7 +41,7 @@ const SpecificationResource = ({number, resourceList, onResourceAdd, onAmountCha
                 </select>
             </div>
             <div>
-                <label htmlFor={"resource-" + number + "-amount"}>Количество</label>
+                <label htmlFor={"resource-" + number + "-amount"} className={'title-spec-resource title-count'}>Количество</label>
                 <input type="number" name={"resource-" + number + "-amount"} id={"resource-" + number + "-amount"}
                        disabled={!activeAmount}
                        value={amount}

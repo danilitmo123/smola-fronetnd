@@ -9,6 +9,20 @@
     cursor: pointer;
   }
 
+  .delete-btn {
+    border-radius: 12px;
+    background-color: white;
+    color: #000;
+    height: 20px;
+    width: 90px;
+    transform: scale(0);
+    transition: 0.4s all;
+
+    &.active {
+      transform: scale(1);
+    }
+  }
+
   .item-wrapper {
     display: flex;
     justify-content: flex-start;
@@ -17,6 +31,10 @@
     width: 80vw;
     border-radius: 6px;
     box-shadow: 0 0 20px rgba(34, 60, 80, 0.13);
+
+    .delete-checkbox {
+      margin-right: 10px;
+    }
 
     .form-wrapper {
       display: flex;
@@ -35,6 +53,7 @@
 
       button {
         margin-left: -40px;
+        margin-right: 20px;
         border-radius: 50%;
         background-color: #F1DB10;
         border: none;
@@ -45,19 +64,21 @@
     }
 
     .id {
-      margin-right: 30px;
-      width: 100px;
+      margin-right: 10px;
+      width: 50px;
+      text-align: left;
+      font-size: 12px !important;
     }
 
     .name {
-      width: 100px;
-      text-align: center;
-      margin-right: 30px;
+      width: 70px;
+      text-align: left;
+      margin-right: 45px;
     }
 
     .price {
       text-align: center;
-      width: 90px;
+      width: 70px;
       margin-right: 45px;
 
       &:hover,
@@ -67,13 +88,13 @@
     }
 
     .count {
-      text-align: center;
+      text-align: left;
       width: 90px;
-      margin-right: 45px;
+      margin-right: 30px;
     }
 
     .diller {
-      text-align: center;
+      text-align: left;
       width: 120px;
       margin-right: 40px;
     }
@@ -81,14 +102,11 @@
     .last-price-change {
       margin-right: 85px;
     }
-
-
-
   }
 
   .product-item {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
   }
 }

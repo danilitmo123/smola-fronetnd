@@ -1,0 +1,93 @@
+.close-wrapper {
+  pointer-events: none;
+  .specification-card-wrapper {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    width: 37%;
+    height: 100vh;
+    background-color: #fff;
+    transition: 0.5s;
+    transform: translateX(200%);
+    box-shadow: -15px 0px 22px 0px rgba(34, 60, 80, 0.13);
+
+    &.active {
+      transform: translateX(0%);
+      pointer-events: all;
+    }
+
+    .header-specification-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(241, 219, 16, 0.3);
+      padding: 15px;
+      margin-bottom: 20px;
+
+      .specification-card-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+        font-weight: 500;
+      }
+    }
+
+    .specification-card-info {
+      padding: 15px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      .specification-card-img {
+        box-shadow: 0px 5px 4px 0px rgba(34, 60, 80, 0.5);
+        margin-right: 15px;
+      }
+
+      .about-store {
+        padding: 15px;
+        border-radius: 6px;
+        box-shadow: 0 0 10px rgba(34, 60, 80, 0.13);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+      }
+
+      .on-store {
+        margin-bottom: 15px;
+      }
+    }
+
+    .info-resource-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      padding: 15px;
+    }
+
+    .resource-info-block {
+      padding: 15px;
+
+      .resource-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+      }
+    }
+    .card-btn {
+      width: 120px;
+      height: 40px;
+      background-color: #F1DB10;
+      border: none;
+      border-radius: 6px;
+      box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+  }
+}

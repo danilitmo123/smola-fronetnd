@@ -19,17 +19,7 @@
   }
 
   .modal-content {
-    padding: 20px;
-    border-radius: 12px;
-    background-color: white;
-    height: 450px;
-    width: 250px;
-    transform: scale(0.5);
-    transition: 0.4s all;
 
-    &.active {
-      transform: scale(1);
-    }
 
     .filter-btn {
       margin-top: 40px;
