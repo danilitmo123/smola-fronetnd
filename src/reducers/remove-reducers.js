@@ -9,7 +9,7 @@ export const removeItemReducers = (state = {}, action) => {
         case REMOVE_RESOURCE_REQUEST:
             return {loading: true, data: {}}
         case REMOVE_RESOURCE_SUCCESS:
-            return {loading: false, data: {...action.payload}}
+            return {loading: false, data: action.payload}
         case REMOVE_RESOURCE_FAIL:
             return {loading: false, error: action.payload}
     }

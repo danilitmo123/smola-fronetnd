@@ -10,7 +10,9 @@ import CreateResourceModal from "../create-resource-modal";
 import CreateSpecificationModal from "../create-specification-modal"
 import UploadResources from "../upload-resource-modal"
 
+
 const Header = () => {
+
 
     const [modalActive, setModalActive] = useState(false)
     const [resourceModalActive, setResourceModalActive] = useState(false)
@@ -27,13 +29,13 @@ const Header = () => {
                 <input type="text" placeholder={'Поиск по названию'}/>
             </div>
             <div className="add-btn">
+                <button onClick={() => setSpecificationActive(true)}>Добавить спецификацию</button>
+            </div>
+            <div className="add-btn">
                 <button onClick={() => setUploadResourceModalActive(true)}>Загрузить ресурсы</button>
             </div>
             <div className="add-btn">
                 <button onClick={() => setResourceModalActive(true)}>Добавить ресурс</button>
-            </div>
-            <div className="add-btn">
-                <button onClick={() => setSpecificationActive(true)}>Добавить спецификацию</button>
             </div>
             <div className="nav-bar">
                 <img src={notifications} alt={'notifications'}/>

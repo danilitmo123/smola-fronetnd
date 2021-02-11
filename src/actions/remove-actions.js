@@ -5,7 +5,7 @@ import {
 } from "../constants/remove-resource-constants";
 import axios from "axios";
 
-export const removeAction = (id) => async (dispatch) => {
+export const removeAction = (id, checked) => async (dispatch) => {
     try {
         dispatch({type: REMOVE_RESOURCE_REQUEST})
 
@@ -16,7 +16,18 @@ export const removeAction = (id) => async (dispatch) => {
         }
 
         const {data} = await axios.post()
-    } catch (error) {
 
+        dispatch({
+            type: REMOVE_RESOURCE_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: REMOVE_RESOURCE_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message
+        })
     }
 }
