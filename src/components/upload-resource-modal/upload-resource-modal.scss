@@ -18,14 +18,45 @@
     pointer-events: all;
   }
 
-  .create-modal-content {
+
+  .upload-modal-content {
     padding: 20px;
     border-radius: 12px;
     background-color: white;
-    height: 700px;
-    width: 800px;
+    width: 300px;
     transform: scale(0.5);
     transition: 0.4s all;
+
+    .upload-resource-modal-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: #737B7D;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .upload-resource-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .upload-resource-input {
+      width: 250px;
+      height: 30px;
+      border: 1px solid #F1DB10;
+      border-radius: 6px;
+      padding: 10px;
+      box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
+
+      &:hover,
+      &:focus{
+        outline: none;
+      }
+    }
+
 
     &.active {
       transform: scale(1);
@@ -33,7 +64,7 @@
 
     .filter-btn {
       margin-top: 40px;
-      margin-left: 17px;
+      margin-left: 45px;
       background: #F1DB10;
       border: none;
       box-shadow: 0 0 12px rgba(16, 156, 241, 0.24);
@@ -45,55 +76,6 @@
       font-family: 'Montserrat', sans-serif;
       font-weight: 500;
     }
-
-    .filter-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 500;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .user-wrapper {
-
-    }
-    .id-checkbox {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .title {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-      }
-    }
-
-    .checkbox-wrapper {
-      position: relative;
-      margin-bottom: 40px;
-
-      &:after {
-        display: block;
-        width: 210px;
-        content: '';
-        position: absolute;
-        border-bottom: 1px solid #737B7D;
-        top: 140px;
-      }
-
-      .id-checkbox {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .title {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 16px;
-          font-weight: 400;
-        }
-      }
-    }
-
 
   }
 }

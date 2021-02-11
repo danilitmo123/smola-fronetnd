@@ -23,7 +23,7 @@
       font-weight: 500;
       font-size: 14px;
       letter-spacing: 1px;
-      box-shadow: 0 0 12px rgba(16, 156, 241, 0.24);
+      box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
 
       img {
         margin-right: 5px;
@@ -43,12 +43,12 @@
     button {
       background-color: #F1DB10 ;
       border: none;
-      box-shadow: 0 0 12px rgba(16, 156, 241, 0.24);
+      box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
       color: #ffffff;
       border-radius: 4px;
       width: 160px;
       height: 42px;
-      font-size: 16px;
+      font-size: 12px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 500;
 
@@ -76,20 +76,20 @@
   }
 
   .search-panel {
-    margin-right: 350px;
+    margin-right: 50px;
 
     input {
       background-image: url(../../images/search.svg);
       background-repeat: no-repeat;
       padding-left: 40px;
       background-position: 4px;
-      width: 400px;
+      width: 300px;
       height: 40px;
       border: 1px solid #F1DB10;
       border-radius: 6px;
       display: flex;
       align-items: center;
-      box-shadow: 0 0 12px rgba(16, 156, 241, 0.24);
+      box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
 
       &:hover,
       &:focus{

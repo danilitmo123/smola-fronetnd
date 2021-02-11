@@ -29,7 +29,7 @@ const CreateSpecificationModal = ({active, setActive}) => {
 
 
     const addResourceToDict = id => {
-        resource_dict[id] =  null;
+        resource_dict[id] = null;
     }
 
     const setResourceAmount = (id, amount) => {
@@ -61,39 +61,44 @@ const CreateSpecificationModal = ({active, setActive}) => {
             onClick={() => setActive(false)}
             className={active ? 'resource-modal active' : 'resource-modal'}>
             <form onClick={e => e.stopPropagation()} onSubmit={submitHandler}
-                  className={active ? 'create-modal-content active' : 'create-modal-content'}>
-                <div className="resource-modal-title"><h2>Создать ресурс</h2></div>
-                <br/>
-                <div className="create-resource-wrapper">
-                    <label htmlFor="name">Название спецификации</label><br/>
+                  className={active ? 'spec-modal-content active' : 'spec-modal-content'}>
+                <div className="spec-modal-title">Создать спецификацию</div>
+                <div className="spec-content-wrapper">
+                    <label htmlFor="name" className={'spec-modal-text'}>Название спецификации</label>
                     <input type="text" name="name" id="name"
+                           className={'spec-modal-input'}
                            onChange={e => setName(e.target.value)}
-                           value={name}/><br/>
-                    <label htmlFor="external_id">ID продукта</label><br/>
+                           value={name}/>
+                    <label htmlFor="external_id" className={'spec-modal-text'}>ID продукта</label>
                     <input type="text" name="external_id" id="external_id"
+                           className={'spec-modal-input'}
                            onChange={e => setProductId(e.target.value)}
-                           value={product_id}/><br/>
-                    <label htmlFor="categoryName">Название категории</label><br/>
+                           value={product_id}/>
+                    <label htmlFor="categoryName" className={'spec-modal-text'}>Название категории</label>
                     <input type="text" name="categoryName" id="categoryName"
+                           className={'spec-modal-input'}
                            onChange={e => setCategoryName(e.target.value)}
                            value={categoryName}/><br/>
                     <label htmlFor="storageAmount">Количесество</label><br/>
+
                     <input type="number" name="storageAmount" id="storageAmount"
+                           className={'spec-modal-input'}
                            onChange={e => setStorageAmount(parseInt(e.target.value))}
-                           value={storageAmount}/><br/>
-                    <label htmlFor="price">Цена</label><br/>
+                           value={storageAmount}/>
+                    <label htmlFor="price" className={'spec-modal-text'}>Цена</label>
                     <input type="number" name="price" id="price"
+                           className={'spec-modal-input'}
                            onChange={e => setPrice(parseFloat(e.target.value))}
-                           value={price}/><br/>
-                    <label htmlFor="coefficient">Коефициент</label><br/>
+                           value={price}/>
+                    <label htmlFor="coefficient" className={'spec-modal-text'}>Коэффициент</label>
                     <input type="number" name="coefficient" id="coefficient"
+                           className={'spec-modal-input'}
                            onChange={e => setCoefficient(parseFloat(e.target.value))}
-                           value={coefficient}/><br/>
+                           value={coefficient}/>
                     {resourceListForOption.map(res => res)}
-                    <button onClick={addResourceSelect}>Добавить +</button>
+                    <button onClick={addResourceSelect} className={'add-spec-btn'}>Добавить +</button>
                 </div>
-                <button className={'filter-btn'} type={'submit'}>Применить
-                </button>
+                <button className={'filter-btn'} type={'submit'}>Применить</button>
             </form>
         </div>
     )

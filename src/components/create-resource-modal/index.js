@@ -28,29 +28,34 @@ const CreateResourceModal = ({active, setActive}) => {
             className={active ? 'resource-modal active' : 'resource-modal'}>
             <form onClick={e => e.stopPropagation()} onSubmit={submitHandler}
                   className={active ? 'create-modal-content active' : 'create-modal-content'}>
-                <div className="resource-modal-title"><h2>Создать ресурс</h2></div>
+                <div className="resource-modal-title">Создать ресурс</div>
                 <br/>
                 <div className="create-resource-wrapper">
-                    <label htmlFor="name">Название ресурса</label><br/>
+                    <label htmlFor="name" className={'resource-create-title'}>Название ресурса</label>
                     <input type="text" name="name" id="name"
+                           className={'create-resource-input'}
                            onChange={e => setName(e.target.value)}
-                           value={name}/><br/>
-                    <label htmlFor="external_id">ID</label><br/>
+                           value={name}/>
+                    <label htmlFor="external_id" className={'resource-create-title'}>ID</label>
                     <input type="text" name="external_id" id="external_id"
+                           className={'create-resource-input'}
                            onChange={e => setExternalId(e.target.value)}
-                           value={external_id}/><br/>
-                    <label htmlFor="provider_name">Поставщик</label><br/>
+                           value={external_id}/>
+                    <label htmlFor="provider_name" className={'resource-create-title'}>Поставщик</label>
                     <input type="text" name="provider_name" id="provider_name"
+                           className={'create-resource-input'}
                            onChange={e => setProviderName(e.target.value)}
-                           value={provider_name}/><br/>
-                    <label htmlFor="cost">Цена</label><br/>
+                           value={provider_name}/>
+                    <label htmlFor="cost" className={'resource-create-title'}>Цена</label>
                     <input  type="number" step="0.01" name="cost" id="cost"
+                            className={'create-resource-input'}
                            onChange={e => setCost(parseFloat(e.target.value))}
-                           value={cost}/><br/>
-                    <label htmlFor="amount">Количество</label><br/>
+                           value={cost}/>
+                    <label htmlFor="amount" className={'resource-create-title'}>Количество</label>
                     <input  type="number" step="0.01" name="amount" id="amount"
+                            className={'create-resource-input'}
                            onChange={e => setAmount(parseFloat(e.target.value))}
-                           value={amount}/><br/>
+                           value={amount}/>
                 </div>
                 <button className={'filter-btn'} type={'submit'}>Применить</button>
             </form>

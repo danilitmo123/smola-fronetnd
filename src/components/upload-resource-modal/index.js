@@ -25,16 +25,18 @@ const UploadResources = ({active, setActive}) => {
             onClick={() => setActive(false)}
             className={active ? 'resource-modal active' : 'resource-modal'}>
             <form onClick={e => e.stopPropagation()} onSubmit={submitHandler}
-                  className={active ? 'create-modal-content active' : 'create-modal-content'}>
-                <div className="resource-modal-title"><h2>Добавить файл</h2></div>
-                <label htmlFor="file">Выберите файл</label>
+                  className={active ? 'upload-modal-content active' : 'upload-modal-content'}>
+                <div className="upload-resource-modal-title">Добавить файл</div>
+                <label htmlFor="file" className={'upload-resource-text'}>Выберите файл</label>
                 <input type="file" id="file" name="file"
+                       className={'upload-resource-file'}
                        onChange={e => setFile(e.target.files[0])}
-                        /><br/>
-                <label htmlFor="direction">Количество</label> <br/>
+                        />
+                <label htmlFor="direction" className={'upload-resource-text'}>Количество</label> <br/>
                 <input type="text" name="direction" id="direction"
+                       className={'upload-resource-input'}
                        onChange={e => setDirection(e.target.value)}
-                       value={direction}/><br/>
+                       value={direction}/>
                 <button className={'filter-btn'} type={'submit'}>Применить</button>
             </form>
         </div>)

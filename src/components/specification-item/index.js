@@ -28,7 +28,7 @@ const SpecificationItem = ({specification}) => {
     return (
         <div className="specification-item-wrapper">
             <div className="item-wrapper">
-                <div className="product-item id">{specification.id}</div>
+                <div className="product-item id">{specification.product_id}</div>
                 <div className="product-item name">{specification.name}</div>
                 <div className="product-item cost-price">{parseInt(specification.prime_cost)}</div>
                 <form className="form-wrapper" onSubmit={submitCoefficientHandler}>

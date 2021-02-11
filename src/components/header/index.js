@@ -30,7 +30,7 @@ const Header = () => {
                 <button onClick={() => setUploadResourceModalActive(true)}>Загрузить ресурсы</button>
             </div>
             <div className="add-btn">
-                <button onClick={() => setResourceModalActive(true)}>Добвуавить ресурс</button>
+                <button onClick={() => setResourceModalActive(true)}>Добавить ресурс</button>
             </div>
             <div className="add-btn">
                 <button onClick={() => setSpecificationActive(true)}>Добавить спецификацию</button>
