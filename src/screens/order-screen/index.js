@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {listOrders} from '../../actions/order-list-actions'
 import Loader from "../../components/spinner";
@@ -13,9 +13,13 @@ const OrderScreen = () => {
     const orderList = useSelector(state => state.orderList)
     const {error, loading, orders} = orderList
 
+
+
+
     useEffect(() => {
         dispatch(listOrders())
     }, [dispatch])
+
 
     return (
         <div className="home-screen-wrapper">
