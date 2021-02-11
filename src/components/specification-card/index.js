@@ -1,22 +1,37 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import close from '../../images/Close.svg'
 import photo from '../../images/spec-card-img.png'
 import './specification-card.scss'
-import {useDispatch, useSelector} from "react-redux";
-import {getResourcesInSpecification} from "../../actions/resources-in-spec-actions";
 
 
-const SpecificationCard = ({active, setActive, id}) => {
-    const dispatch = useDispatch()
-    const resourcesInSpecification = useSelector(state => state.resourcesInSpecification)
-    const {data} = resourcesInSpecification
-    const changeActive = () => {
-        setActive(prev => !prev)
+import axios from "axios";
+
+
+const SpecificationCard = ({active, specification}) => {
+    // const {data} = resourcesInSpecification
+    // const changeActive = () => {
+    //     setActive(prev => !prev)
+    // }
+
+    // useEffect(() => {
+    //     dispatch(getResourcesInSpecification(id))
+    // }, [id])
+
+    const [currentCardData, setCurrentCardData] = useState({})
+
+    const getCard = async (id) => {
+        const { data } = await axios.get(`https://api-smola-20.herokuapp.com/specification/${id}/`)
+        return data
     }
 
     useEffect(() => {
-        dispatch(getResourcesInSpecification(id))
-    }, [id])
+        if (specification){
+            getCard(specification.id).then((newCard => {
+                setCurrentCardData(newCard)
+                console.log(newCard)
+            }))
+        }
+    }, [specification])
 
     return (
         <div className="close-wrapper">
@@ -25,7 +40,7 @@ const SpecificationCard = ({active, setActive, id}) => {
                 className={active ? "specification-card-wrapper active" : "specification-card-wrapper"}>
                 <div className="header-specification-card">
                     <div className="specification-card-title">Розовый пляж</div>
-                    <img src={close} alt="close" onClick={changeActive} />
+                    <img src={close} alt="close" />
                 </div>
                 <div className="specification-card-info">
                     <img src={photo} alt="" className={'specification-card-img'}/>
@@ -41,7 +56,12 @@ const SpecificationCard = ({active, setActive, id}) => {
                         <div className="nav-name">Название</div>
                         <div className="resource-count">Количество</div>
                     </div>
-                    <div>{}</div>
+                    <div>
+                        { currentCardData ?
+                          currentCardData.price
+                          : ""
+                        }
+                    </div>
                 </div>
                 <button className={'card-btn'}>Изменить</button>
             </div>
