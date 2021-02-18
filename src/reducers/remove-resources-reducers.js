@@ -12,5 +12,7 @@ export const removeItemReducers = (state = {}, action) => {
             return {loading: false, data: action.payload}
         case REMOVE_RESOURCE_FAIL:
             return {loading: false, error: action.payload}
+        default:
+            return state
     }
 }

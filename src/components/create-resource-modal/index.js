@@ -24,7 +24,6 @@ const CreateResourceModal = ({active, setActive}) => {
     }
 
     const submitHandler = (e) => {
-        e.preventDefault();
         dispatch(createResourceAction(name, external_id, provider_name, cost, amount));
         setActive(false);
         reloadData()

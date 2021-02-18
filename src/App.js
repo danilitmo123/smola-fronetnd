@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Header from "./components/header";
 import SideBar from "./components/side-bar";
 import ResourceScreen from "./screens/resource-screen";
@@ -10,11 +10,16 @@ import './App.css';
 
 
 function App() {
+
+  const [active, setActive] = useState(true)
+  const [orderBtnActive, setOrderBtnActive] = useState(false)
+  const [resourcesBtnActive, setResourcesBtnActive] = useState(false)
+
   return (
       <Router>
           <div className="App">
-              <SideBar/>
-              <Header/>
+              <SideBar setActive={setActive} setOrderBtn={setOrderBtnActive} setResourcesActive={setResourcesBtnActive}/>
+              <Header active={active} orderBtn={orderBtnActive} resourcesBtn={resourcesBtnActive}/>
               <Switch>
                   <Route path={'/'} exact component={SpecificationScreen}/>
                   <Route path={'/resources'}  component={ResourceScreen}/>

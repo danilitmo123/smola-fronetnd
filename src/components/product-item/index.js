@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch} from "react-redux";
 import { changePriceAction } from '../../actions/price-actions'
-import {removeAction} from "../../actions/remove-actions";
+import {removeAction} from "../../actions/remove-resources-actions";
 
 import './product-item.scss'
 
@@ -37,25 +37,14 @@ const ProductItem = ({product}) => {
         return `${day}-${month}-${year}`
     }
 
-
-
-    const deleteHandler = () => {
-        // dispatch(removeAction(product.id, showDeleteBtn))
-        console.log('checkedItem', selectCheckbox, 'id', product.id)
-        console.log(showDeleteBtn)
+    const deleteHandler = (e) => {
+        dispatch(removeAction(product.id))
     }
 
     const handleChange = (event) => {
         setSelectCheckbox({'checked': event.target.checked, 'id': product.id})
         setShowDeleteBtn(event.target.checked)
     }
-
-    // useEffect(() => {
-    //     console.log('checkedItem', selectCheckbox, 'id', product.id)
-    //     console.log(showDeleteBtn)
-    // }, [selectCheckbox])
-
-
 
     return (
         <div className="product-item-wrapper">
@@ -66,9 +55,10 @@ const ProductItem = ({product}) => {
                 <form className="form-wrapper" onSubmit={submitHandler}>
                     <input
                            type={'number'}
+                           step={0.01}
                            name={'price'}
                            onChange={e => setPrice(e.target.value)}
-                           value={parseInt(price)}
+                           value={parseFloat(price).toFixed(2)}
                            className={'product-item price'}/>
                     <button type={'submit'} >✓</button>
                 </form>
@@ -77,7 +67,9 @@ const ProductItem = ({product}) => {
                 <div className="product-item last-price-change">{getDate(dateCost)}</div>
                 <div className="product-item last-count-change">{getDate(dateCount)}</div>
             </div>
-            <button className={showDeleteBtn ? 'delete-btn active' : 'delete-btn'} onClick={deleteHandler}>Удалить</button>
+            <form>
+                <button className={showDeleteBtn ? 'delete-btn active' : 'delete-btn'} onClick={deleteHandler}>Удалить</button>
+            </form>
         </div>
     )
 }

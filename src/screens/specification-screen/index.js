@@ -21,10 +21,6 @@ const SpecificationScreen = () => {
         dispatch(listSpecifications())
     }, [dispatch])
 
-    const getId = () => {
-        return specifications.id
-    }
-
     const itemSelected = (value) => {
         if (selectedItem === value){
             setSelectedItem(null)

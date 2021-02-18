@@ -6,6 +6,12 @@
   align-items: center;
   margin-top: 12px;
 
+  .group-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .filter-btn {
     margin-right: 12px;
 
@@ -70,7 +76,6 @@
 
       &:last-child {
         width: 60px;
-
       }
     }
   }
