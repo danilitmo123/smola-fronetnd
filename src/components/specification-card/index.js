@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import photo from '../../images/spec-card-img.png'
 import './specification-card.scss'
-import CardItem from "../card-item/card-item";
+import CardItem from "../specification-card-item/card-item";
+import Loader from "../spinner";
 
 
 import axios from "axios";
@@ -49,7 +50,7 @@ const SpecificationCard = ({active, specification}) => {
             <div>
               { currentCardData ?
                   <CardItem data={currentCardData}/>
-                  : ""
+                  : <Loader/>
               }
             </div>
           </div>
