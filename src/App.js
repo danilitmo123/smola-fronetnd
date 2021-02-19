@@ -21,7 +21,7 @@ function App() {
               <SideBar setActive={setActive} setOrderBtn={setOrderBtnActive} setResourcesActive={setResourcesBtnActive}/>
               <Header active={active} orderBtn={orderBtnActive} resourcesBtn={resourcesBtnActive}/>
               <Switch>
-                  <Route path={'/'} exact component={SpecificationScreen}/>
+                  <Route exact path={'/'} component={SpecificationScreen}/>
                   <Route path={'/resources'}  component={ResourceScreen}/>
                   <Route path={'/orders'} component={OrderScreen}/>
               </Switch>
