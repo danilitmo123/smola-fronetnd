@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch} from "react-redux";
 import { changePriceAction } from '../../actions/price-actions'
+import {removeAction} from "../../actions/remove-resources-actions";
 
 import './product-item.scss'
 
@@ -18,18 +19,32 @@ const ProductItem = ({product}) => {
         dispatch(changePriceAction(product.id, price))
     }
 
+    const dateCount = new Date(product.last_change_amount)
+    const dateCost = new Date(product.last_change_cost)
 
-    const handleChange = (event) => {
-        setSelectCheckbox({ 'checked': event.target.checked, 'id': product.id})
-        setShowDeleteBtn(event.target.checked)
+    const getZero = (num) => {
+        if (num >= 0 && num < 10) {
+            return '0' + num
+        } else {
+            return num
+        }
     }
 
-    useEffect(() => {
-        console.log('checkedItem', selectCheckbox, 'id', product.id)
-        console.log(showDeleteBtn)
-    }, [selectCheckbox])
+    const getDate = (date) => {
+        const year = date.getFullYear()
+        let month = getZero(date.getMonth() + 1)
+        let day = getZero(date.getDate())
+        return `${day}-${month}-${year}`
+    }
 
+    const deleteHandler = (e) => {
+        dispatch(removeAction(product.id))
+    }
 
+    const handleChange = (event) => {
+        setSelectCheckbox({'checked': event.target.checked, 'id': product.id})
+        setShowDeleteBtn(event.target.checked)
+    }
 
     return (
         <div className="product-item-wrapper">
@@ -40,18 +55,21 @@ const ProductItem = ({product}) => {
                 <form className="form-wrapper" onSubmit={submitHandler}>
                     <input
                            type={'number'}
+                           step={0.01}
                            name={'price'}
                            onChange={e => setPrice(e.target.value)}
-                           value={parseInt(price)}
+                           value={parseFloat(price).toFixed(2)}
                            className={'product-item price'}/>
                     <button type={'submit'} >✓</button>
                 </form>
                 <div className="product-item count">{product.amount}</div>
                 <div className="product-item diller">{product.provider ? product.provider.name : 'отсутствует'}</div>
-                <div className="product-item last-price-change">{product.last_change_cost}</div>
-                <div className="product-item last-count-change">{product.last_change_amount}</div>
+                <div className="product-item last-price-change">{getDate(dateCost)}</div>
+                <div className="product-item last-count-change">{getDate(dateCount)}</div>
             </div>
-            <button className={showDeleteBtn ? 'delete-btn active' : 'delete-btn'}>Удалить</button>
+            <form>
+                <button className={showDeleteBtn ? 'delete-btn active' : 'delete-btn'} onClick={deleteHandler}>Удалить</button>
+            </form>
         </div>
     )
 }

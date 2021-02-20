@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import {listSpecifications} from "../../actions/specification-actions";
 import Loader from "../../components/spinner";
@@ -7,6 +7,7 @@ import ErrorMessage from "../../components/error-message";
 import './specification-screen.scss'
 
 import SpecificationItem from "../../components/specification-item";
+import SpecificationCard from "../../components/specification-card";
 
 const SpecificationScreen = () => {
 
@@ -14,14 +15,19 @@ const SpecificationScreen = () => {
     const specificationList = useSelector( state => state.specificationList)
     const { error, loading, specifications } = specificationList
 
+    const [selectedItem, setSelectedItem] = useState(null)
+
     useEffect(() => {
         dispatch(listSpecifications())
     }, [dispatch])
 
-    const getId = () => {
-        return specifications.id
+    const itemSelected = (value) => {
+        if (selectedItem === value){
+            setSelectedItem(null)
+        }else{
+            setSelectedItem(value)
+        }
     }
-
 
     return (
         <div className="specification-screen-wrapper">
@@ -43,11 +49,18 @@ const SpecificationScreen = () => {
                     <div>
                         {
                             Object.values(specifications).map(specification => {
-                                return <SpecificationItem key={specification.id} onClick={getId} specification={specification}/>
+                                return <SpecificationItem key={specification.id} onSelect={itemSelected} specification={specification}/>
                             })
                         }
                     </div>
             }
+            <SpecificationCard
+              active={selectedItem != null}
+              specification={
+                  Object.values(specifications)
+                    .find(specification => specification.id === selectedItem)
+              }
+            />
         </div>
     )
 }

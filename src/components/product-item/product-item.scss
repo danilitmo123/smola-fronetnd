@@ -10,13 +10,21 @@
   }
 
   .delete-btn {
-    border-radius: 12px;
-    background-color: white;
-    color: #000;
-    height: 20px;
-    width: 90px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    color: #737B7D;
+    position: absolute;
+    bottom: -15px;
+    right: 50px;
+    height: 30px;
+    width: 100px;
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(34, 60, 80, 0.13);
+    border: 1px solid #F1DB10;
     transform: scale(0);
-    transition: 0.4s all;
+    transition: 0.9s all;
 
     &.active {
       transform: scale(1);
@@ -64,7 +72,7 @@
     }
 
     .id {
-      margin-right: 10px;
+      margin-right: 20px;
       width: 50px;
       text-align: left;
       font-size: 12px !important;
@@ -73,7 +81,7 @@
     .name {
       width: 70px;
       text-align: left;
-      margin-right: 45px;
+      margin-right: 80px;
     }
 
     .price {
@@ -96,11 +104,11 @@
     .diller {
       text-align: left;
       width: 120px;
-      margin-right: 40px;
+      margin-right: 70px;
     }
 
     .last-price-change {
-      margin-right: 85px;
+      margin-right: 230px;
     }
   }
 

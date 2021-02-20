@@ -47,7 +47,6 @@ const CreateSpecificationModal = ({active, setActive}) => {
     }
 
     const submitHandler = (e) => {
-        e.preventDefault();
         for (let resource in resource_dict) {
             resources_list.push({"id": resource, "amount": resource_dict[resource]})
         }

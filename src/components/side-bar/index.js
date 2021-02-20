@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Link} from "react-router-dom";
 import logo from '../../images/avatar.svg'
 import firstItem from '../../images/first-side-bar-item.svg'
@@ -8,8 +8,10 @@ import secondItemActive from '../../images/second-side-active.svg'
 import thirdItem from '../../images/third-sibe-bar-item.svg'
 import thirdItemActive from '../../images/third-side-bar-active.svg'
 import './side-bar.scss'
+import {useDispatch} from "react-redux";
+const SideBar = ({setActive, setOrderBtn, setResourcesActive}) => {
 
-const SideBar = () => {
+    const dispatch = useDispatch()
 
     const [specificationNavActive, setSpecificationNavActive] = useState(true)
     const [purchasesNavActive,setPurchasesNavActive] = useState(false)
@@ -19,21 +21,25 @@ const SideBar = () => {
         setSpecificationNavActive(true)
         setPurchasesNavActive(false)
         setResourcesNavActive(false)
+        setActive(true)
     }
 
     const purchasesChangeColor = () => {
         setSpecificationNavActive(false)
         setPurchasesNavActive(true)
         setResourcesNavActive(false)
+        setActive(false)
+        setOrderBtn(true)
     }
 
     const resourcesChangeColor = () => {
         setSpecificationNavActive(false)
         setPurchasesNavActive(false)
         setResourcesNavActive(true)
+        setActive(false)
+        setOrderBtn(false)
+        setResourcesActive(true)
     }
-
-
 
     return (
         <div className="side-bar">
