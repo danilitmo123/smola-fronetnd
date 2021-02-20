@@ -40,7 +40,7 @@ const Header = () => {
                 <img src={settings} alt={'settings'}/>
                 <img src={avatar} alt={'profile'}/>
             </div>
-            <FilterModal active={modalActive} setActive={setModalActive}/>
+            {/*<FilterModal active={modalActive} setActive={setModalActive}/>*/}
             <UploadResources active={uploadResourceModalActive} setActive={setUploadResourceModalActive}/>
             <CreateResourceModal active={resourceModalActive} setActive={setResourceModalActive}/>
             <CreateSpecificationModal active={specificationModalActive} setActive={setSpecificationActive}/>
