@@ -1,22 +1,34 @@
 import React from "react";
 
 import './order-card-products-item.scss'
-import {resourcesInSpecificationReducers} from "../../reducers/resources-in-spec-reducers";
+
 
 const OrderCardProductsItem = ({data}) => {
 
-  const items = data.order_specification[0].specification.res_specs.map(resource_spec => {
-    return {
-      amount: resource_spec.amount,
-      name: resource_spec.resource.name
-    }
-  })
-  console.log(data.order_specification[0])
-  console.log(items)
+  console.log(data)
+
+  let items = []
+  if (data.order_specification[0]){
+    items = data.order_specification[0].specification.res_specs.map(resource_spec => {
+
+      return (
+          <div className={'order-card-products-wrapper'}>
+            <div>{resource_spec.resource.id}</div>
+            <div>{resource_spec.resource.name}</div>
+            <div>{resource_spec.amount}</div>
+          </div>
+      )
+    })
+  }
 
   return (
       <div>
-        {items[0].name}
+        {items.length ? items
+            :
+            <div className={'no-order-wrapper'}>
+              <div className={'no-order'}>Пустой заказ</div>
+            </div>
+        }
       </div>
   )
 }

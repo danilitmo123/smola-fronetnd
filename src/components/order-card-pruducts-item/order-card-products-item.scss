@@ -1,0 +1,20 @@
+.order-card-products-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(34, 60, 80, 0.13);
+  margin-bottom: 20px;
+}
+
+.no-order-wrapper {
+  .no-order {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    font-size: 24px;
+  }
+
+}
+
