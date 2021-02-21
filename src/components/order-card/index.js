@@ -6,6 +6,7 @@ import CardItem from "../specification-card-item/card-item";
 
 import axios from "axios";
 import OrderCardProductsItem from "../order-card-pruducts-item";
+import OrderCardResourcesItem from "../order-card-resources-item";
 
 const OrderCard = ({active, order}) => {
 
@@ -32,12 +33,25 @@ const OrderCard = ({active, order}) => {
           <div className="header-specification-card">
             <div className="specification-card-title">Товары</div>
           </div>
+          <div className="nav-card-products">
+            <div>ID</div>
+            <div>Название</div>
+            <div>Количество</div>
+          </div>
           {
-            currentCardData ? <OrderCardProductsItem data={currentCardData}/> : ''
+            currentCardData ? <OrderCardResourcesItem data={currentCardData}/> : ''
           }
           <div className="header-specification-card">
             <div className="specification-card-title">Ресурсы</div>
           </div>
+          <div className="nav-card-products">
+            <div>ID</div>
+            <div>Название</div>
+            <div>Количество</div>
+          </div>
+          {
+            currentCardData ? <OrderCardProductsItem data={currentCardData}/> : ''
+          }
 
           <button className={'card-btn'}>Собрать</button>
         </div>
