@@ -4,6 +4,7 @@ import {
   REMOVE_RESOURCE_SUCCESS
 } from "../constants/remove-resource-constants";
 import axios from "axios";
+import axiosAPI from "../components/api/axiosApi";
 
 export const removeAction = (id) => async (dispatch) => {
   try {
@@ -15,8 +16,7 @@ export const removeAction = (id) => async (dispatch) => {
       }
     }
 
-    const {data} = await axios.post(
-        'https://api-smola-20.herokuapp.com/resource/delete/',
+    const {data} = await axiosAPI.post('resource/delete/',
         {'ids': [id]},
         config
     )

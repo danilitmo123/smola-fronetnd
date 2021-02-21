@@ -1,6 +1,6 @@
 .option{
   display: flex;
-  .title-spec-resource {
+  .title-order-product {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -10,7 +10,7 @@
     margin-left: 40px;
   }
 
-  .resource-amount-input {
+  .order-amount-input {
     margin-left: 40px;
     height: 30px;
     width: 120px;
@@ -24,11 +24,10 @@
     }
   }
 
-  .resource-select {
+  .order-select {
     padding: 10px;
     border: 1px solid #F1DB10;
     border-radius: 6px;
-    //max-width: 100px;
     box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
 
     &:focus {

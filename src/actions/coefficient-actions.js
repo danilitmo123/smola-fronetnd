@@ -1,24 +1,18 @@
-import axios from "axios";
 import {
     COEFFICIENT_FAIL,
     COEFFICIENT_SUCCESS,
     COEFFICIENT_REQUEST
 } from '../constants/coefficient-constants'
+import axiosAPI from "../components/api/axiosApi";
 
 export const changeCoefficientAction = (id, coefficient) => async (dispatch) => {
     try {
         dispatch({type: COEFFICIENT_REQUEST})
 
-        const config = {
-            headers: {
-                'Content-type': 'application/json'
-            }
-        }
 
-        const { data } = await axios.post(
-            'https://api-smola-20.herokuapp.com/specification/set-coefficient/',
-            {'id': id, 'coefficient': coefficient},
-            config
+
+        const { data } = await axiosAPI.post('specification/set-coefficient/',
+            {'id': id, 'coefficient': coefficient}
         )
 
         dispatch({

@@ -5,19 +5,18 @@ import avatar from '../../images/avatar.svg'
 import settings from '../../images/settings.svg'
 
 import './header.scss'
-import FilterModal from "../filter-modal";
 import CreateResourceModal from "../create-resource-modal";
 import CreateSpecificationModal from "../create-specification-modal"
 import UploadResources from "../upload-resource-modal"
+import CreateOrderModal from "../create-order-modal";
 
-
-const Header = ({active ,orderBtn, resourcesBtn}) => {
-
+const Header = ({active, orderBtn, resourcesBtn}) => {
 
     const [modalActive, setModalActive] = useState(false)
     const [resourceModalActive, setResourceModalActive] = useState(false)
     const [specificationModalActive, setSpecificationActive] = useState(false)
     const [uploadResourceModalActive, setUploadResourceModalActive] = useState(false)
+    const [orderModalActive, setOrderModalActive] = useState(false)
 
     return (
         <div className="header-wrapper">
@@ -28,21 +27,21 @@ const Header = ({active ,orderBtn, resourcesBtn}) => {
             <div className="search-panel">
                 <input type="text" placeholder={'Поиск по названию'}/>
             </div>
-          {
-            active ?
-                <div className="add-btn">
-                  <button onClick={() => setSpecificationActive(true)}>Добавить спецификацию</button>
-                </div>
-                :  orderBtn ? <button>Сделать заказ</button> : resourcesBtn ?
-                <div className={'group-btn'}>
-                  <div className="add-btn">
-                    <button onClick={() => setUploadResourceModalActive(true)}>Загрузить ресурсы</button>
-                  </div>
-                  <div className="add-btn">
-                    <button onClick={() => setResourceModalActive(true)}>Добавить ресурс</button>
-                  </div>
-                </div> : null
-          }
+            {
+                active ?
+                    <div className="add-btn">
+                        <button onClick={() => setSpecificationActive(true)}>Добавить спецификацию</button>
+                    </div>
+                    :  orderBtn ? <button>Сделать заказ</button> : resourcesBtn ?
+                    <div className={'group-btn'}>
+                        <div className="add-btn">
+                            <button onClick={() => setUploadResourceModalActive(true)}>Загрузить ресурсы</button>
+                        </div>
+                        <div className="add-btn">
+                            <button onClick={() => setResourceModalActive(true)}>Добавить ресурс</button>
+                        </div>
+                    </div> : null
+            }
             <div className="nav-bar">
                 <img src={notifications} alt={'notifications'}/>
                 <img src={settings} alt={'settings'}/>
@@ -55,5 +54,4 @@ const Header = ({active ,orderBtn, resourcesBtn}) => {
         </div>
     )
 }
-
-export default Header
+export default Header;

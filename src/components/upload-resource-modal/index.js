@@ -32,11 +32,6 @@ const UploadResources = ({active, setActive}) => {
                        className={'upload-resource-file'}
                        onChange={e => setFile(e.target.files[0])}
                         />
-                <label htmlFor="direction" className={'upload-resource-text'}>Количество</label> <br/>
-                <input type="text" name="direction" id="direction"
-                       className={'upload-resource-input'}
-                       onChange={e => setDirection(e.target.value)}
-                       value={direction}/>
                 <button className={'filter-btn'} type={'submit'}>Применить</button>
             </form>
         </div>)

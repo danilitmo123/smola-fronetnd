@@ -4,12 +4,13 @@ import {
     PRODUCT_LIST_REQUEST,
     PRODUCT_LIST_SUCCESS
 } from "../constants/product-constans";
+import axiosAPI from "../components/api/axiosApi";
 
 export const listProducts = () => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_LIST_REQUEST})
 
-        const { data } = await axios.get('https://api-smola-20.herokuapp.com/resource/list/')
+        const { data } = await axiosAPI.get('resource/list/')
 
         dispatch({
             type: PRODUCT_LIST_SUCCESS,

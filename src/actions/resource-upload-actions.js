@@ -4,6 +4,7 @@ import {
     RESOURCE_UPLOAD_SUCCESS,
     RESOURCE_UPLOAD_FAIL
 } from '../constants/resource-upload-constants'
+import axiosAPI from "../components/api/axiosApi";
 
 export const uploadResourcesAction = (file, direction) => async (dispatch) => {
     try {
@@ -13,16 +14,10 @@ export const uploadResourcesAction = (file, direction) => async (dispatch) => {
         formData.append('file', file)
         formData.append('direction', direction)
 
-        const config = {
-            headers: {
-                'Content-type': 'multipart/form-data'
-            }
-        }
 
-        const {data} = await axios.post(
-            "https://api-smola-20.herokuapp.com/resource/upload/",
+        const {data} = await axiosAPI.post(
+            "resource/upload/",
             formData,
-            config
         )
 
         dispatch({

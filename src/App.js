@@ -7,28 +7,46 @@ import OrderScreen from "./screens/order-screen";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {OrderDetail} from "./components/order-detail-modal"
 import './App.css';
+import LoginPage from "./screens/login-screen";
+import * as PropTypes from "prop-types";
+import {logoutUser} from "./actions/auth-actions";
+import {connect} from "react-redux";
 
 
-function App() {
+function App({accessToken}) {
 
-  const [active, setActive] = useState(true)
-  const [orderBtnActive, setOrderBtnActive] = useState(false)
-  const [resourcesBtnActive, setResourcesBtnActive] = useState(false)
+    const [active, setActive] = useState(true)
+    const [orderBtnActive, setOrderBtnActive] = useState(false)
+    const [resourcesBtnActive, setResourcesBtnActive] = useState(false)
+    return (
+        <Router>
+            <div className="App">
+                {accessToken ? (<SideBar setActive={setActive} setOrderBtn={setOrderBtnActive}
+                                         setResourcesActive={setResourcesBtnActive}/>) : null}
+                {accessToken ? (
+                    <Header active={active} orderBtn={orderBtnActive} resourcesBtn={resourcesBtnActive}/>) : null}
 
-  return (
-      <Router>
-          <div className="App">
-              <SideBar setActive={setActive} setOrderBtn={setOrderBtnActive} setResourcesActive={setResourcesBtnActive}/>
-              <Header active={active} orderBtn={orderBtnActive} resourcesBtn={resourcesBtnActive}/>
-              <Switch>
-                  <Route exact path={'/'} component={SpecificationScreen}/>
-                  <Route path={'/resources'}  component={ResourceScreen}/>
-                  <Route path={'/orders'} component={OrderScreen}/>
-                  <Route path={"/order/:order_id"} component={OrderDetail}/>
-              </Switch>
-          </div>
-      </Router>
-  );
+                <Switch>
+                    <Route exact path={'/'} component={SpecificationScreen}/>
+                    <Route path={'/resources'} component={ResourceScreen}/>
+                    <Route path="/login" component={LoginPage}/>
+                    <Route path={'/orders'} component={OrderScreen}/>
+                    <Route path={"/order/:order_id"} component={OrderDetail}/>
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 
-export default App;
+App.propTypes = {
+    accessToken: PropTypes.string,
+};
+
+function mapStateToProps(state) {
+    return {
+        accessToken: state.auth,
+    };
+}
+
+
+export default connect(mapStateToProps)(App);

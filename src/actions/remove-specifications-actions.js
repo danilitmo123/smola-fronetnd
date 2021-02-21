@@ -4,6 +4,7 @@ import {
     REMOVE_SPECIFICATION_REQUEST
 } from "../constants/remove-specification-constants";
 import axios from "axios";
+import axiosAPI from "../components/api/axiosApi";
 
 export const removeSpecAction = (id) => async (dispatch) => {
   try {
@@ -15,8 +16,8 @@ export const removeSpecAction = (id) => async (dispatch) => {
       }
     }
 
-    const {data} = await axios.post(
-        'https://api-smola-20.herokuapp.com/specification/delete/',
+    const {data} = await axiosAPI.post(
+        'specification/delete/',
         {'ids': [id]},
         config
     )

@@ -4,6 +4,7 @@ import {
     SPECIFICATION_PRICE_REQUEST,
     SPECIFICATION_PRICE_SUCCESS
 } from '../constants/specification-price-constants'
+import axiosAPI from "../components/api/axiosApi";
 
 export const changeSpecPriceAction = (id, price) => async (dispatch) => {
     try {
@@ -15,8 +16,8 @@ export const changeSpecPriceAction = (id, price) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post(
-            'https://api-smola-20.herokuapp.com/specification/set-price/',
+        const { data } = await axiosAPI.post(
+            'specification/set-price/',
             {'id': id, 'price': price},
             config
         )

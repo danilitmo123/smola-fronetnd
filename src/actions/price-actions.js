@@ -4,21 +4,14 @@ import {
     PRICE_FAIL,
     PRICE_REQUEST
 } from '../constants/price-constants'
+import axiosAPI from "../components/api/axiosApi";
 
 export const changePriceAction = (id, price) => async (dispatch) => {
     try {
         dispatch({type: PRICE_REQUEST})
 
-        const config = {
-            headers: {
-                'Content-type': 'application/json'
-            }
-        }
-
-        const { data } = await axios.post(
-            'https://api-smola-20.herokuapp.com/resource/set-cost/',
+        const { data } = await axiosAPI.post('resource/set-cost/',
             {'id': id, 'cost': price},
-            config
         )
 
         dispatch({

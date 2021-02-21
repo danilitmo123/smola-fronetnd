@@ -1,16 +1,16 @@
-import axios from "axios";
 
 import {
     SPECIFICATION_LIST_FAIL,
     SPECIFICATION_LIST_REQUEST,
     SPECIFICATION_LIST_SUCCESS
 } from "../constants/specification-constans";
+import axiosAPI from "../components/api/axiosApi";
 
 export const listSpecifications = () => async (dispatch) => {
     try {
         dispatch({type: SPECIFICATION_LIST_REQUEST})
 
-        const { data } = await axios.get('https://api-smola-20.herokuapp.com/specification/list/')
+        const { data } = await axiosAPI.get('specification/list/')
 
         dispatch({
             type: SPECIFICATION_LIST_SUCCESS,

@@ -1,9 +1,9 @@
-import axios from "axios";
 import {
     SPECIFICATION_CREATE_REQUEST,
     SPECIFICATION_CREATE_SUCCESS,
     SPECIFICATION_CREATE_FAIL
 } from '../constants/specification-create-constants'
+import axiosAPI from "../components/api/axiosApi";
 
 export const createResourceAction = (name, product_id, price, coefficient, category_name, resources, storage_amount) => async (dispatch) => {
     try {
@@ -15,8 +15,8 @@ export const createResourceAction = (name, product_id, price, coefficient, categ
             }
         }
 
-        const {data} = await axios.post(
-            'https://api-smola-20.herokuapp.com/specification/create/',
+        const {data} = await axiosAPI.post(
+            'specification/create/',
             {
                 'name': name,
                 'product_id': product_id,

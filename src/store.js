@@ -15,10 +15,13 @@ import {orderDetailReducer} from "./reducers/order-deatail-reducers";
 import {resourcesInSpecificationReducers} from "./reducers/resources-in-spec-reducers";
 import {removeItemReducers} from "./reducers/remove-resources-reducers";
 import {removeSpecificationReducers} from "./reducers/remove-specifications-reducers";
-
+import {createOrderReducers} from "./reducers/order-create-reducers"
+import {specificationShortListReducers} from "./reducers/specification-shortlist-reducers"
+import {authReducer} from "./reducers/auth"
 
 const reducer = combineReducers({
     productList: productListReducers,
+    auth: authReducer,
     specificationList: specificationListReducers,
     changePrice: priceReducers,
     specChangePrice: specificationPriceReducers,
@@ -31,14 +34,15 @@ const reducer = combineReducers({
     orderDetail: orderDetailReducer,
     resourcesInSpecification: resourcesInSpecificationReducers,
     removeResource: removeItemReducers,
-    removeSpecification: removeSpecificationReducers
+    removeSpecification: removeSpecificationReducers,
+    createOrder: createOrderReducers,
+    shortlistSpecification: specificationShortListReducers,
 })
 
 const initialState = {}
 
 const middleware = [thunk]
 
-const store = createStore(reducer, initialState,
-    composeWithDevTools(applyMiddleware(...middleware)))
+const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(...middleware)))
 
 export default store

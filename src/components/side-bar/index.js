@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import logo from '../../images/avatar.svg'
 import firstItem from '../../images/first-side-bar-item.svg'
 import firstItemActive from '../../images/first-side-bar-active.svg'
@@ -8,14 +8,24 @@ import secondItemActive from '../../images/second-side-active.svg'
 import thirdItem from '../../images/third-sibe-bar-item.svg'
 import thirdItemActive from '../../images/third-side-bar-active.svg'
 import './side-bar.scss'
-import {useDispatch} from "react-redux";
-const SideBar = ({setActive, setOrderBtn, setResourcesActive}) => {
+import {connect, useDispatch} from "react-redux";
+import * as PropTypes from "prop-types";
+import {logoutUser} from "../../actions/auth-actions";
+
+const SideBar = ({accessToken, setActive, setOrderBtn, setResourcesActive, logoutUser}) => {
+
+    const history = useHistory();
+
+    const handleLogout = async () => {
+        await logoutUser();
+        history.push("login/");
+    };
 
     const dispatch = useDispatch()
 
     const [specificationNavActive, setSpecificationNavActive] = useState(true)
-    const [purchasesNavActive,setPurchasesNavActive] = useState(false)
-    const [resourcesNavActive,setResourcesNavActive] = useState(false)
+    const [purchasesNavActive, setPurchasesNavActive] = useState(false)
+    const [resourcesNavActive, setResourcesNavActive] = useState(false)
 
     const specChangeColor = () => {
         setSpecificationNavActive(true)
@@ -40,9 +50,7 @@ const SideBar = ({setActive, setOrderBtn, setResourcesActive}) => {
         setOrderBtn(false)
         setResourcesActive(true)
     }
-
-    return (
-        <div className="side-bar">
+    return (<div className="side-bar">
             <div className="side-bar-logo">Smola20.ru</div>
             <div className="profile-logo">
                 <img src={logo} alt={'profile-logo'}/>
@@ -52,16 +60,18 @@ const SideBar = ({setActive, setOrderBtn, setResourcesActive}) => {
                 <Link to={'/'} className={'link'}>
                     <div className="dashboard items" onClick={specChangeColor}>
                         {
-                            specificationNavActive ? <img src={firstItemActive} alt="dashboardActive" /> :
+                            specificationNavActive ? <img src={firstItemActive} alt="dashboardActive"/> :
                                 <img src={firstItem} alt="dashboard"/>
                         }
-                        <div className={specificationNavActive ? 'dashboard-text active' : 'dashboard-text'}>Спецификации</div>
+                        <div
+                            className={specificationNavActive ? 'dashboard-text active' : 'dashboard-text'}>Спецификации
+                        </div>
                     </div>
                 </Link>
                 <Link to={'/orders'} className={'link'}>
                     <div className="deals items" onClick={purchasesChangeColor}>
                         {
-                            purchasesNavActive ? <img src={secondItemActive} alt="dashboardActive" /> :
+                            purchasesNavActive ? <img src={secondItemActive} alt="dashboardActive"/> :
                                 <img src={secondItem} alt="dashboard"/>
                         }
                         <div className={purchasesNavActive ? 'dashboard-text active' : 'dashboard-text'}>Заказы</div>
@@ -70,7 +80,7 @@ const SideBar = ({setActive, setOrderBtn, setResourcesActive}) => {
                 <Link to={'/resources'} className={'link'}>
                     <div className="vector items" onClick={resourcesChangeColor}>
                         {
-                            resourcesNavActive ? <img src={thirdItemActive} alt="dashboardActive" /> :
+                            resourcesNavActive ? <img src={thirdItemActive} alt="dashboardActive"/> :
                                 <img src={thirdItem} alt="dashboard"/>
                         }
                         <div className={resourcesNavActive ? 'dashboard-text active' : 'dashboard-text'}>Ресурсы</div>
@@ -81,4 +91,19 @@ const SideBar = ({setActive, setOrderBtn, setResourcesActive}) => {
     )
 }
 
-export default SideBar
+SideBar.propTypes = {
+    accessToken: PropTypes.string,
+    logoutUser: PropTypes.func.isRequired,
+};
+
+function mapStateToProps(state) {
+    return {
+        accessToken: state.auth,
+    };
+}
+
+const mapDispatchToProps = {
+    logoutUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideBar);
