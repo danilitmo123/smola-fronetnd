@@ -9,12 +9,6 @@ export const createResourceAction = (name, product_id, price, coefficient, categ
     try {
         dispatch({type: SPECIFICATION_CREATE_REQUEST})
 
-        const config = {
-            headers: {
-                'Content-type': 'application/json'
-            }
-        }
-
         const {data} = await axiosAPI.post(
             'specification/create/',
             {
@@ -25,8 +19,7 @@ export const createResourceAction = (name, product_id, price, coefficient, categ
                 'category_name': category_name,
                 'resources_create': resources,
                 'storage_amount': storage_amount
-            },
-            config
+            }
         )
 
         dispatch({
