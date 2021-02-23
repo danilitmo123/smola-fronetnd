@@ -61,6 +61,9 @@ const SideBar = ({accessToken, setActive, setOrderBtn, setResourcesActive, logou
         setPurchasesNavActive(false)
         setResourcesNavActive(false)
         setMainBtnActive(true)
+        setActive(false)
+        setOrderBtn(false)
+        setResourcesActive(false)
     }
 
     return (<div className="side-bar">

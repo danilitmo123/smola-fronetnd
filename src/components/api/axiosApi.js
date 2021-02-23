@@ -22,7 +22,7 @@ axiosAPI.interceptors.response.use(
         if (error.response.status === 401 &&  originalRequest.url === "authenticate/token/") {
             window.location.href = "/login/";
             return Promise.reject(error);
-
+        }
 
         if (error.message === "Network Error") {
             window.location.href = "/network-error/"
