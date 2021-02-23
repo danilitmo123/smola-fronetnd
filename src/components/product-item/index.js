@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch} from "react-redux";
-import { changePriceAction } from '../../actions/price-actions'
+import {changePriceAction} from '../../actions/price-actions'
 import {removeAction} from "../../actions/remove-resources-actions";
 
 import './product-item.scss'
@@ -46,21 +46,24 @@ const ProductItem = ({product}) => {
         setShowDeleteBtn(event.target.checked)
     }
 
+    console.log("Resource screen render " + new Date())
+
     return (
         <div className="product-item-wrapper">
             <div className="item-wrapper">
-                <input type={'checkbox'} className={'delete-checkbox'} checked={selectCheckbox[product.id]} onChange={handleChange}/>
+                <input type={'checkbox'} className={'delete-checkbox'} checked={selectCheckbox[product.id]}
+                       onChange={handleChange}/>
                 <div className="product-item id">{product.external_id}</div>
                 <div className="product-item name">{product.name}</div>
                 <form className="form-wrapper" onSubmit={submitHandler}>
                     <input
-                           type={'number'}
-                           step={0.01}
-                           name={'price'}
-                           onChange={e => setPrice(e.target.value)}
-                           value={parseFloat(price).toFixed(2)}
-                           className={'product-item price'}/>
-                    <button type={'submit'} >✓</button>
+                        type={'number'}
+                        step={0.01}
+                        name={'price'}
+                        onChange={e => setPrice(e.target.value)}
+                        value={parseFloat(price).toFixed(2)}
+                        className={'product-item price'}/>
+                    <button type={'submit'}>✓</button>
                 </form>
                 <div className="product-item count">{product.amount}</div>
                 <div className="product-item diller">{product.provider ? product.provider.name : 'отсутствует'}</div>
@@ -68,7 +71,8 @@ const ProductItem = ({product}) => {
                 <div className="product-item last-count-change">{getDate(dateCount)}</div>
             </div>
             <form>
-                <button className={showDeleteBtn ? 'delete-btn active' : 'delete-btn'} onClick={deleteHandler}>Удалить</button>
+                <button className={showDeleteBtn ? 'delete-btn active' : 'delete-btn'} onClick={deleteHandler}>Удалить
+                </button>
             </form>
         </div>
     )

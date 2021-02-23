@@ -18,6 +18,12 @@ import {removeSpecificationReducers} from "./reducers/remove-specifications-redu
 import {createOrderReducers} from "./reducers/order-create-reducers"
 import {specificationShortListReducers} from "./reducers/specification-shortlist-reducers"
 import {authReducer} from "./reducers/auth"
+import {profileReducers} from "./reducers/profile-reducers"
+import {profileAdminListReducers} from "./reducers/profile-admin-list-reducers"
+import {profileChangePasswordReducers} from "./reducers/profile-change-password"
+import {profileCreateReducers} from "./reducers/profile-create-reducers"
+import {switchPageReducers} from "./reducers/switch-page-reducers"
+import {checkAuthReducers} from "./reducers/check-auth-reducers"
 
 const reducer = combineReducers({
     productList: productListReducers,
@@ -37,9 +43,15 @@ const reducer = combineReducers({
     removeSpecification: removeSpecificationReducers,
     createOrder: createOrderReducers,
     shortlistSpecification: specificationShortListReducers,
+    profile: profileReducers,
+    profileCreate: profileCreateReducers,
+    profileAdminList: profileAdminListReducers,
+    profileChangePassword: profileChangePasswordReducers,
+    switchPage: switchPageReducers,
+    checkAuth: checkAuthReducers
 })
 
-const initialState = {}
+const initialState = {specificationPage: true, resourcePage: false, orderPage: false, mainPage: false}
 
 const middleware = [thunk]
 

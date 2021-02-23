@@ -9,8 +9,6 @@ export const changeCoefficientAction = (id, coefficient) => async (dispatch) => 
     try {
         dispatch({type: COEFFICIENT_REQUEST})
 
-
-
         const { data } = await axiosAPI.post('specification/set-coefficient/',
             {'id': id, 'coefficient': coefficient}
         )

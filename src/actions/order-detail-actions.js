@@ -3,27 +3,23 @@ import {
     ORDER_DETAIL_REQUEST,
     ORDER_DETAIL_SUCCESS
 } from "../constants/order-deatil-consts";
-import {
-    SPECIFICATION_LIST_FAIL,
-    SPECIFICATION_LIST_REQUEST,
-    SPECIFICATION_LIST_SUCCESS
-} from "../constants/specification-constans";
+
 import axiosAPI from "../components/api/axiosApi";
 
 
 export const detailOrder = () => async ({dispatch}) => {
     try {
-        dispatch({type: SPECIFICATION_LIST_REQUEST})
+        dispatch({type: ORDER_DETAIL_REQUEST})
         const id = dispatch.order_id
-        const {data} = await axiosAPI.get('order/' + id )
+        const {data} = await axiosAPI.get('order/' + id + '/')
 
         dispatch({
-            type: SPECIFICATION_LIST_SUCCESS,
+            type: ORDER_DETAIL_SUCCESS,
             payload: data
         })
     } catch (error) {
         dispatch({
-            type: SPECIFICATION_LIST_FAIL,
+            type: ORDER_DETAIL_FAIL,
             payload: error.response && error.response.data.detail
                 ? error.response.data.detail
                 : error.message

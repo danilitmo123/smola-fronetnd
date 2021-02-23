@@ -20,6 +20,7 @@ export const logoutUserSuccess = () => {
 }
 
 export const logoutUser = () => async (dispatch) => {
+    console.log("LOGOUT")
     await logout();
     dispatch(logoutUserSuccess());
 }

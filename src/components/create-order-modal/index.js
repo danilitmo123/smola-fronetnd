@@ -33,6 +33,7 @@ const CreateOrderModal = ({active, setActive}) => {
     }
 
     const submitHandler = (e) => {
+        e.preventDefault()
         for (let product in productDict) {
             productList.push({"product_id": product, "amount": productDict[product]})
         }

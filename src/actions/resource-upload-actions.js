@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
     RESOURCE_UPLOAD_REQUEST,
     RESOURCE_UPLOAD_SUCCESS,
@@ -27,7 +26,6 @@ export const uploadResourcesAction = (file, direction) => async (dispatch) => {
 
 
     } catch (error) {
-        console.log(error.response)
         dispatch({
             type: RESOURCE_UPLOAD_FAIL,
             payload: error.response && error.response.data.detail

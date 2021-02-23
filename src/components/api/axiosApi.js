@@ -1,6 +1,8 @@
 import axios from "axios";
+import * as pages from "../../constants/deafult-pages"
+import logger from "logrock";
 
-const baseURL = 'https://api-smola-20.herokuapp.com/';
+const baseURL = 'http://127.0.0.1:8000/';
 const accessToken = localStorage.getItem("access_token");
 
 const axiosAPI = axios.create({
@@ -18,34 +20,35 @@ axiosAPI.interceptors.response.use(
     async (error) => {
         const originalRequest = error.config;
 
-        console.log(originalRequest.url)
-        console.log(error)
-
         if (error.message === "Network Error") {
-            window.location.href = "/network-error/"
+            window.location.href = pages.NETWORK_ERROR_PAGE
+            // return
             return Promise.reject(error)
         }
         if (error.response) {
-            if (500 <= error.response.status <= 599) {
-                window.location.href = "/server-error/"
+            // console.log("response: " +  error.response.status)
+            if (error.response.status >= 500 && error.response.status <= 599) {
+                window.location.href = pages.SERVER_ERROR_PAGE
+                // return
+                return Promise.reject(error)
             }
 
             if (error.response.status === 401 && originalRequest.url === "authenticate/token/") {
                 localStorage.removeItem("access_token")
                 localStorage.removeItem("refresh_token")
-                window.location.href = "/login/";
+                window.location.href = pages.LOGIN_PAGE
                 return Promise.reject(error);
             }
 
             if (error.response.status === 401 && originalRequest.url === "authenticate/user/check/") {
                 localStorage.removeItem("access_token")
-                // localStorage.removeItem("refresh_token")
-                window.location.href = "/login/";
+                window.location.href = pages.LOGIN_PAGE
                 return Promise.reject(error)
             }
 
             if (error.response.status === 401 && error.response.statusText === "Unauthorized") {
                 const refresh = localStorage.getItem("refresh_token");
+                console.log({refresh})
                 if (refresh) {
                     const tokenParts = JSON.parse(window.atob(refresh.split(".")[1]));
                     const now = Math.ceil(Date.now() / 1000);
@@ -55,29 +58,36 @@ axiosAPI.interceptors.response.use(
                             const response = await axiosAPI.post("authenticate/token/refresh/", {
                                 refresh,
                             });
+                            console.log({response})
                             localStorage.setItem("access_token", response.data.access);
                             axiosAPI.defaults.headers["Authorization"] = "Bearer " + response.data.access;
                             originalRequest.headers["Authorization"] = "Bearer " + response.data.access;
                             return axiosAPI(originalRequest);
                         } catch (error) {
-                            console.log(error);
+                            console.log({error});
+                            window.location.href = pages.UNEXPECTED_ERROR_PAGE
+                            return Promise.reject(error)
                         }
                     } else {
                         console.log("Refresh token is expired", tokenParts.exp, now);
-                        window.location.href = "/login/";
+                        window.location.href = pages.LOGIN_PAGE;
+                        return Promise.reject(error)
+
                     }
                 } else {
                     console.log('refresh');
                     console.log("Refresh token not available.");
-                    window.location.href = "/login/";
+                    window.location.href = pages.LOGIN_PAGE
+                    return Promise.reject(error)
+
                 }
             }
-        }
-        else{
+        } else {
             console.log("Unexpected error!")
+            window.location.href = pages.UNEXPECTED_ERROR_PAGE
+            return Promise.reject(error)
         }
 
-        // specific error handling done elsewhere
         return Promise.reject(error);
     }
 );

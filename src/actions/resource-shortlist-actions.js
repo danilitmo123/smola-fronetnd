@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import {
     RESOURCE_SHORTLIST_FAIL,
     RESOURCE_SHORTLIST_REQUEST,

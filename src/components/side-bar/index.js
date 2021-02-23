@@ -8,48 +8,18 @@ import secondItemActive from '../../images/second-side-active.svg'
 import thirdItem from '../../images/third-sibe-bar-item.svg'
 import thirdItemActive from '../../images/third-side-bar-active.svg'
 import './side-bar.scss'
-import {connect, useDispatch} from "react-redux";
+import {connect, useDispatch, useSelector} from "react-redux";
 import * as PropTypes from "prop-types";
+import * as action from "../../actions/switch-page-actions"
 import {logoutUser} from "../../actions/auth-actions";
 
-const SideBar = ({accessToken, setActive, setOrderBtn, setResourcesActive, logoutUser}) => {
+const SideBar = () => {
 
-    const history = useHistory();
+    const switcher = useSelector(state => state.switchPage)
+    const {specificationPage, resourcePage, orderPage, mainPage} = switcher
 
-    const handleLogout = async () => {
-        await logoutUser();
-        history.push("login/");
-    };
+    console.log("Side bar render " + new Date())
 
-    const dispatch = useDispatch()
-
-    const [specificationNavActive, setSpecificationNavActive] = useState(true)
-    const [purchasesNavActive, setPurchasesNavActive] = useState(false)
-    const [resourcesNavActive, setResourcesNavActive] = useState(false)
-
-    const specChangeColor = () => {
-        setSpecificationNavActive(true)
-        setPurchasesNavActive(false)
-        setResourcesNavActive(false)
-        setActive(true)
-    }
-
-    const purchasesChangeColor = () => {
-        setSpecificationNavActive(false)
-        setPurchasesNavActive(true)
-        setResourcesNavActive(false)
-        setActive(false)
-        setOrderBtn(true)
-    }
-
-    const resourcesChangeColor = () => {
-        setSpecificationNavActive(false)
-        setPurchasesNavActive(false)
-        setResourcesNavActive(true)
-        setActive(false)
-        setOrderBtn(false)
-        setResourcesActive(true)
-    }
     return (<div className="side-bar">
             <div className="side-bar-logo">Smola20.ru</div>
             <div className="profile-logo">
@@ -58,32 +28,32 @@ const SideBar = ({accessToken, setActive, setOrderBtn, setResourcesActive, logou
             </div>
             <div className="side-nav-bar">
                 <Link to={'/'} className={'link'}>
-                    <div className="dashboard items" onClick={specChangeColor}>
+                    <div className="dashboard items" onClick={e => action.switchSpecificationPageAction()}>
                         {
-                            specificationNavActive ? <img src={firstItemActive} alt="dashboardActive"/> :
+                            specificationPage ? <img src={firstItemActive} alt="dashboardActive"/> :
                                 <img src={firstItem} alt="dashboard"/>
                         }
                         <div
-                            className={specificationNavActive ? 'dashboard-text active' : 'dashboard-text'}>Спецификации
+                            className={specificationPage ? 'dashboard-text active' : 'dashboard-text'}>Спецификации
                         </div>
                     </div>
                 </Link>
                 <Link to={'/orders'} className={'link'}>
-                    <div className="deals items" onClick={purchasesChangeColor}>
+                    <div className="deals items" onClick={e => action.switchOrderPageAction()}>
                         {
-                            purchasesNavActive ? <img src={secondItemActive} alt="dashboardActive"/> :
+                            orderPage ? <img src={secondItemActive} alt="dashboardActive"/> :
                                 <img src={secondItem} alt="dashboard"/>
                         }
-                        <div className={purchasesNavActive ? 'dashboard-text active' : 'dashboard-text'}>Заказы</div>
+                        <div className={orderPage ? 'dashboard-text active' : 'dashboard-text'}>Заказы</div>
                     </div>
                 </Link>
                 <Link to={'/resources'} className={'link'}>
-                    <div className="vector items" onClick={resourcesChangeColor}>
+                    <div className="vector items" onClick={e => action.switchResourcePageAction()}>
                         {
-                            resourcesNavActive ? <img src={thirdItemActive} alt="dashboardActive"/> :
+                            resourcePage ? <img src={thirdItemActive} alt="dashboardActive"/> :
                                 <img src={thirdItem} alt="dashboard"/>
                         }
-                        <div className={resourcesNavActive ? 'dashboard-text active' : 'dashboard-text'}>Ресурсы</div>
+                        <div className={resourcePage ? 'dashboard-text active' : 'dashboard-text'}>Ресурсы</div>
                     </div>
                 </Link>
             </div>

@@ -23,6 +23,8 @@ const LoginPage = ({ loginUser, history }) => {
         window.location.href = "/"
     };
 
+    console.log("Login pae render " + new Date())
+
     return (
         <div>
             <h1>Login page</h1>

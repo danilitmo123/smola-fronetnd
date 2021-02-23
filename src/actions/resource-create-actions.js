@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
     RESOURCE_CREATE_REQUEST,
     RESOURCE_CREATE_SUCCESS,
@@ -6,7 +5,7 @@ import {
 } from '../constants/resource-create-constants'
 import axiosAPI from "../components/api/axiosApi";
 
-export const createResourceAction = (name, external_id, provider_name, cost, amount,) => async (dispatch) => {
+export const createResourceAction = (name, external_id, provider_name, cost, amount) => async (dispatch) => {
     try {
         dispatch({type: RESOURCE_CREATE_REQUEST})
 
@@ -29,7 +28,6 @@ export const createResourceAction = (name, external_id, provider_name, cost, amo
 
 
     } catch (error) {
-        console.log(error.response)
         dispatch({
             type: RESOURCE_CREATE_FAIL,
             payload: error.response && error.response.data.detail

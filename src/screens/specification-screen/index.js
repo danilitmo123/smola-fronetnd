@@ -28,6 +28,7 @@ const SpecificationScreen = () => {
             setSelectedItem(value)
         }
     }
+    console.log("SPEC SCREEN render " + new Date())
 
     return (
         <div className="specification-screen-wrapper">

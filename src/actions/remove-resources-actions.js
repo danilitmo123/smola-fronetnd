@@ -3,7 +3,6 @@ import {
   REMOVE_RESOURCE_REQUEST,
   REMOVE_RESOURCE_SUCCESS
 } from "../constants/remove-resource-constants";
-import axios from "axios";
 import axiosAPI from "../components/api/axiosApi";
 
 export const removeAction = (id) => async (dispatch) => {

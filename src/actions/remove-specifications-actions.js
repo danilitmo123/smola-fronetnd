@@ -3,23 +3,16 @@ import {
     REMOVE_SPECIFICATION_SUCCESS,
     REMOVE_SPECIFICATION_REQUEST
 } from "../constants/remove-specification-constants";
-import axios from "axios";
 import axiosAPI from "../components/api/axiosApi";
 
 export const removeSpecAction = (id) => async (dispatch) => {
   try {
-    dispatch({type: REMOVE_SPECIFICATION_REQUEST})
 
-    const config = {
-      headers: {
-        'Content-type': 'application/json'
-      }
-    }
+    dispatch({type: REMOVE_SPECIFICATION_REQUEST})
 
     const {data} = await axiosAPI.post(
         'specification/delete/',
         {'ids': [id]},
-        config
     )
 
     dispatch({

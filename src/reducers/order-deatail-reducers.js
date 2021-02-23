@@ -12,7 +12,7 @@ export const orderDetailReducer = (state = {order: {}}, action) => {
         case ORDER_DETAIL_SUCCESS:
             return { loading: false, order: {...action.payload}}
         case ORDER_DETAIL_FAIL:
-            return { loading: false, order: action.payload}
+            return { loading: false, error: action.payload}
         default:
             return state
     }

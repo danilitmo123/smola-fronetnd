@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
     PRICE_SUCCESS,
     PRICE_FAIL,

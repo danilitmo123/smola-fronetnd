@@ -16,6 +16,7 @@ const ResourceScreen = () => {
         dispatch(listProducts())
     }, [dispatch])
 
+    console.log("RES SCREEN render " + new Date())
 
     return (
         <div className="home-screen-wrapper">
