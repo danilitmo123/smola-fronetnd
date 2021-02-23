@@ -19,7 +19,8 @@ const LoginPage = ({ loginUser, history }) => {
         const { username, password } = state;
 
         await loginUser(username, password);
-        history.push("/");
+        // history.push("/");
+        window.location.href = "/"
     };
 
     return (

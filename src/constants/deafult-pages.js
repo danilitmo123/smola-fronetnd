@@ -1,0 +1,1 @@
+export const DEFAULT_PAGES = ["/login/", "/network-error/", "/server-error/"]
