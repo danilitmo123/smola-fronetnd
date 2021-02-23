@@ -8,21 +8,28 @@ import './header.scss'
 import CreateResourceModal from "../create-resource-modal";
 import CreateSpecificationModal from "../create-specification-modal"
 import UploadResources from "../upload-resource-modal"
+
 import {useDispatch, useSelector} from "react-redux";
 import FilterModal from "../filter-modal";
 import CreateOrderModal from "../create-order-modal";
 import {logoutUser} from "../../actions/auth-actions"
+
 const Header = () => {
 
     const [filterModalActive, setFilterModalActive] = useState(false)
     const [resourceModalActive, setResourceModalActive] = useState(false)
     const [specificationModalActive, setSpecificationActive] = useState(false)
     const [uploadResourceModalActive, setUploadResourceModalActive] = useState(false)
+    const [createOrderModal, setCreateModalActive] = useState(false)
     const [orderModalActive, setOrderModalActive] = useState(false)
     const dispatch = useDispatch();
     const switcher = useSelector(state => state.switchPage)
     const {specificationPage, resourcePage, orderPage, mainPage} = switcher
     console.log("Header render " + new Date())
+    const handleLogout = async () => {
+        await logoutUser();
+        history.push("login/");
+    };
 
     return (
         <div className="header-wrapper">
@@ -53,7 +60,7 @@ const Header = () => {
                         </div>
                         : null
             }
-            <button onClick={() => {dispatch(logoutUser())}}>Выйти</button>
+            <button onClick={handleLogout}>Выйти</button>
 
             <div className="nav-bar">
                 <img src={notifications} alt={'notifications'}/>

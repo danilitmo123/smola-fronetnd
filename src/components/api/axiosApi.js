@@ -22,14 +22,11 @@ axiosAPI.interceptors.response.use(
 
         if (error.message === "Network Error") {
             window.location.href = pages.NETWORK_ERROR_PAGE
-            // return
             return Promise.reject(error)
         }
         if (error.response) {
-            // console.log("response: " +  error.response.status)
             if (error.response.status >= 500 && error.response.status <= 599) {
                 window.location.href = pages.SERVER_ERROR_PAGE
-                // return
                 return Promise.reject(error)
             }
 
@@ -64,7 +61,6 @@ axiosAPI.interceptors.response.use(
                             originalRequest.headers["Authorization"] = "Bearer " + response.data.access;
                             return axiosAPI(originalRequest);
                         } catch (error) {
-                            console.log({error});
                             window.location.href = pages.UNEXPECTED_ERROR_PAGE
                             return Promise.reject(error)
                         }
@@ -75,7 +71,6 @@ axiosAPI.interceptors.response.use(
 
                     }
                 } else {
-                    console.log('refresh');
                     console.log("Refresh token not available.");
                     window.location.href = pages.LOGIN_PAGE
                     return Promise.reject(error)

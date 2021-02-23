@@ -7,6 +7,7 @@ import secondItem from '../../images/second-side-bar-item.svg'
 import secondItemActive from '../../images/second-side-active.svg'
 import thirdItem from '../../images/third-sibe-bar-item.svg'
 import thirdItemActive from '../../images/third-side-bar-active.svg'
+import mainPageIcon from '../../images/inbox-alt.svg'
 import './side-bar.scss'
 import {connect, useDispatch, useSelector} from "react-redux";
 import * as PropTypes from "prop-types";
@@ -28,14 +29,11 @@ const SideBar = () => {
             </div>
             <div className="side-nav-bar">
                 <Link to={'/'} className={'link'}>
-                    <div className="dashboard items" onClick={e => action.switchSpecificationPageAction()}>
-                        {
-                            specificationPage ? <img src={firstItemActive} alt="dashboardActive"/> :
-                                <img src={firstItem} alt="dashboard"/>
-                        }
-                        <div
-                            className={specificationPage ? 'dashboard-text active' : 'dashboard-text'}>Спецификации
-                        </div>
+                    {specificationPage ? <img src={firstItemActive} alt="dashboardActive"/> :
+                        <img src={firstItem} alt="dashboard"/>
+                    }
+                    <div
+                        className={specificationPage ? 'dashboard-text active' : 'dashboard-text'}>Спецификации
                     </div>
                 </Link>
                 <Link to={'/orders'} className={'link'}>
