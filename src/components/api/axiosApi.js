@@ -18,7 +18,7 @@ axiosAPI.interceptors.response.use(
     async (error) => {
         const originalRequest = error.config;
         localStorage.removeItem("access_token")
-        // localStorage.removeItem("refresh_token")
+        localStorage.removeItem("refresh_token")
         if (error.response.status === 401 &&  originalRequest.url === "authenticate/token/") {
             window.location.href = "/login/";
             return Promise.reject(error);

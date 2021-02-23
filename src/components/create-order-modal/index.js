@@ -61,33 +61,34 @@ const CreateOrderModal = ({active, setActive}) => {
     }
 
 
-    return (
-        <div onClick = {()=> setActive(false)}  className = {active ? 'order-modal active' : 'resource-modal'} >
+    return(
+        <div onClick = {()=> setActive(false)}  className = {active ? 'order-modal active' : 'order-modal'} >
             <form   onClick = {e=> e.stopPropagation()} onSubmit = {submitHandler}
                     className = {active ? 'create-modal-content active' : 'create-modal-content'} >
-            <div className = "order-modal-title" > Создать заказ < /div>
-        <br/>
-        <div className="create-order-wrapper">
-            <label htmlFor="source" className={'resource-create-title'}>Источник заказа</label>
-            <input type="text" name="source" id="source"
-                   className={'create-order-input'}
-                   onChange={e => setSource(e.target.value)}
-                   value={externalId}/>
-            <label htmlFor="externalId" className={'order-create-title'}>ID</label>
-            <input type="text" name="externalId" id="externalId"
-                   className={'create-order-input'}
-                   onChange={e => setExternalId(e.target.value)}
-                   value={externalId}/>
-            <div className="add-block-order">
-                <div className="second-title">Блок родуктов</div>
-                {productListForOption.map(product => product)}
-                <button onClick={addProductSelect} className={'add-spec-btn'}>Добавить продукт в заказ</button>
-            </div>
+                <div className = "order-modal-title" > Создать заказ </div>
+                    <br/>
+                    <div className="create-order-wrapper">
+                        <label htmlFor="source" className={'resource-create-title'}>Источник заказа</label>
+                        <input type="text" name="source" id="source"
+                               className={'create-order-input'}
+                               onChange={e => setSource(e.target.value)}
+                               value={externalId}/>
+                        <label htmlFor="externalId" className={'order-create-title'}>ID</label>
+                        <input type="text" name="externalId" id="externalId"
+                               className={'create-order-input'}
+                               onChange={e => setExternalId(e.target.value)}
+                               value={externalId}/>
+                        <div className="add-block-order">
+                            <div className="second-title">Блок родуктов</div>
+                            {productListForOption.map(product => product)}
+                            <button onClick={addProductSelect} className={'add-spec-btn'}>Добавить продукт в заказ</button>
+                        </div>
+                    </div>
+                    <button className={'filter-btn'} type={'submit'}>Применить</button>
+            </form>
         </div>
-        <button className={'filter-btn'} type={'submit'}>Применить</button>
-    </form>
-    </div>
     )
-    }
+}
 
-    export default CreateOrderModal
+
+export default CreateOrderModal
