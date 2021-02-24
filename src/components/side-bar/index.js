@@ -30,6 +30,11 @@ const SideBar = () => {
 
     const dispatch = useDispatch()
 
+    console.log(specificationPage)
+    console.log(resourcePage)
+    console.log(orderPage)
+    console.log(mainPage)
+
     return (
         <div className="side-bar">
             <div className="side-bar-logo">Smola20.ru</div>
@@ -39,13 +44,13 @@ const SideBar = () => {
             </div>
             <div className="side-nav-bar">
                 <Link to={'/'} className={'link'}>
-                    <div className={'dashboard items'} onClick={action.switchMainPageAction}>
+                    <div className={'dashboard items'} onClick={e => dispatch(action.switchMainPageAction())}>
                         <img src={mainPageIcon} alt=""/>
                         <div className={mainPage ? 'dashboard-text active' : 'dashboard-text'}>Главная</div>
                     </div>
                 </Link>
                 <Link to={'/specification'} className={'link'}>
-                    <div className="dashboard items" onClick={action.switchMainPageAction}>
+                    <div className="dashboard items" onClick={e => dispatch(action.switchSpecificationPageAction())}>
                         {
                             specificationPage ? <img src={firstItemActive} alt="dashboardActive"/> :
                                 <img src={firstItem} alt="dashboard"/>
@@ -56,7 +61,7 @@ const SideBar = () => {
                     </div>
                 </Link>
                 <Link to={'/orders'} className={'link'}>
-                    <div className="deals items" onClick={action.switchOrderPageAction}>
+                    <div className="deals items" onClick={e => dispatch(action.switchOrderPageAction())}>
                         {
                             orderPage ? <img src={secondItemActive} alt="dashboardActive"/> :
                                 <img src={secondItem} alt="dashboard"/>
@@ -65,7 +70,7 @@ const SideBar = () => {
                     </div>
                 </Link>
                 <Link to={'/resources'} className={'link'}>
-                    <div className="vector items" onClick={action.switchResourcePageAction}>
+                    <div className="vector items" onClick={e => dispatch(action.switchResourcePageAction())}>
                         {
                             resourcePage ? <img src={thirdItemActive} alt="dashboardActive"/> :
                                 <img src={thirdItem} alt="dashboard"/>

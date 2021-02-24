@@ -53,7 +53,7 @@ const reducer = combineReducers({
     editProfile: editProfileReducers
 })
 
-const initialState = {specificationPage: true, resourcePage: false, orderPage: false, mainPage: false}
+const initialState = {specificationPage: false, resourcePage: false, orderPage: false, mainPage: true}
 
 const middleware = [thunk]
 

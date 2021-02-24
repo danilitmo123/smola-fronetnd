@@ -16,17 +16,17 @@ import {logoutUser} from "../../actions/auth-actions"
 
 const Header = () => {
 
+
+    const dispatch = useDispatch();
+    const switcher = useSelector(state => state.switchPage)
+    const {specificationPage, resourcePage, orderPage, mainPage} = switcher
     const [filterModalActive, setFilterModalActive] = useState(false)
     const [resourceModalActive, setResourceModalActive] = useState(false)
     const [specificationModalActive, setSpecificationActive] = useState(false)
     const [uploadResourceModalActive, setUploadResourceModalActive] = useState(false)
     const [createOrderModal, setCreateModalActive] = useState(false)
     const [orderModalActive, setOrderModalActive] = useState(false)
-    const dispatch = useDispatch();
-    const switcher = useSelector(state => state.switchPage)
-    const {specificationPage, resourcePage, orderPage, mainPage} = switcher
-    console.log("Header render " + new Date())
-    console.log("Header href " + window.location.pathname)
+
     const handleLogout = async () => {
         await logoutUser();
         window.location.href = "/login/"
