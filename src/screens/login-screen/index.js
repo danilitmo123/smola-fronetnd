@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import {loginUser}  from "../../actions/auth-actions";
 
+import './login-screen.scss'
+
 const LoginPage = ({ loginUser, history }) => {
     const [state, setState] = useState({
         username: "",
@@ -26,29 +28,31 @@ const LoginPage = ({ loginUser, history }) => {
     console.log("Login pae render " + new Date())
 
     return (
-        <div>
-            <h1>Login page</h1>
-            <form onSubmit={login}>
-                <label>
-                    Username:
-                    <input
-                        name="username"
-                        type="text"
-                        value={state.username}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Password:
-                    <input
-                        name="password"
-                        type="password"
-                        value={state.password}
-                        onChange={handleChange}
-                    />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
+        <div className={'login-screen-wrapper'}>
+           <div className="info-login-wrapper">
+               <div className={'login-title'}>Авторизация</div>
+               <form onSubmit={login}>
+                   <label>
+                       <div className="label-text">Логин</div>
+                       <input
+                           name="username"
+                           type="text"
+                           value={state.username}
+                           onChange={handleChange}
+                       />
+                   </label>
+                   <label>
+                       <div className="label-text">Пароль</div>
+                       <input
+                           name="password"
+                           type="password"
+                           value={state.password}
+                           onChange={handleChange}
+                       />
+                   </label>
+                   <button type="submit">Войти</button>
+               </form>
+           </div>
         </div>
     );
 };

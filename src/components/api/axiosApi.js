@@ -2,7 +2,7 @@ import axios from "axios";
 import * as pages from "../../constants/deafult-pages"
 import logger from "logrock";
 
-const baseURL = 'http://127.0.0.1:8000/';
+const baseURL = 'https://api-smola-20.herokuapp.com/';
 const accessToken = localStorage.getItem("access_token");
 
 const axiosAPI = axios.create({

@@ -7,6 +7,7 @@ import OrderScreen from "../../screens/order-screen";
 import {OrderDetail} from "../../components/order-detail-modal";
 import React, {useState} from "react";
 import ProfileScreen from "../../screens/profile-screen";
+import MainScreen from "../../screens/main-screen";
 
 
 const MainFrame = () => {
@@ -18,7 +19,8 @@ const MainFrame = () => {
             <SideBar/>
             {history.location.pathname !== "/profile/" ? <Header/> : null}
             <Switch>
-                <Route exact path={'/'} component={SpecificationScreen}/>
+                <Route exact path={'/'} component={MainScreen}/>
+                <Route path={'/specification/'} component={SpecificationScreen}/>
                 <Route path={'/resources/'} component={ResourceScreen}/>
                 <Route path={'/orders/'} component={OrderScreen}/>
                 <Route path={'/order/:order_id/'} component={OrderDetail}/>
