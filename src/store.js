@@ -24,6 +24,7 @@ import {profileChangePasswordReducers} from "./reducers/profile-change-password"
 import {profileCreateReducers} from "./reducers/profile-create-reducers"
 import {switchPageReducers} from "./reducers/switch-page-reducers"
 import {checkAuthReducers} from "./reducers/check-auth-reducers"
+import {editProfileReducers} from "./reducers/profile-edit"
 
 const reducer = combineReducers({
     productList: productListReducers,
@@ -48,7 +49,8 @@ const reducer = combineReducers({
     profileAdminList: profileAdminListReducers,
     profileChangePassword: profileChangePasswordReducers,
     switchPage: switchPageReducers,
-    checkAuth: checkAuthReducers
+    checkAuth: checkAuthReducers,
+    editProfile: editProfileReducers
 })
 
 const initialState = {specificationPage: true, resourcePage: false, orderPage: false, mainPage: false}

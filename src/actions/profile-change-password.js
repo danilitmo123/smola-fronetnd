@@ -9,7 +9,7 @@ export const changePasswordAction = (password) => async (dispatch) => {
     try {
         dispatch({type: PROFILE_CHANGE_PASSWORD_REQUEST})
 
-        const {data} = await axiosAPI.patch('authenticate/user/change-password/',
+        const {data} = await axiosAPI.post('authenticate/user/change-password/',
             {
                 'password': password
             }

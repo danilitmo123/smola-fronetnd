@@ -9,7 +9,7 @@ const AddUser = () => {
 
     const submitHandler = e =>{
         e.preventDefault();
-        dispatch(createProfileAction());
+        dispatch(createProfileAction(role));
     }
 
 

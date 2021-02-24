@@ -26,9 +26,10 @@ const Header = () => {
     const switcher = useSelector(state => state.switchPage)
     const {specificationPage, resourcePage, orderPage, mainPage} = switcher
     console.log("Header render " + new Date())
+    console.log("Header href " + window.location.pathname)
     const handleLogout = async () => {
         await logoutUser();
-        history.push("login/");
+        window.location.href = "/login/"
     };
 
     return (

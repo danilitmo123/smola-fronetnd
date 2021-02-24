@@ -31,10 +31,14 @@ const ProductItem = ({product}) => {
     }
 
     const getDate = (date) => {
-        const year = date.getFullYear()
-        let month = getZero(date.getMonth() + 1)
-        let day = getZero(date.getDate())
-        return `${day}-${month}-${year}`
+        if (date){
+            const year = date.getFullYear()
+            let month = getZero(date.getMonth() + 1)
+            let day = getZero(date.getDate())
+            return `${day}-${month}-${year}`
+        }else{
+            return '==//=='
+        }
     }
 
     const deleteHandler = (e) => {
@@ -65,7 +69,7 @@ const ProductItem = ({product}) => {
                         className={'product-item price'}/>
                     <button type={'submit'}>✓</button>
                 </form>
-                <div className="product-item count">{product.amount}</div>
+                <div className="product-item count">{product.amount ? product.amount : .0}</div>
                 <div className="product-item diller">{product.provider ? product.provider.name : 'отсутствует'}</div>
                 <div className="product-item last-price-change">{getDate(dateCost)}</div>
                 <div className="product-item last-count-change">{getDate(dateCount)}</div>

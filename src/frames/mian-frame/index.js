@@ -1,25 +1,28 @@
 import SideBar from "../../components/side-bar";
 import Header from "../../components/header";
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch, useHistory} from "react-router-dom";
 import SpecificationScreen from "../../screens/specification-screen";
 import ResourceScreen from "../../screens/resource-screen";
 import OrderScreen from "../../screens/order-screen";
 import {OrderDetail} from "../../components/order-detail-modal";
 import React, {useState} from "react";
+import ProfileScreen from "../../screens/profile-screen";
 
 
 const MainFrame = () => {
 
-    console.log("MAIN FRAME render " + new Date())
+    const history = useHistory()
+    console.log("history pathname" + history.location.pathname)
     return (
         <div className={'App'}>
             <SideBar/>
-            <Header/>
+            {history.location.pathname !== "/profile/" ? <Header/> : null}
             <Switch>
                 <Route exact path={'/'} component={SpecificationScreen}/>
                 <Route path={'/resources/'} component={ResourceScreen}/>
                 <Route path={'/orders/'} component={OrderScreen}/>
-                <Route path={"/order/:order_id/"} component={OrderDetail}/>
+                <Route path={'/order/:order_id/'} component={OrderDetail}/>
+                <Route path={'/profile/'} component={ProfileScreen}/>
             </Switch>
         </div>
     )

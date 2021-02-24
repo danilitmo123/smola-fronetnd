@@ -6,18 +6,27 @@ import ProfileAdminCard from "./card";
 const ProfileAdminList = () => {
     const dispatch = useDispatch()
     const profileList = useSelector(state => state.profileAdminList)
-    const {error, loading, profiles} = profileList
+    const {error, loading, profileAdminList} = profileList
 
 
     useEffect(() => {
         dispatch(profileAdminListAction())
     }, [dispatch])
 
+    console.log("profiles")
+    console.log({profileAdminList})
     return (
-        <div>
-            {Object.values(profiles).map(profile => {
-                return <ProfileAdminCard profile={profile}/>
-            })}
+        <div>{
+            profileAdminList !== undefined ?
+                <div>
+                    {
+                        Object.values(profileAdminList).map(profile => {
+                            console.log("profiles: " + profileAdminList);
+                            return <ProfileAdminCard profile={profile}/>
+                    })}
+                </div>
+                : null}
+
         </div>
     )
 }

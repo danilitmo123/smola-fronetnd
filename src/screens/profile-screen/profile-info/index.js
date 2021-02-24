@@ -1,38 +1,70 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {profileAction} from "../../../actions/profile-actions";
 import AdminPanel from "../admin-panel";
+import {editProfileAction} from "../../../actions/profile-edit";
 
 const ProfileInfo = () => {
     const dispatch = useDispatch()
     const profileDetail = useSelector(state => state.profile)
     const {error, loading, profile} = profileDetail
+    const [username, setUsername] = useState()
+    const [email, setEmail] = useState()
+    const [lastName, setLastName] = useState()
+    const [firstName, setFirstName] = useState()
 
 
     useEffect(() => {
         dispatch(profileAction())
     }, [dispatch])
 
+    const submitHandler = (e) => {
+        e.preventDefault()
+        if (!Boolean(username))
+            setUsername(profile.username)
+        if (!Boolean(lastName))
+            setLastName(profile.last_name)
+        if (!Boolean(firstName) )
+            setFirstName(profile.first_name)
+        if (!Boolean(email))
+            setEmail(profile.email)
+        console.log({username})
+        console.log({lastName})
+        console.log({firstName})
+        console.log({email})
+        dispatch(editProfileAction(username, email, lastName, firstName));
+    }
+
     return (
         <div>
             <div>
-                <div>
-                    Username: {profile.username}
-                </div>
-                <div>
-                    Email: {profile.email}
-                </div>
-                <div>
-                    Имя: {profile.first_name}
-                </div>
-                <div>
-                    Фамилия: {profile.last_name}
-                </div>
-                <div>
-                    Роль: {profile.role}
-                </div>
+                <form onSubmit={submitHandler}>
+                    <div>
+                        Username: <input type="text" value={username ? username : profile.username}
+                                         onChange={e => setUsername(e.target.value)}/>
+                    </div>
+                    <div>
+                        Email: <input type="text" value={email ? email : profile.email}
+                                      onChange={e => setEmail(e.target.value)}/>
+                    </div>
+                    <div>
+                        Имя: <input type="text" value={firstName ? firstName : profile.first_name}
+                                    onChange={e => setFirstName(e.target.value)}/>
+                    </div>
+                    <div>
+                        Фамилия: <input type="text" value={lastName ? lastName : profile.last_name}
+                                        onChange={e => setLastName(e.target.value)}/>
+                    </div>
+                    <div>
+                        Роль: {profile.role}
+                    </div>
+                    <button type={'submit'}>Подтведить</button>
+                </form>
+                <hr/>
+                {
+                    profile.role === 40 ? <AdminPanel/> : null
+                }
             </div>
-            <AdminPanel/>
         </div>
     )
 }

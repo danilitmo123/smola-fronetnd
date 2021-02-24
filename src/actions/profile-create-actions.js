@@ -9,7 +9,7 @@ export const createProfileAction = (role) => async (dispatch) => {
     try {
         dispatch({type: PROFILE_CREATE_REQUEST})
 
-        const {data} = await axiosAPI.patch('authenticate/user/create/',
+        const {data} = await axiosAPI.post('authenticate/user/create/',
             {
                 'role': role
             }

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {listSpecifications} from "../../actions/specification-actions";
 import Loader from "../../components/spinner";
 import ErrorMessage from "../../components/error-message";
@@ -12,8 +12,8 @@ import SpecificationCard from "../../components/specification-card";
 const SpecificationScreen = () => {
 
     const dispatch = useDispatch()
-    const specificationList = useSelector( state => state.specificationList)
-    const { error, loading, specifications } = specificationList
+    const specificationList = useSelector(state => state.specificationList)
+    const {error, loading, specifications} = specificationList
 
     const [selectedItem, setSelectedItem] = useState(null)
 
@@ -22,9 +22,9 @@ const SpecificationScreen = () => {
     }, [dispatch])
 
     const itemSelected = (value) => {
-        if (selectedItem === value){
+        if (selectedItem === value) {
             setSelectedItem(null)
-        }else{
+        } else {
             setSelectedItem(value)
         }
     }
@@ -50,17 +50,18 @@ const SpecificationScreen = () => {
                     <div>
                         {
                             Object.values(specifications).map(specification => {
-                                return <SpecificationItem key={specification.id} onSelect={itemSelected} specification={specification}/>
+                                return <SpecificationItem key={specification.id} onSelect={itemSelected}
+                                                          specification={specification}/>
                             })
                         }
                     </div>
             }
             <SpecificationCard
-              active={selectedItem != null}
-              specification={
-                  Object.values(specifications)
-                    .find(specification => specification.id === selectedItem)
-              }
+                active={selectedItem != null}
+                specification={
+                    Object.values(specifications)
+                        .find(specification => specification.id === selectedItem)
+                }
             />
         </div>
     )

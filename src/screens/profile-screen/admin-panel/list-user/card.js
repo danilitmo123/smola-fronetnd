@@ -1,10 +1,11 @@
+import "./list-user.scss"
 const ProfileAdminCard = ({profile}) => {
 
     return (
-        <div style="border:thin; display:inline;">
+        <div className={"profile-card"}>
             {profile.username}
             <br/>
-            profile.email}
+            {profile.email}
             <br/>
             {profile.first_name} {profile.last_name}
             <br/>
