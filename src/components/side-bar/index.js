@@ -38,10 +38,12 @@ const SideBar = () => {
     return (
         <div className="side-bar">
             <div className="side-bar-logo">Smola20.ru</div>
-            <div className="profile-logo">
-                <img src={logo} alt={'profile-logo'}/>
-                <div className="user">Филлип Пузырев<br/>smola20@info.ru</div>
-            </div>
+            <Link to={'/profile'}>
+                <div className="profile-logo">
+                    <img src={logo} alt={'profile-logo'}/>
+                    <div className="user">Филлип Пузырев<br/>smola20@info.ru</div>
+                </div>
+            </Link>
             <div className="side-nav-bar">
                 <Link to={'/'} className={'link'}>
                     <div className={'dashboard items'} onClick={e => dispatch(action.switchMainPageAction())}>

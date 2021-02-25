@@ -17,12 +17,13 @@ function App({accessToken}) {
     const checkAuth = useSelector(state => state.checkAuth)
     const {error, loading, data} = checkAuth
     const history = useHistory()
+
     useEffect(() => {
         dispatch(authCheckAction(window.location.pathname))
     }, [dispatch])
 
     if (!Boolean(accessToken) && !DEFAULT_PAGES.includes(window.location.pathname)) {
-        history.push(pages.LOGIN_PAGE);
+        window.location.href = pages.LOGIN_PAGE
     }
 
     return (

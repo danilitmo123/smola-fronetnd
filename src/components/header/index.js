@@ -48,7 +48,7 @@ const Header = () => {
                     </div>
                     : orderPage ?
                     <div className="add-btn">
-                        <button onClick={() => setOrderModalActive(true)}>Добавить спецификацию</button>
+                        <button onClick={() => setOrderModalActive(true)}>Добавить заказ</button>
                     </div>
                     : resourcePage ?
                         <div className={'group-btn'}>
@@ -61,7 +61,7 @@ const Header = () => {
                         </div>
                         : null
             }
-            <button onClick={handleLogout}>Выйти</button>
+            <button onClick={handleLogout} className={'logout-btn'}>Выйти</button>
 
             <div className="nav-bar">
                 <img src={notifications} alt={'notifications'}/>

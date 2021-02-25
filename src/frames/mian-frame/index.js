@@ -20,6 +20,7 @@ const MainFrame = () => {
             {history.location.pathname !== "/profile/" ? <Header/> : null}
             <Switch>
                 <Route exact path={'/'} component={MainScreen}/>
+                <Route path={'/profile'} component={ProfileScreen}/>
                 <Route path={'/specification/'} component={SpecificationScreen}/>
                 <Route path={'/resources/'} component={ResourceScreen}/>
                 <Route path={'/orders/'} component={OrderScreen}/>

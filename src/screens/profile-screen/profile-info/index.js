@@ -4,6 +4,8 @@ import {profileAction} from "../../../actions/profile-actions";
 import AdminPanel from "../admin-panel";
 import {editProfileAction} from "../../../actions/profile-edit";
 
+import './profile-info.scss'
+
 const ProfileInfo = () => {
     const dispatch = useDispatch()
     const profileDetail = useSelector(state => state.profile)
@@ -36,27 +38,29 @@ const ProfileInfo = () => {
     }
 
     return (
-        <div>
+        <div className={'profile-info-wrapper'}>
             <div>
                 <form onSubmit={submitHandler}>
-                    <div>
-                        Username: <input type="text" value={username ? username : profile.username}
+                    <div className={'profile-info-text'}>
+                        Логин: <input type="text" value={username ? username : profile.username}
                                          onChange={e => setUsername(e.target.value)}/>
                     </div>
-                    <div>
+                    <div className={'profile-info-text'}>
                         Email: <input type="text" value={email ? email : profile.email}
                                       onChange={e => setEmail(e.target.value)}/>
                     </div>
-                    <div>
+                    <div className={'profile-info-text'}>
                         Имя: <input type="text" value={firstName ? firstName : profile.first_name}
                                     onChange={e => setFirstName(e.target.value)}/>
                     </div>
-                    <div>
+                    <div className={'profile-info-text'}>
                         Фамилия: <input type="text" value={lastName ? lastName : profile.last_name}
                                         onChange={e => setLastName(e.target.value)}/>
                     </div>
-                    <div>
-                        Роль: {profile.role}
+                    <div className={'profile-info-text'}>
+                        Роль: {profile.role === 40 ? <div>Админ</div>
+                        : profile.role === 30 ? <div>Работник офиса</div>
+                        : profile.role === 20 ? <div>Работник склада</div> : null}
                     </div>
                     <button type={'submit'}>Подтведить</button>
                 </form>

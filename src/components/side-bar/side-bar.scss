@@ -23,6 +23,11 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
+    
+    &:hover {
+      cursor: pointer;
+    }
+    
     .user {
       margin-left: 5px;
       color: #737B7D;

@@ -1,6 +1,5 @@
 import axios from "axios";
 import * as pages from "../../constants/deafult-pages"
-import logger from "logrock";
 
 const baseURL = 'https://api-smola-20.herokuapp.com/';
 const accessToken = localStorage.getItem("access_token");

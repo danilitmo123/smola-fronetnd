@@ -1,6 +1,23 @@
 .profile-card{
+  padding: 15px;
   display: inline-block;
-  margin: 30px;
-  border:  4px double black;;
-  background: #fc3;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  border:  1px solid #F1DB10;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
+  border-radius: 6px;
+
+  .profile-card-wrapper {
+
+    .profile
+
+    .role {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: row;
+      gap: 10px;
+    }
+  }
 }

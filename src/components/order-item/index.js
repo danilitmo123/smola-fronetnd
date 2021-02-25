@@ -53,8 +53,8 @@ const OrderItem = ({order, onSelect}) => {
                 <Link to={"/order/" + order.id}>Просмотр</Link>
                 <div className="product-item name">{order.external_id}</div>
                 <div className="product-item name">{textStatus(order.status)}</div>
-                <div className="product-item name">{order.created_at}</div>
-                <div className="product-item name">{order.source}</div>
+                <div className="product-item name">{getDate(createDate)}</div>
+                <div className="product-item name">{order.source.name}</div>
                 <div className="product-item name">{order.available}</div>
             </div>
         </div>

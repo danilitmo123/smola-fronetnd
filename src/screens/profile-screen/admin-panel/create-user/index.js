@@ -2,6 +2,8 @@ import {useDispatch} from "react-redux";
 import React, {useState} from "react";
 import {createProfileAction} from "../../../../actions/profile-create-actions";
 
+import './create-user.scss'
+
 const AddUser = () => {
 
     const dispatch = useDispatch()
@@ -15,15 +17,15 @@ const AddUser = () => {
 
     return (
         <div>
-            <div>
-                Создание нового пользователся.
+            <div className={'create-user-title'}>
+                Создание нового пользователя
             </div>
             <form onClick = {e=> e.stopPropagation()} onSubmit = {submitHandler}>
                 <select onChange={e => setRole(e.target.value)} value={role}>
                     <option value="30" key={"30"}>Офисный работник</option>
                     <option value="20" key={"20"}>Работник склада</option>
                 </select>
-                <button type={"submit"}>Создать</button>
+                <button type={"submit"} className={'create-btn'}>Создать</button>
             </form>
         </div>
     )
