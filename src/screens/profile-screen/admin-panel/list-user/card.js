@@ -9,12 +9,14 @@ const ProfileAdminCard = ({profile}) => {
               <div className="profile-card-email">{profile.email}</div>
               <div className="profile-card-first-name">{profile.first_name} {profile.last_name} </div>
               <div className="role">
+              <div className="profile-card-role">
                 <div className="role-title">Роль:</div>
                 <div className="role-text">
                   {profile.role === 40 ? <div>Админ</div>
                       : profile.role === 30 ? <div>Работник офиса</div>
                           : profile.role === 20 ? <div>Работник склада</div> : null}
                 </div>
+              </div>
               </div>
             </div>
         </div>

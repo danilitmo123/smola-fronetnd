@@ -39,6 +39,7 @@
     width: 80vw;
     border-radius: 6px;
     box-shadow: 0 0 20px rgba(34, 60, 80, 0.13);
+    margin-bottom: -20px;
 
     .delete-checkbox {
       margin-right: 10px;
@@ -72,7 +73,7 @@
     }
 
     .id {
-      margin-right: 20px;
+      margin-right: 40px;
       width: 40px;
       text-align: left;
       font-size: 12px !important;
@@ -80,14 +81,15 @@
     }
 
     .name {
-      width: 100px;
+      width: 200px;
+      word-break: break-word;
       text-align: center;
-      margin-right: 55px;
+      margin-right: 40px;
     }
 
     .price {
       text-align: center;
-      width: 80px;
+      width: 70px;
       margin-right: 45px;
 
       &:hover,
@@ -98,18 +100,23 @@
 
     .count {
       text-align: left;
-      width: 90px;
-      margin-right: 40px;
+      margin-right: 110px;
     }
 
     .diller {
       text-align: left;
-      width: 120px;
-      margin-right: 70px;
+      word-break: break-word;
+      width: 100px;
+      margin-right: 90px;
     }
 
     .last-price-change {
-      margin-right: 230px;
+      width: 95px;
+      margin-right: 180px;
+    }
+
+    .last-count-change {
+      width: 100px;
     }
   }
 

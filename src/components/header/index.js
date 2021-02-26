@@ -34,11 +34,11 @@ const Header = () => {
     return (
         <div className="header-wrapper">
             <div className="filter-btn">
-                <button onClick={() => setFilterModalActive(true)}><img src={filter} alt={'filter'}/>Фильтр</button>
+              <button onClick={() => setFilterModalActive(true)}><img src={filter} alt={'filter'}/>Фильтр</button>
             </div>
 
             <div className="search-panel">
-                <input type="text" placeholder={'Поиск по названию'}/>
+              <input type="text" placeholder={'Поиск по названию'}/>
             </div>
             {
                 specificationPage ?
