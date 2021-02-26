@@ -9,7 +9,8 @@ export const listOrders = () => async (dispatch) => {
     try {
         dispatch({type: ORDER_LIST_REQUEST})
 
-        const { data } = await axiosAPI.get('order/list/')
+        const {data} = await axiosAPI.get('order/list/')
+        console.log({data})
         dispatch({
             type: ORDER_LIST_SUCCESS,
             payload: data.results
