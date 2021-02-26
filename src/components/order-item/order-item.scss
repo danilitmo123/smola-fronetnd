@@ -23,6 +23,7 @@
 
     .id {
       width: 100px;
+      word-break: break-word;
       margin-right: 100px;
       text-align: left;
     }
@@ -30,10 +31,10 @@
     .status {
       width: 170px;
       text-align: left;
-      margin-right: 90px;
+      margin-right: 85px;
     }
 
-    .created {
+    .date {
       width: 120px;
       text-align: left;
       margin-right: 180px;

@@ -9,15 +9,8 @@ export const removeAction = (id) => async (dispatch) => {
   try {
     dispatch({type: REMOVE_RESOURCE_REQUEST})
 
-    const config = {
-      headers: {
-        'Content-type': 'application/json'
-      }
-    }
-
     const {data} = await axiosAPI.post('resource/delete/',
         {'ids': [id]},
-        config
     )
 
     dispatch({

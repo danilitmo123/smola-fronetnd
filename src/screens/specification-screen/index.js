@@ -36,7 +36,7 @@ const SpecificationScreen = () => {
                 <div className="nav-item id">ID</div>
                 <div className="nav-item">Название</div>
                 <div className="nav-item">Себестоимость</div>
-                <div className="nav-item">Маржинальность</div>
+                <div className="nav-item">Маржа</div>
                 <div className="nav-item">Коэф наценки</div>
                 <div className="nav-item">Реком цена</div>
                 <div className="nav-item">Текущая цена</div>

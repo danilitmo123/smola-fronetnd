@@ -6,13 +6,15 @@ import Loader from "../spinner";
 
 
 import axios from "axios";
+import axiosAPI from "../api/axiosApi";
 
 const SpecificationCard = ({active, specification}) => {
 
   const [currentCardData, setCurrentCardData] = useState(null)
 
   const getCard = async (id) => {
-    const { data } = await axios.get(`https://api-smola-20.herokuapp.com/specification/${id}/`)
+    const { data } = await axiosAPI.get(`https://api-smola-20.herokuapp.com/specification/${id}/`)
+    console.log(data)
     return data
   }
 

@@ -44,13 +44,15 @@ const SpecificationItem = ({onSelect, specification}) => {
   return (
       <div className="specification-item-wrapper" onClick={onClick} id={specification.id}>
         <div className="item-wrapper">
-          <input
-              type={'checkbox'}
-              className={'delete-checkbox'}
-              checked={selectCheckbox[specification.id]}
-              onChange={handleChange}
-              onClick={e => e.stopPropagation()}/>
-          <div className="product-item id">{specification.id}</div>
+          <div className={'id-wrapper'}>
+            <input
+                type={'checkbox'}
+                className={'delete-checkbox'}
+                checked={selectCheckbox[specification.id]}
+                onChange={handleChange}
+                onClick={e => e.stopPropagation()}/>
+            <div className="product-item id">{specification.id}</div>
+          </div>
           <div className="product-item name">{specification.name}</div>
           <div className="product-item cost-price">{specification.prime_cost ? parseInt(specification.prime_cost) : 'нет'}</div>
           <div className="product-item marja">{((parseFloat(price) - parseFloat(specification.prime_cost)) / parseFloat(price)).toFixed(2)}</div>
@@ -62,7 +64,7 @@ const SpecificationItem = ({onSelect, specification}) => {
                 value={parseFloat(coefficient)}
                 className={'product-item price'}
                 onClick={e => e.stopPropagation()}/>
-            <button type={'submit'} onClick={e => e.stopPropagation()}>✓</button>
+            <button type={'submit'} onClick={e => e.stopPropagation()} className={'confirm-button'}>✓</button>
           </form>
           <div className="product-item best-price">{parseInt(bestPrice)}</div>
           <form className="form-wrapper" onSubmit={submitPriceHandler}>
@@ -73,7 +75,7 @@ const SpecificationItem = ({onSelect, specification}) => {
                 value={parseFloat(price)}
                 className={'product-item price'}
                 onClick={e => e.stopPropagation()}/>
-            <button type={'submit price-submit'} onClick={e => e.stopPropagation()} >✓</button>
+            <button type={'submit price-submit'} onClick={e => e.stopPropagation()} className={'confirm-button-second'}>✓</button>
           </form>
           <div className="product-item category">{specification.category ? specification.category.name : 'нет'}</div>
           <div className="product-item product_id">{specification.product_id}</div>

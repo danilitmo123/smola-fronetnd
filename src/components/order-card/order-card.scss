@@ -1,6 +1,27 @@
 .nav-card-products {
   padding: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+
+  .ID {
+    margin-right: 210px;
+  }
+
+  .nav-card-name {
+    margin-right: 160px;
+  }
+}
+
+.order-card-resource-item {
+  padding: 10px;
+}
+
+
+.card-btn {
+  margin-left: 220px;
 }

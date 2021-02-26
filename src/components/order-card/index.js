@@ -1,19 +1,15 @@
 import React, {useEffect, useState} from "react";
-import photo from '../../images/spec-card-img.png'
 import './order-card.scss'
-import CardItem from "../specification-card-item/card-item";
-
-
-import axios from "axios";
 import OrderCardProductsItem from "../order-card-pruducts-item";
 import OrderCardResourcesItem from "../order-card-resources-item";
+import axiosAPI from "../api/axiosApi";
 
 const OrderCard = ({active, order}) => {
 
   const [currentCardData, setCurrentCardData] = useState(null)
 
   const getCard = async (id) => {
-    const { data } = await axios.get(`https://api-smola-20.herokuapp.com/order/${id}/`)
+    const { data } = await axiosAPI.get(`https://api-smola-20.herokuapp.com/order/${id}/`)
     return data
   }
 
@@ -34,25 +30,28 @@ const OrderCard = ({active, order}) => {
             <div className="specification-card-title">Товары</div>
           </div>
           <div className="nav-card-products">
-            <div>ID</div>
-            <div>Название</div>
-            <div>Количество</div>
+            <div className={'ID'}>ID</div>
+            <div className={'nav-card-name'}>Название</div>
+            <div className={'nav-card-count'}>Количество</div>
           </div>
-          {
-            currentCardData ? <OrderCardResourcesItem data={currentCardData}/> : ''
-          }
+          <div className={'order-card-resource-item'}>
+            {
+              currentCardData ? <OrderCardResourcesItem data={currentCardData}/> : ''
+            }
+          </div>
           <div className="header-specification-card">
             <div className="specification-card-title">Ресурсы</div>
           </div>
           <div className="nav-card-products">
-            <div>ID</div>
-            <div>Название</div>
-            <div>Количество</div>
+            <div className={'ID'}>ID</div>
+            <div className={'nav-card-name'}>Название</div>
+            <div className={'nav-card-count'}>Количество</div>
           </div>
-          {
-            currentCardData ? <OrderCardProductsItem data={currentCardData}/> : ''
-          }
-
+          <div className={'order-card-resource-item'}>
+            {
+              currentCardData ? <OrderCardProductsItem data={currentCardData}/> : ''
+            }
+          </div>
           <button className={'card-btn'}>Собрать</button>
         </div>
       </div>

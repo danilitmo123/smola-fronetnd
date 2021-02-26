@@ -47,15 +47,16 @@ const OrderItem = ({order, onSelect}) => {
         onSelect(order.id)
     }
 
+    console.log(order.order_specification.assembled)
+
     return (
-        <div className="product-item-wrapper">
-            <div className="item-wrapper">
-                <Link to={"/order/" + order.id}>Просмотр</Link>
-                <div className="product-item name">{order.external_id}</div>
-                <div className="product-item name">{textStatus(order.status)}</div>
-                <div className="product-item name">{getDate(createDate)}</div>
-                <div className="product-item name">{order.source.name}</div>
-                <div className="product-item name">{order.available}</div>
+        <div className="order-item-wrapper">
+            <div className="order-wrapper" onClick={onClick}>
+                <div className="order-item id">{order.external_id}</div>
+                <div className="order-item status">{textStatus(order.status)}</div>
+                <div className="order-item date">{getDate(createDate)}</div>
+                <div className="order-item name">{order.source.name}</div>
+                <div className="order-item available">{order.order_specification.assembled}</div>
             </div>
         </div>
     )
