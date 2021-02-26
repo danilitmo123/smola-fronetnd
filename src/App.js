@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 
-import {BrowserRouter as Router, Switch, Route, useHistory} from "react-router-dom";
+import {BrowserRouter as Router, useHistory} from "react-router-dom";
 import './App.css';
 import * as PropTypes from "prop-types";
 import {connect, useDispatch, useSelector} from "react-redux";

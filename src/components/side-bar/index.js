@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import {Link, useHistory} from "react-router-dom";
+import React from 'react'
+import {Link} from "react-router-dom";
 import logo from '../../images/avatar.svg'
 import firstItem from '../../images/first-side-bar-item.svg'
 import firstItemActive from '../../images/first-side-bar-active.svg'
@@ -17,28 +17,14 @@ import {logoutUser} from "../../actions/auth-actions";
 const SideBar = () => {
 
     const switcher = useSelector(state => state.switchPage)
-    const {specificationPage, resourcePage, orderPage, mainPage} = switcher
-
-    console.log("Side bar render " + new Date())
-
-    const history = useHistory();
-
-    const handleLogout = async () => {
-        await logoutUser();
-        history.push("login/");
-    };
+    const {specificationPage, resourcePage, orderPage, mainPage, profilePage} = switcher
 
     const dispatch = useDispatch()
-
-    console.log(specificationPage)
-    console.log(resourcePage)
-    console.log(orderPage)
-    console.log(mainPage)
 
     return (
         <div className="side-bar">
             <div className="side-bar-logo">Smola20.ru</div>
-            <Link to={'/profile'}>
+            <Link to={'/profile'} onClick={e => dispatch(action.switchProfileAction())} className={'Link'}>
                 <div className="profile-logo">
                     <img src={logo} alt={'profile-logo'}/>
                     <div className="user">Филлип Пузырев<br/>smola20@info.ru</div>

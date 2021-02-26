@@ -9,7 +9,7 @@ import CreateResourceModal from "../create-resource-modal";
 import CreateSpecificationModal from "../create-specification-modal"
 import UploadResources from "../upload-resource-modal"
 
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import FilterModal from "../filter-modal";
 import CreateOrderModal from "../create-order-modal";
 import {logoutUser} from "../../actions/auth-actions"
@@ -17,14 +17,13 @@ import {logoutUser} from "../../actions/auth-actions"
 const Header = () => {
 
 
-    const dispatch = useDispatch();
     const switcher = useSelector(state => state.switchPage)
     const {specificationPage, resourcePage, orderPage, mainPage} = switcher
+
     const [filterModalActive, setFilterModalActive] = useState(false)
     const [resourceModalActive, setResourceModalActive] = useState(false)
     const [specificationModalActive, setSpecificationActive] = useState(false)
     const [uploadResourceModalActive, setUploadResourceModalActive] = useState(false)
-    const [createOrderModal, setCreateModalActive] = useState(false)
     const [orderModalActive, setOrderModalActive] = useState(false)
 
     const handleLogout = async () => {
