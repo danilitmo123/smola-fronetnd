@@ -5,7 +5,7 @@ import './order-item.scss'
 
 const OrderItem = ({order, onSelect}) => {
 
-
+    console.log(order)
     const textStatus = (code) => {
         switch (code) {
             case "INC":
@@ -56,7 +56,10 @@ const OrderItem = ({order, onSelect}) => {
                 <div className="order-item status">{textStatus(order.status)}</div>
                 <div className="order-item date">{getDate(createDate)}</div>
                 <div className="order-item name">{order.source.name}</div>
-                <div className="order-item available">{order.order_specification.assembled}</div>
+                <div className="order-item available">{
+                    order.missing_resources.length && order.missing_specifications.length ?
+                             <div>Нельзя собрать</div> : <div>Можно собрать</div>
+                }</div>
             </div>
         </div>
     )

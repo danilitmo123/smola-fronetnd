@@ -24,7 +24,6 @@ const MainFrame = () => {
                 <Route path={'/specification/'} component={SpecificationScreen}/>
                 <Route path={'/resources/'} component={ResourceScreen}/>
                 <Route path={'/orders/'} component={OrderScreen}/>
-                <Route path={'/order/:order_id/'} component={OrderDetail}/>
                 <Route path={'/profile/'} component={ProfileScreen}/>
             </Switch>
         </div>

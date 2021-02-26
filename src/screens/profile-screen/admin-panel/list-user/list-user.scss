@@ -10,7 +10,12 @@
 
   .profile-card-wrapper {
 
-    .profile
+    .profile-card-role {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 5px;
+    }
 
     .role {
       display: flex;

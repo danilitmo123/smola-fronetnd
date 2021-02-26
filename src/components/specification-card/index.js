@@ -42,7 +42,9 @@ const SpecificationCard = ({active, specification}) => {
               <div className="about-store on-collected">Можно собрать из имеющихся ресурсов <span>35</span>шт</div>
             </div>
           </div>
-          <div className="info-resource-title">Ресурсы</div>
+          <div className="info-resource-title-wrapper">
+            <div className="info-resource-title">Ресурсы</div>
+          </div>
           <div className="resource-info-block">
             <div className="resource-nav">
               <div className="nav-id">ID</div>

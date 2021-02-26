@@ -102,4 +102,23 @@
       }
     }
   }
+
+  .logout-btn {
+    background-color: #F1DB10 ;
+    border: none;
+    box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
+    color: #ffffff;
+    border-radius: 4px;
+    width: 95px;
+    height: 42px;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+
+    &:focus,
+    &:hover {
+      outline: none;
+      cursor: pointer;
+    }
+  }
 }

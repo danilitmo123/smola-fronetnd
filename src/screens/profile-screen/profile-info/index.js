@@ -57,10 +57,13 @@ const ProfileInfo = () => {
                         Фамилия: <input type="text" value={lastName ? lastName : profile.last_name}
                                         onChange={e => setLastName(e.target.value)}/>
                     </div>
-                    <div className={'profile-info-text'}>
-                        Роль: {profile.role === 40 ? <div>Админ</div>
-                        : profile.role === 30 ? <div>Работник офиса</div>
-                        : profile.role === 20 ? <div>Работник склада</div> : null}
+                    <div className={'profile-info-role'}>
+                        <div>Роль:</div>
+                        <div>
+                        {profile.role === 40 ? <div>Админ</div>
+                            : profile.role === 30 ? <div>Работник офиса</div>
+                                : profile.role === 20 ? <div>Работник склада</div> : null}
+                    </div>
                     </div>
                     <button type={'submit'}>Подтведить</button>
                 </form>
