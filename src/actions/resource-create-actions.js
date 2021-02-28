@@ -31,9 +31,7 @@ export const createResourceAction = (name, external_id, provider_name, cost, amo
     } catch (error) {
         dispatch({
             type: RESOURCE_CREATE_FAIL,
-            payload: error.response && error.response.data.detail
-                ? error.response.data.detail
-                : error.message
+            payload: error.response.data
         })
     }
 }

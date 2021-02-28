@@ -6,7 +6,7 @@ import './specification-resource.scss'
 const SpecificationResource = ({number, resourceList, onResourceAdd, onAmountChange}) => {
 
     const [id, setId] = useState("");
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState(1);
     const [activeAmount, setActiveAmount] = useState(false)
     const [value, setValue] = useState("")
 
