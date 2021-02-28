@@ -6,6 +6,20 @@
   align-items: center;
   margin-top: 12px;
 
+  .filter-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .buttons-wrapper {
+    margin-right: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
   .group-btn {
     display: flex;
     justify-content: center;

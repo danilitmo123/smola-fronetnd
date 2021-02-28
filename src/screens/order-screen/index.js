@@ -29,7 +29,7 @@ const OrderScreen = () => {
     console.log("ORDER SCREEN render " + new Date())
 
     return (
-        <div className="home-screen-wrapper">
+        <div className="order-screen-wrapper">
             <div className="menu-wrapper">
                 <div className="nav-item">ID заказа</div>
                 <div className="nav-item">Статус</div>

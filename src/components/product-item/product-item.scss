@@ -12,14 +12,14 @@
   .delete-btn {
     font-family: 'Montserrat', sans-serif;
     background-color: #ffffff;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     color: #737B7D;
     position: absolute;
-    bottom: -15px;
+    bottom: -30px;
     right: 50px;
-    height: 30px;
-    width: 100px;
+    height: 20px;
+    width: 80px;
     border-radius: 6px;
     box-shadow: 0 0 20px rgba(34, 60, 80, 0.13);
     border: 1px solid #F1DB10;
@@ -99,7 +99,8 @@
     }
 
     .count {
-      text-align: left;
+      text-align: center;
+      margin-left: 20px;
       margin-right: 110px;
     }
 

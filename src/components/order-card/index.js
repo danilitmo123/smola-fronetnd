@@ -52,7 +52,7 @@ const OrderCard = ({active, order}) => {
               currentCardData ? <OrderCardProductsItem data={currentCardData}/> : ''
             }
           </div>
-          <button className={'card-btn'}>Собрать</button>
+          {/*<button className={'card-btn'}>Собрать</button>*/}
         </div>
       </div>
   )

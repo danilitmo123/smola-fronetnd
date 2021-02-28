@@ -28,19 +28,18 @@ const SpecificationScreen = () => {
             setSelectedItem(value)
         }
     }
-    console.log("SPEC SCREEN render " + new Date())
 
     return (
         <div className="specification-screen-wrapper">
             <div className="menu-wrapper">
                 <div className="nav-item id">ID</div>
-                <div className="nav-item">Название</div>
-                <div className="nav-item">Себестоимость</div>
-                <div className="nav-item">Маржа</div>
-                <div className="nav-item">Коэф наценки</div>
-                <div className="nav-item">Реком цена</div>
-                <div className="nav-item">Текущая цена</div>
-                <div className="nav-item">Категория</div>
+                <div className="nav-item name">Название</div>
+                <div className="nav-item self-cost">Себестоимость</div>
+                <div className="nav-item marja">Маржа</div>
+                <div className="nav-item coefficient">Коэф наценки</div>
+                <div className="nav-item best-price">Реком цена</div>
+                <div className="nav-item now-price">Текущая цена</div>
+                <div className="nav-item category">Категория</div>
                 <div className="nav-item">ID продукта</div>
             </div>
             {

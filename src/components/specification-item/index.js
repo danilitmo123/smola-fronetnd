@@ -55,7 +55,7 @@ const SpecificationItem = ({onSelect, specification}) => {
           </div>
           <div className="product-item name">{specification.name}</div>
           <div className="product-item cost-price">{specification.prime_cost ? parseInt(specification.prime_cost) : 'нет'}</div>
-          <div className="product-item marja">{((parseFloat(price) - parseFloat(specification.prime_cost)) / parseFloat(price)).toFixed(2)}</div>
+          <div className="product-item marja">{specification.prime_cost ? ((parseFloat(price) - parseFloat(specification.prime_cost)) / parseFloat(price)).toFixed(2) : 'нет'}</div>
           <form className="form-wrapper" onSubmit={submitCoefficientHandler}>
             <input
                 type={'number'}

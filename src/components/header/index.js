@@ -18,7 +18,7 @@ const Header = () => {
 
 
     const switcher = useSelector(state => state.switchPage)
-    const {specificationPage, resourcePage, orderPage, mainPage} = switcher
+    const {specificationPage, resourcePage, orderPage, mainPage, profilePage} = switcher
 
     const [filterModalActive, setFilterModalActive] = useState(false)
     const [resourceModalActive, setResourceModalActive] = useState(false)
@@ -33,40 +33,42 @@ const Header = () => {
 
     return (
         <div className="header-wrapper">
-            <div className="filter-btn">
-              <button onClick={() => setFilterModalActive(true)}><img src={filter} alt={'filter'}/>Фильтр</button>
-            </div>
+          { mainPage || profilePage ? ''
+           : <div className={'filter-wrapper'}>
+                <div className="filter-btn">
+                  <button onClick={() => setFilterModalActive(true)}><img src={filter} alt={'filter'}/>Фильтр</button>
+                </div>
 
-            <div className="search-panel">
-              <input type="text" placeholder={'Поиск по названию'}/>
-            </div>
-            {
-                specificationPage ?
-                    <div className="add-btn">
-                        <button onClick={() => setSpecificationActive(true)}>Добавить спецификацию</button>
-                    </div>
-                    : orderPage ?
-                    <div className="add-btn">
-                        <button onClick={() => setOrderModalActive(true)}>Добавить заказ</button>
-                    </div>
-                    : resourcePage ?
-                        <div className={'group-btn'}>
-                            <div className="add-btn">
-                                <button onClick={() => setUploadResourceModalActive(true)}>Загрузить ресурсы</button>
-                            </div>
-                            <div className="add-btn">
-                                <button onClick={() => setResourceModalActive(true)}>Добавить ресурс</button>
-                            </div>
-                        </div>
-                        : null
-            }
-            <button onClick={handleLogout} className={'logout-btn'}>Выйти</button>
-
-            <div className="nav-bar">
-                <img src={notifications} alt={'notifications'}/>
-                <img src={settings} alt={'settings'}/>
-                <img src={avatar} alt={'profile'}/>
-            </div>
+                <div className="search-panel">
+                  <input type="text" placeholder={'Поиск по названию'}/>
+                </div>
+              </div>
+          }
+                <div className={'buttons-wrapper'}>
+                  <div className="first-group">
+                    {
+                      specificationPage ?
+                          <div className="add-btn">
+                            <button onClick={() => setSpecificationActive(true)}>Добавить спецификацию</button>
+                          </div>
+                          : orderPage ?
+                          <div className="add-btn">
+                            <button onClick={() => setOrderModalActive(true)}>Добавить заказ</button>
+                          </div>
+                          : resourcePage ?
+                              <div className={'group-btn'}>
+                                <div className="add-btn">
+                                  <button onClick={() => setUploadResourceModalActive(true)}>Загрузить ресурсы</button>
+                                </div>
+                                <div className="add-btn">
+                                  <button onClick={() => setResourceModalActive(true)}>Добавить ресурс</button>
+                                </div>
+                              </div>
+                              : null
+                    }
+                  </div>
+                  <button onClick={handleLogout} className={'logout-btn'}>Выйти</button>
+                </div>
 
             <FilterModal active={filterModalActive} setActive={setFilterModalActive}/>
             <CreateOrderModal active={orderModalActive} setActive={setOrderModalActive}/>

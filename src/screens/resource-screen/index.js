@@ -24,7 +24,7 @@ const ResourceScreen = () => {
                 <div className="nav-item id">ID</div>
                 <div className="nav-item name">Название</div>
                 <div className="nav-item">Цена, руб</div>
-                <div className="nav-item">Количество</div>
+                <div className="nav-item count">Количество</div>
                 <div className="nav-item">Поставщик</div>
                 <div className="nav-item last-change-price">Последнее изменение цены</div>
                 <div className="nav-item last-change-count">Последнее <br/> изменение количетсва</div>
