@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as pages from "../../constants/deafult-pages"
 
-const baseURL = 'https://api-smola-20.herokuapp.com/';
+const baseURL = 'https://api-smola-20.herokuapp.com//';
 const accessToken = localStorage.getItem("access_token");
 
 const axiosAPI = axios.create({

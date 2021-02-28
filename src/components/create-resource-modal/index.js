@@ -14,6 +14,7 @@ const CreateResourceModal = ({active, setActive}) => {
     const [provider_name, setProviderName] = useState("");
     const [amount, setAmount] = useState(0.0);
     const [external_id, setExternalId] = useState("");
+    const [amountLimit, setAmountLimit] = useState(10.0);
 
     const reloadData = () => {
         setCost(0.0)
@@ -21,11 +22,12 @@ const CreateResourceModal = ({active, setActive}) => {
         setProviderName('')
         setAmount(0.0)
         setExternalId('')
+        setAmountLimit((10.0))
     }
 
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(createResourceAction(name, external_id, provider_name, cost, amount));
+        dispatch(createResourceAction(name, external_id, provider_name, cost, amount, amountLimit));
         setActive(false);
         reloadData()
     }
@@ -64,6 +66,11 @@ const CreateResourceModal = ({active, setActive}) => {
                             className={'create-resource-input'}
                            onChange={e => setAmount(parseFloat(e.target.value))}
                            value={amount}/>
+                    <label htmlFor="amountLimit" className={'resource-create-title'}>Минимальное критическое значение</label>
+                    <input  type="number" step="0.01" name="amountLimit" id="amountLimit"
+                            className={'create-resource-input'}
+                            onChange={e => setAmountLimit(parseFloat(e.target.value))}
+                            value={amountLimit}/>
                 </div>
                 <button className={'filter-btn'} type={'submit'}>Применить</button>
             </form>
