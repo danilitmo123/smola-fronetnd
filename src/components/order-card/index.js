@@ -3,6 +3,7 @@ import './order-card.scss'
 import OrderCardProductsItem from "../order-card-pruducts-item";
 import OrderCardResourcesItem from "../order-card-resources-item";
 import axiosAPI from "../api/axiosApi";
+import Loader from "../spinner";
 
 const OrderCard = ({active, order}) => {
 
@@ -20,38 +21,42 @@ const OrderCard = ({active, order}) => {
       }))
     }
   }, [order])
+  console.log(currentCardData)
 
   return (
       <div className="close-wrapper">
         <div
             onClick={e => e.stopPropagation()}
             className={active ? "specification-card-wrapper active" : "specification-card-wrapper"}>
-          <div className="header-specification-card">
-            <div className="specification-card-title">Товары</div>
-          </div>
-          <div className="nav-card-products">
-            <div className={'ID'}>ID</div>
-            <div className={'nav-card-name'}>Название</div>
-            <div className={'nav-card-count'}>Количество</div>
-          </div>
-          <div className={'order-card-resource-item'}>
-            {
-              currentCardData ? <OrderCardResourcesItem data={currentCardData}/> : ''
-            }
-          </div>
-          <div className="header-specification-card">
-            <div className="specification-card-title">Ресурсы</div>
-          </div>
-          <div className="nav-card-products">
-            <div className={'ID'}>ID</div>
-            <div className={'nav-card-name'}>Название</div>
-            <div className={'nav-card-count'}>Количество</div>
-          </div>
-          <div className={'order-card-resource-item'}>
-            {
-              currentCardData ? <OrderCardProductsItem data={currentCardData}/> : ''
-            }
-          </div>
+          {
+            currentCardData ? currentCardData.order_specification.length ?
+                <div>
+                  <div className="header-specification-card">
+                    <div className="specification-card-title">Товары</div>
+                  </div>
+                  <div className="nav-card-products">
+                    <div className={'ID'}>ID</div>
+                    <div className={'nav-card-name'}>Название</div>
+                    <div className={'nav-card-count'}>Количество</div>
+                  </div>
+                  <div className={'order-card-resource-item'}>
+                    {
+                      currentCardData ? <OrderCardResourcesItem data={currentCardData}/> : ''
+                    }
+                  </div>
+                  <div className="header-specification-card">
+                    <div className="specification-card-title">Ресурсы</div>
+                  </div>
+                  <div className={'order-card-resource-item'}>
+                    {
+                      currentCardData ? <OrderCardProductsItem data={currentCardData}/> : ''
+                    }
+                  </div>
+                </div> :
+                <div className="no-order-wrapper">
+                  <div className={'no-order'}>Пустой заказ</div>
+                </div> : <Loader/>
+          }
           {/*<button className={'card-btn'}>Собрать</button>*/}
         </div>
       </div>

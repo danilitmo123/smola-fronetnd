@@ -44,7 +44,7 @@ const SpecificationCard = ({active, specification}) => {
               <div className="nav-name">Название</div>
               <div className="resource-count">Количество</div>
             </div>
-            <div>
+            <div className={'scroll-div'}>
               { currentCardData ?
                   <CardItem data={currentCardData}/>
                   : <Loader/>

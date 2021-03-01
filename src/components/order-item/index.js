@@ -21,7 +21,6 @@ const OrderItem = ({order, onSelect}) => {
                 return "Отменён";
             case "ARC":
                 return "Архив";
-
         }
     }
 
@@ -55,11 +54,11 @@ const OrderItem = ({order, onSelect}) => {
                 <div className="order-item name">{order.source ? order.source.name : "нет"}</div>
                 <div className="order-item available">{
                     order.missing_resources.length && order.missing_specifications.length ?
-                             <div>Нельзя собрать</div> : <div>Можно собрать</div>
-                }</div>
+                        <div>Нельзя собрать</div> : <div>Можно собрать</div>
+                } </div>
             </div>
-        </div>
-    )
+        </div>)
+
 }
 
 export default OrderItem;
