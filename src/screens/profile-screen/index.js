@@ -1,9 +1,14 @@
 import ProfileInfo from "./profile-info";
 import ChangePasswordBlock from "./change-password";
+import {useDispatch} from "react-redux";
+import {useEffect} from "react";
+import {switchProfileAction} from "../../actions/switch-page-actions";
 
 const ProfileScreen = () => {
-    console.log("Profile screen render")
-    console.log("Profile pathname: " + window.location.pathname)
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(switchProfileAction())
+    })
     return (
         <div>
             <ProfileInfo/>

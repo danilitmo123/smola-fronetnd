@@ -4,6 +4,8 @@ import './create-resource-modal.scss'
 import {createResourceAction} from "../../actions/resource-create-actions";
 import {useDispatch, useSelector} from "react-redux";
 import Loader from "../spinner";
+import axiosAPI from "../api/axiosApi";
+import {listProducts} from "../../actions/product-actions";
 
 
 const CreateResourceModal = ({active, setActive}) => {
@@ -16,7 +18,8 @@ const CreateResourceModal = ({active, setActive}) => {
     const [amount, setAmount] = useState(0.0);
     const [external_id, setExternalId] = useState("");
     const [amountLimit, setAmountLimit] = useState(10.0);
-    const {error, loading, createResourceInfo} = useSelector(state => state.createResource)
+    const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     const reloadData = () => {
         setCost(0.0)
@@ -29,9 +32,26 @@ const CreateResourceModal = ({active, setActive}) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(createResourceAction(name, external_id, provider_name, cost, amount, amountLimit));
-        setActive(false);
-        reloadData()
+        setLoading(true)
+        axiosAPI.post('resource/create/',
+            {
+                'name': name,
+                'external_id': external_id,
+                'provider_name': provider_name,
+                'cost': cost,
+                'amount': amount,
+                'amount_limit': amountLimit
+            }
+        )
+            .then(response => {
+                setActive(false)
+                dispatch(listProducts())
+                reloadData()
+            })
+            .catch(error => {
+                setLoading(false)
+                setError(error.response.data)
+            })
     }
 
     return (

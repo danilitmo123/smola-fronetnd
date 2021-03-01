@@ -14,14 +14,44 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 30px;
     z-index: 0;
 
+    .id {
+      margin-left: 25px;
+      margin-right: 90px;
+    }
+
+    .name {
+      margin-right: 100px;
+    }
+
+    .self-cost {
+      margin-right: 40px;
+    }
+
+    .marja {
+      margin-right: 55px;
+    }
+
+    .coefficient {
+      margin-right: 55px;
+    }
+
+    .best-price {
+      margin-right: 40px;
+    }
+
+    .now-price {
+      margin-right: 40px;
+    }
+
+
+
     .nav-item {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 500;
-      font-size: 13px;
-      color: #737B7D;
+      font-family: 'Montserrat', sans-serif !important;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+      color: #737B7D !important;
     }
   }
 }

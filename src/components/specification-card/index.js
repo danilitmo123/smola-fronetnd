@@ -3,28 +3,21 @@ import photo from '../../images/spec-card-img.png'
 import './specification-card.scss'
 import CardItem from "../specification-card-item/card-item";
 import Loader from "../spinner";
-
-
-import axios from "axios";
 import axiosAPI from "../api/axiosApi";
 
 const SpecificationCard = ({active, specification}) => {
 
   const [currentCardData, setCurrentCardData] = useState(null)
 
-  const getCard = async (id) => {
-    const { data } = await axiosAPI.get(`https://api-smola-20.herokuapp.com/specification/${id}/`)
-    console.log(data)
-    return data
-  }
-
   useEffect(() => {
     if (specification){
-      getCard(specification.id).then((newCard => {
-        setCurrentCardData(newCard)
+      axiosAPI.get('specification/' + specification.id).then((response => {
+        console.log(response)
+        setCurrentCardData(response.data)
       }))
     }
   }, [specification])
+
 
 
   return (
@@ -38,8 +31,8 @@ const SpecificationCard = ({active, specification}) => {
           <div className="specification-card-info">
             <img src={photo} alt="" className={'specification-card-img'}/>
             <div className="specification-card-store">
-              <div className="about-store on-store">Собранных на складе <span>{5}</span>шт</div>
-              <div className="about-store on-collected">Можно собрать из имеющихся ресурсов <span>35</span>шт</div>
+              <div className="about-store on-store">Собранных на складе <span>{currentCardData ? currentCardData.amount : null}</span> шт</div>
+              <div className="about-store on-collected">Можно собрать из имеющихся ресурсов <span>{currentCardData ? currentCardData.available_to_assemble : null}</span> шт</div>
             </div>
           </div>
           <div className="info-resource-title-wrapper">
@@ -58,7 +51,7 @@ const SpecificationCard = ({active, specification}) => {
               }
             </div>
           </div>
-          <button className={'card-btn'}>Изменить</button>
+          {/*<button className={'card-btn'}>Изменить</button>*/}
         </div>
       </div>
   )

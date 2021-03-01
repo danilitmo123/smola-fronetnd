@@ -23,7 +23,7 @@ const MainFrame = () => {
                 <Route path={'/specification/'} component={SpecificationScreen}/>
                 <Route path={'/resources/'} component={ResourceScreen}/>
                 <Route path={'/orders/'} component={OrderScreen}/>
-                <Route path={'/profile/'} component={ProfileScreen}/>
+                <Route path={'/profile/'} component={ProfileScreen} />
             </Switch>
         </div>
     )

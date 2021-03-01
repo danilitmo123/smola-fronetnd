@@ -4,13 +4,22 @@ import {
     SPECIFICATION_LIST_SUCCESS
 } from "../constants/specification-constans";
 import axiosAPI from "../components/api/axiosApi";
+import store from "../store";
+
+async function get(){
+
+    if (store.getState().searching && store.getState().searching.searchSpecification) {
+        return await axiosAPI.get('specification/list/?search=' + store.getState().searching.searchSpecification)
+    } else {
+        return await axiosAPI.get('specification/list/')
+    }
+}
 
 export const listSpecifications = () => async (dispatch) => {
     try {
         dispatch({type: SPECIFICATION_LIST_REQUEST})
 
-        const { data } = await axiosAPI.get('specification/list/')
-
+        const {data} = await get()
         dispatch({
             type: SPECIFICATION_LIST_SUCCESS,
             payload: data.results

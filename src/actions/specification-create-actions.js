@@ -27,7 +27,6 @@ export const createSpecificationAction = (name, product_id, price, coefficient, 
         })
 
     } catch (error) {
-        console.log(error.response.data)
         dispatch({
             type: SPECIFICATION_CREATE_FAIL,
             payload: error.response.data

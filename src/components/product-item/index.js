@@ -50,7 +50,7 @@ const ProductItem = ({product}) => {
         setShowDeleteBtn(event.target.checked)
     }
 
-    console.log("Resource screen render " + new Date())
+    console.log(product)
 
     return (
         <div className="product-item-wrapper">
@@ -62,21 +62,19 @@ const ProductItem = ({product}) => {
                 <form className="form-wrapper" onSubmit={submitHandler}>
                     <input
                         type={'number'}
-                        step={0.01}
                         name={'price'}
                         onChange={e => setPrice(e.target.value)}
-                        value={parseFloat(price).toFixed(2)}
+                        value={parseFloat(price)}
                         className={'product-item price'}/>
                     <button type={'submit'}>✓</button>
                 </form>
-                <div className="product-item count">{product.amount ? product.amount : .0}</div>
+                <div className="product-item count">{product.amount ? parseInt(product.amount) : 0}</div>
                 <div className="product-item diller">{product.provider ? product.provider.name : 'отсутствует'}</div>
                 <div className="product-item last-price-change">{getDate(dateCost)}</div>
                 <div className="product-item last-count-change">{getDate(dateCount)}</div>
             </div>
             <form>
-                <button className={showDeleteBtn ? 'delete-btn active' : 'delete-btn'} onClick={deleteHandler}>Удалить
-                </button>
+                <button className={showDeleteBtn ? 'delete-btn active' : 'delete-btn'} onClick={deleteHandler}>Удалить</button>
             </form>
         </div>
     )

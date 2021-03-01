@@ -6,8 +6,10 @@ import ErrorMessage from "../../components/error-message";
 import OrderCard from "../../components/order-card";
 import './order-screen.scss'
 import OrderItem from "../../components/order-item";
+import {switchMainPageAction, switchOrderPageAction} from "../../actions/switch-page-actions";
 
 const OrderScreen = () => {
+
 
     const dispatch = useDispatch()
     const orderList = useSelector(state => state.orderList)
@@ -22,6 +24,9 @@ const OrderScreen = () => {
         }
     }
 
+    useEffect(()=>{
+        dispatch(switchOrderPageAction())
+    })
     useEffect(() => {
         dispatch(listOrders())
     }, [dispatch])
@@ -29,7 +34,7 @@ const OrderScreen = () => {
     console.log("ORDER SCREEN render " + new Date())
 
     return (
-        <div className="home-screen-wrapper">
+        <div className="order-screen-wrapper">
             <div className="menu-wrapper">
                 <div className="nav-item">ID заказа</div>
                 <div className="nav-item">Статус</div>

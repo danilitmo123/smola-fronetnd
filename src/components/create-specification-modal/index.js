@@ -1,14 +1,12 @@
 import React, {useEffect, useState} from 'react'
 
 import './create-specification-modal.scss'
-import {createSpecificationAction} from "../../actions/specification-create-actions";
 import {listSpecifications} from "../../actions/specification-actions"
 import {useDispatch, useSelector} from "react-redux";
 import SpecificationResource from "./specification-resource"
 import {shortlistResources} from "../../actions/resource-shortlist-actions"
 import Loader from "../spinner";
-import {SPECIFICATION_CREATE_RELOAD} from "../../constants/specification-create-constants"
-import store from "../../store";
+import axiosAPI from "../api/axiosApi";
 
 const CreateSpecificationModal = ({active, setActive}) => {
 
@@ -22,11 +20,11 @@ const CreateSpecificationModal = ({active, setActive}) => {
     const [resources_list, setResourceList] = useState([]);
     const [resourceListForOption, setResourceListForOption] = useState([]);
     const [storageAmount, setStorageAmount] = useState(0);
-
+    const [error, setError] = useState();
+    const [loading, setLoading] = useState(false);
+    const [counter, setCounter] = useState(0)
     const resourceList = useSelector(state => state.resourcesShortlist)
-    const createSpecificationResponse = useSelector(state => state.createSpecification)
     const {resourceShortList} = resourceList
-    const {error, loading, createSpecificationInfo} = createSpecificationResponse
 
     const reloadData = () => {
         setPrice(0.0)
@@ -38,20 +36,13 @@ const CreateSpecificationModal = ({active, setActive}) => {
         setResourceListForOption([])
         setResourceList([])
         setResourceDict({})
+        setError(null)
+        setLoading(false)
     }
 
     useEffect(() => {
         dispatch(shortlistResources())
     }, [dispatch])
-
-    useEffect( () =>{
-        // console.log("use Effect in")
-        // console.log(store.getState())
-        if (store.getState().createSpecification && store.getState().createSpecification.createSpecificationInfo){
-            console.log("use Effect if ")
-            setActive(false)
-        }
-    })
 
     const addResourceToDict = id => {
         resource_dict[id] = 1;
@@ -61,39 +52,55 @@ const CreateSpecificationModal = ({active, setActive}) => {
         resource_dict[id] = amount;
     }
 
+    const changeResource = (old_id, new_id) => {
+        resource_dict[new_id] = resource_dict[old_id]
+        delete resource_dict[old_id]
+    }
 
-    const unsubscribe = store.subscribe(() => {
-
-        if (store.getState().createSpecification && store.getState().createSpecification.createSpecificationInfo) {
-            console.log("dedeeded")
-            console.log(store.getState())
-            console.log("finisshed")
-            // dispatch({type: SPECIFICATION_CREATE_RELOAD})
-            dispatch(listSpecifications())
-        }
-    })
+    const removeResource = (id, index) => {
+        delete resource_dict[id]
+        setResourceListForOption([...resourceListForOption.slice(0, index), ...resourceListForOption.slice(index + 1)])
+    }
 
     const submitHandler = (e) => {
         e.preventDefault()
         for (let resource in resource_dict) {
             resources_list.push({"id": resource, "amount": resource_dict[resource]})
         }
-        dispatch(createSpecificationAction(name, product_id, price, coefficient, categoryName, resources_list, storageAmount));
-        setResourceList([])
-        if (createSpecificationInfo) {
-            setActive(false)
-        }
-
+        console.log(resources_list)
+        setLoading(true)
+        axiosAPI.post(
+            'specification/create/',
+            {
+                'name': name,
+                'product_id': product_id,
+                'price': price,
+                'coefficient': coefficient,
+                'category_name': categoryName,
+                'resources_create': resources_list,
+                'amount': storageAmount
+            }
+        )
+            .then(response => {
+                setActive(false)
+                dispatch(listSpecifications())
+                reloadData()
+            })
+            .catch(error => {
+                setLoading(false)
+                setError(error.response.data)
+                setResourceList([])
+            });
     }
 
 
     const addResourceSelect = e => {
         e.preventDefault();
-        console.log(resourceShortList)
+        setCounter(counter + 1)
         const nextResourceListForOption = [...resourceListForOption,
             (<SpecificationResource number={resourceListForOption.length}
                                     resourceList={resourceShortList} onAmountChange={setResourceAmount}
-                                    onResourceAdd={addResourceToDict}/>)]
+                                    onResourceAdd={addResourceToDict} index={counter} remove={removeResource} change={changeResource}/>)]
         setResourceListForOption(nextResourceListForOption)
     }
 

@@ -25,6 +25,7 @@ import {profileCreateReducers} from "./reducers/profile-create-reducers"
 import {switchPageReducers} from "./reducers/switch-page-reducers"
 import {checkAuthReducers} from "./reducers/check-auth-reducers"
 import {editProfileReducers} from "./reducers/profile-edit"
+import {searchReducer} from "./reducers/search-reducers"
 
 const reducer = combineReducers({
     productList: productListReducers,
@@ -50,10 +51,11 @@ const reducer = combineReducers({
     profileChangePassword: profileChangePasswordReducers,
     switchPage: switchPageReducers,
     checkAuth: checkAuthReducers,
-    editProfile: editProfileReducers
+    editProfile: editProfileReducers,
+    searching: searchReducer
 })
 
-const initialState = {specificationPage: false, resourcePage: false, orderPage: false, mainPage: true}
+const initialState = {switchPage: {mainPage: true}}
 
 const middleware = [thunk]
 

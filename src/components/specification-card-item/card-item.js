@@ -8,7 +8,7 @@ const CardItem = ({data}) => {
       <div className={'resource-item-wrapper'}>
         <div className={'resource-external-id'}>{item.resource.external_id}</div>
         <div className={'resource-name'}>{item.resource.name}</div>
-        <div className={'resource-amount'}>{item.resource.amount}</div>
+        <div className={'resource-amount'}>{item.amount}</div>
       </div>
   ))
 

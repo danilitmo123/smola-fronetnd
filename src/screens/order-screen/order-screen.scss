@@ -1,4 +1,4 @@
-.home-screen-wrapper {
+.order-screen-wrapper {
   margin-top: 30px;
   position: relative;
 
@@ -8,7 +8,7 @@
     content: '';
     position: absolute;
     border-bottom: 1px solid #737B7D;
-    top: 35px;
+    top: 30px !important;
   }
 
   .menu-wrapper {
