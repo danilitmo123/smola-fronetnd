@@ -3,17 +3,18 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
+  gap: 60px;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 500;
 
   .ID {
-    margin-right: 210px;
+    margin-left: 15px;
+    margin-right: 140px;
   }
 
   .nav-card-name {
-    margin-right: 160px;
+    margin-right: 90px;
   }
 }
 
@@ -21,6 +22,18 @@
   padding: 10px;
 }
 
+.no-order-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .no-order {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+
+  }
+}
 
 .card-btn {
   margin-left: 220px;

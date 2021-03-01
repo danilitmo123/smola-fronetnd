@@ -41,6 +41,8 @@ const SpecificationItem = ({onSelect, specification}) => {
     setShowDeleteBtn(event.target.checked)
   }
 
+  console.log(specification)
+
   return (
       <div className="specification-item-wrapper" onClick={onClick} id={specification.id}>
         <div className="item-wrapper">
@@ -55,6 +57,7 @@ const SpecificationItem = ({onSelect, specification}) => {
           </div>
           <div className="product-item name">{specification.name}</div>
           <div className="product-item cost-price">{specification.prime_cost ? parseInt(specification.prime_cost) : 'нет'}</div>
+
           <div className="product-item marja">{specification.prime_cost ? ((parseFloat(price) - parseFloat(specification.prime_cost)) / parseFloat(price)).toFixed(2) : 'нет'}</div>
           <form className="form-wrapper" onSubmit={submitCoefficientHandler}>
             <input

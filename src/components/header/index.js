@@ -31,6 +31,9 @@ const Header = () => {
         window.location.href = "/login/"
     };
 
+  console.log(mainPage)
+  console.log(profilePage)
+
     return (
         <div className="header-wrapper">
           { mainPage || profilePage ? ''
