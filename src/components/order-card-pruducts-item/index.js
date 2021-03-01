@@ -5,8 +5,8 @@ import './order-card-products-item.scss'
 
 const OrderCardProductsItem = ({data}) => {
 
-    const [resourceDict, setResourceDict] = useState({})
-    const [resources, setResources] = useState([])
+    let resourceDict = {}
+    let resources = []
     let missingResources = data.missing_resources
 
 
