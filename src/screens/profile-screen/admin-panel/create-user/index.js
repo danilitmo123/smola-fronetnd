@@ -53,13 +53,19 @@ const AddUser = () => {
             </div>
             <form onClick={e => e.stopPropagation()} onSubmit={submitHandler}>
                 {errorMessage ? <div>{errorMessage}</div> : null}
-                <select onChange={e => setRole(e.target.value)} value={role}>
-                    <option value="30" key={"30"}>Офисный работник</option>
-                    <option value="20" key={"20"}>Работник склада</option>
-                </select>
-                <label htmlFor="currentPassword" className={'password'}>email</label>
-                <input id={"currentPassword"} type="email" value={email}
-                       onChange={e => setEmail(e.target.value)}/>
+               <div className="create-user-wrapper">
+                  <div>
+                    <select onChange={e => setRole(e.target.value)} value={role}>
+                      <option value="30" key={"30"}>Офисный работник</option>
+                      <option value="20" key={"20"}>Работник склада</option>
+                    </select>
+                  </div>
+                  <div className={'create-user-input'}>
+                    <label htmlFor="currentPassword" className={'create-user-email'}>Email</label>
+                    <input id={"currentPassword"} type="email" value={email}
+                           onChange={e => setEmail(e.target.value)}/>
+                  </div>
+               </div>
                 <button type={"submit"} className={'create-btn'}>Создать</button>
             </form>
         </div>

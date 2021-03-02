@@ -101,7 +101,7 @@ const CreateResourceModal = ({active, setActive}) => {
                            onChange={e => setAmountLimit(parseFloat(e.target.value))}
                            value={amountLimit}/>
                 </div>
-                {loading ? <Loader/> : <button className={'filter-btn'} type={'submit'}>Применить</button>}
+                {loading ? <Loader/> : <button className={'filter-btn'} type={'submit'} onClick={setActive(false)}>Применить</button>}
             </form>
         </div>
     )

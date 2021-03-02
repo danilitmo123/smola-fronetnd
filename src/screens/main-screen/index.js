@@ -4,10 +4,13 @@ import './main-screen.scss'
 import {useDispatch} from "react-redux";
 
 const MainScreen = () => {
+
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(switchMainPageAction())
     })
+  
+
   return(
       <div className={'main-screen-wrapper'}>
         <div className="main-screen-card">
