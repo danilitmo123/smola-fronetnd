@@ -7,9 +7,9 @@ import {
 export const specificationShortListReducers = (state = {resourceShortList: {}}, action) => {
     switch (action.type) {
         case SPECIFICATION_SHORTLIST_REQUEST:
-            return {loading: true, resourceShortList: {}}
+            return {loading: true, specificationsShortList: {}}
         case SPECIFICATION_SHORTLIST_SUCCESS:
-            return {loading: false, resourceShortList: {...action.payload}}
+            return {loading: false, specificationsShortList: {...action.payload}}
         case SPECIFICATION_SHORTLIST_FAIL:
             return {loading: false, error: action.payload}
         default:

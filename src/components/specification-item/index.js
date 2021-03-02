@@ -28,6 +28,7 @@ const SpecificationItem = ({onSelect, specification}) => {
 
   const onClick = () => {
     // setCardActive(true)
+    console.log(specification.id)
     onSelect(specification.id)
   }
 

@@ -6,8 +6,10 @@ import ErrorMessage from "../../components/error-message";
 import OrderCard from "../../components/order-card";
 import './order-screen.scss'
 import OrderItem from "../../components/order-item";
+import {switchMainPageAction, switchOrderPageAction} from "../../actions/switch-page-actions";
 
 const OrderScreen = () => {
+
 
     const dispatch = useDispatch()
     const orderList = useSelector(state => state.orderList)
@@ -22,6 +24,9 @@ const OrderScreen = () => {
         }
     }
 
+    useEffect(()=>{
+        dispatch(switchOrderPageAction())
+    })
     useEffect(() => {
         dispatch(listOrders())
     }, [dispatch])

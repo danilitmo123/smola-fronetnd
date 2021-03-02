@@ -3,12 +3,22 @@ import React, {useState} from 'react'
 import './specification-resource.scss'
 
 
-const SpecificationResource = ({number, resourceList, onResourceAdd, onAmountChange}) => {
+const SpecificationResource = ({number, resourceList, onResourceAdd, onAmountChange, index, remove, change}) => {
 
-    const [id, setId] = useState("");
-    const [amount, setAmount] = useState(0);
+    const [id, setId] = useState(null);
+    const [amount, setAmount] = useState(1);
     const [activeAmount, setActiveAmount] = useState(false)
     const [value, setValue] = useState("")
+    const [indx, setIndex] = useState(index)
+
+    const changeId = (newId) => {
+        if (id == null){
+            addResource(newId)
+        }else{
+            change(id, newId)
+            setId(newId)
+        }
+    }
 
     const addResource = (id) => {
         setId(id);
@@ -27,7 +37,7 @@ const SpecificationResource = ({number, resourceList, onResourceAdd, onAmountCha
             <div>
                 <label htmlFor={"resource-" + number + "-id"} className={'title-spec-resource'}>Ресурс {number}</label>
                 <select name={"resource-" + number + "-id"} id={"resource-" + number + "-id"}
-                        onChange={e => addResource(e.target.value) } value={id} className={'resource-select'}>
+                        onChange={e => changeId(e.target.value) } value={id} className={'resource-select'}>
                     <option name={"default-option-" + number} key={"default-option-" + number}
                             id={"default-option-" + number} value="----">----
                     </option>
@@ -47,6 +57,9 @@ const SpecificationResource = ({number, resourceList, onResourceAdd, onAmountCha
                        value={amount}
                        className={'resource-amount-input'}
                        onChange={e => setResourceAmount(id, e.target.value)}/>
+            </div>
+            <div>
+                <button onClick={e => remove(id, indx)}>x</button>
             </div>
         </div>
     )

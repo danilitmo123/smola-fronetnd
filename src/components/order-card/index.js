@@ -10,7 +10,7 @@ const OrderCard = ({active, order}) => {
   const [currentCardData, setCurrentCardData] = useState(null)
 
   const getCard = async (id) => {
-    const { data } = await axiosAPI.get(`https://api-smola-20.herokuapp.com/order/${id}/`)
+    const { data } = await axiosAPI.get(`order/${id}/`)
     return data
   }
 
@@ -21,7 +21,6 @@ const OrderCard = ({active, order}) => {
       }))
     }
   }, [order])
-  console.log(currentCardData)
 
   return (
       <div className="close-wrapper">

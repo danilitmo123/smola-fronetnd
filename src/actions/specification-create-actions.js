@@ -5,10 +5,9 @@ import {
 } from '../constants/specification-create-constants'
 import axiosAPI from "../components/api/axiosApi";
 
-export const createResourceAction = (name, product_id, price, coefficient, category_name, resources, storage_amount) => async (dispatch) => {
+export const createSpecificationAction = (name, product_id, price, coefficient, category_name, resources, storage_amount) => async (dispatch) => {
     try {
         dispatch({type: SPECIFICATION_CREATE_REQUEST})
-
         const {data} = await axiosAPI.post(
             'specification/create/',
             {
@@ -18,7 +17,7 @@ export const createResourceAction = (name, product_id, price, coefficient, categ
                 'coefficient': coefficient,
                 'category_name': category_name,
                 'resources_create': resources,
-                'storage_amount': storage_amount
+                'amount': storage_amount
             }
         )
 
@@ -27,13 +26,10 @@ export const createResourceAction = (name, product_id, price, coefficient, categ
             payload: data
         })
 
-
     } catch (error) {
         dispatch({
             type: SPECIFICATION_CREATE_FAIL,
-            payload: error.response && error.response.data.detail
-                ? error.response.data.detail
-                : error.message
+            payload: error.response.data
         })
     }
 }

@@ -5,57 +5,48 @@ import './order-card-products-item.scss'
 
 const OrderCardProductsItem = ({data}) => {
 
-  const [background, setBackground] = useState(false)
+    let resourceDict = {}
+    let resources = []
+    let missingResources = data.missing_resources
 
-  const classes = 'order-card-products-wrapper'
 
+    let background = false
 
-
-  useEffect(()=> {
-    data.missing_resources.map(el => {
-      if(data.order_specification[0]) {
-          data.order_specification[0].specification.res_specs.map(res_id => {
-            if(el === res_id.resource.id) {
-              console.log(el)
-              console.log(res_id.resource.id)
-              setBackground(true)
-            } else  {
-              console.log(el)
-              console.log(res_id.resource.id)
-              setBackground(false)
+    data.order_specification.map(orderSpecification => {
+        orderSpecification.specification.res_specs.map(resSpec => {
+            let resource = resSpec.resource
+            if (resourceDict.hasOwnProperty(resource.id)) {
+                resourceDict[resource.id] = resourceDict[resource.id] + resSpec.amount
+                // setResourceDict(resourceDict)
+                return
+            } else {
+                resourceDict[resource.id] = resSpec.amount
+                // setResourceDict(resourceDict)
             }
+            background = !!missingResources.includes(resource.id);
+            resources.push(
+                <div className={background ? 'order-card-products-wrapper active' : 'order-card-products-wrapper'}>
+                    <div className={'order-card-id'}>{resource.id}</div>
+                    <div className={'order-card-name'}>{resource.name}</div>
+                    <div className={'order-card-amount'}>{resourceDict[resource.id]}</div>
+                </div>
+            )
         })
-      }
     })
-  })
 
-  let items = []
-  if (data.order_specification[0]) {
-    items = data.order_specification[0].specification.res_specs.map(resource_spec => {
-
-      return (
-          <div className={background ? 'order-card-products-wrapper active' : 'order-card-products-wrapper'}>
-            <div className={'order-card-id'}>{resource_spec.resource.id}</div>
-            <div className={'order-card-name'}>{resource_spec.resource.name}</div>
-            <div className={'order-card-amount'}>{resource_spec.amount}</div>
-          </div>
-      )
-    })
-  }
-
-  return (
-      <div>
-        {items.length ?
+    return (
+        <div>
+            {resources.length ?
                 <div>
-                  <div className={"nav-card-products"}>
-                    <div className={'ID'}>ID</div>
-                    <div className={'nav-card-name'}>Название</div>
-                    <div className={'nav-card-count'}>Количество</div>
-                  </div>
-                  {items}
+                    <div className={"nav-card-products"}>
+                        <div className={'ID'}>ID</div>
+                        <div className={'nav-card-name'}>Название</div>
+                        <div className={'nav-card-count'}>Количество</div>
+                    </div>
+                    {resources}
                 </div> : ''
-                }
-      </div>
-  )
+            }
+        </div>
+    )
 }
 export default OrderCardProductsItem

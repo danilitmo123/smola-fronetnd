@@ -6,6 +6,7 @@ import ErrorMessage from "../../components/error-message";
 
 import './home-screen.scss'
 import ProductItem from "../../components/product-item";
+import {switchResourcePageAction} from "../../actions/switch-page-actions";
 
 const ResourceScreen = () => {
     const dispatch = useDispatch()
@@ -16,6 +17,9 @@ const ResourceScreen = () => {
         dispatch(listProducts())
     }, [dispatch])
 
+    useEffect(()=>{
+        dispatch(switchResourcePageAction())
+    })
     console.log("RES SCREEN render " + new Date())
 
     return (

@@ -8,6 +8,7 @@ import './specification-screen.scss'
 
 import SpecificationItem from "../../components/specification-item";
 import SpecificationCard from "../../components/specification-card";
+import {switchSpecificationPageAction} from "../../actions/switch-page-actions";
 
 const SpecificationScreen = () => {
 
@@ -21,6 +22,9 @@ const SpecificationScreen = () => {
         dispatch(listSpecifications())
     }, [dispatch])
 
+    useEffect(()=>{
+        dispatch(switchSpecificationPageAction())
+    })
     const itemSelected = (value) => {
         if (selectedItem === value) {
             setSelectedItem(null)
@@ -48,18 +52,19 @@ const SpecificationScreen = () => {
                     :
                     <div>
                         {
+                            specifications?
                             Object.values(specifications).map(specification => {
                                 return <SpecificationItem key={specification.id} onSelect={itemSelected}
                                                           specification={specification}/>
-                            })
+                            }) : null
                         }
                     </div>
             }
             <SpecificationCard
                 active={selectedItem != null}
-                specification={
+                specification={ specifications ?
                     Object.values(specifications)
-                        .find(specification => specification.id === selectedItem)
+                        .find(specification => specification.id === selectedItem): null
                 }
             />
         </div>
