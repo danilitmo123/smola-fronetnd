@@ -32,7 +32,7 @@
     .status {
       width: 170px;
       text-align: left;
-      margin-right: 85px;
+      margin-right: 95px;
     }
 
     .date {
@@ -42,7 +42,12 @@
     }
 
     .name {
-      margin-right: 240px;
+      width: 150px;
+      margin-right: 200px;
+    }
+
+    .available {
+      width: 150px;
     }
   }
 }

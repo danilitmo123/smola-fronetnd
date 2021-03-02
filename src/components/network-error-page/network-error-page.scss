@@ -1,0 +1,28 @@
+.server-error-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+
+  .server-error-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .back-to-main {
+    background: #F1DB10;
+    border: none;
+    box-shadow: 0 0 12px rgba(16, 156, 241, 0.24);
+    color: #ffffff;
+    border-radius: 4px;
+    width: 250px;
+    height: 42px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+}
