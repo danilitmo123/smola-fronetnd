@@ -7,6 +7,8 @@ const OrderCardProductsItem = ({data}) => {
 
   const [background, setBackground] = useState(false)
 
+  const classes = 'order-card-products-wrapper'
+
 
 
   useEffect(()=> {

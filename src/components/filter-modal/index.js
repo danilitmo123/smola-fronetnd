@@ -24,29 +24,6 @@ const FilterModal = ({active, setActive}) => {
                             <div className="title">Название</div>
                             <input type="checkbox"/>
                         </div>
-                        <div className="id-checkbox">
-                            <div className="title">Due Date</div>
-                            <input type="checkbox"/>
-                        </div>
-                        <div className="id-checkbox">
-                            <div className="title">Last Login</div>
-                            <input type="checkbox"/>
-                        </div>
-                    </div>
-                    <div className="filter-title">USERS</div>
-                    <div className="users-wrapper">
-                        <div className="id-checkbox">
-                            <div className="title">All</div>
-                            <input type="checkbox"/>
-                        </div>
-                        <div className="id-checkbox">
-                            <div className="title">Active</div>
-                            <input type="checkbox"/>
-                        </div>
-                        <div className="id-checkbox">
-                            <div className="title">Inactive</div>
-                            <input type="checkbox"/>
-                        </div>
                     </div>
                 </div>
                 <button className={'filter-btn'} onClick={() => setActive(false)}>Применить</button>

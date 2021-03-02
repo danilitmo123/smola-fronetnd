@@ -18,13 +18,20 @@
     pointer-events: all;
   }
 
+  .filter-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .modal-content {
     display: flex;
     justify-content: center;
     padding: 20px;
     border: none;
     border-radius: 6px;
-    width: 300px;
+    width: 250px;
     transform: scale(0.5);
     transition: 0.4s all;
 
@@ -32,8 +39,8 @@
       transform: scale(1);
     }
     .filter-btn {
-      margin-top: 40px;
-      margin-left: 40px;
+      margin-top: 5px;
+      margin-left: 15px;
       background: #F1DB10;
       border: none;
       box-shadow: 0 0 12px rgba(16, 156, 241, 0.24);
@@ -72,22 +79,19 @@
     .checkbox-wrapper {
       position: relative;
       margin-bottom: 40px;
-
-      &:after {
-        display: block;
-        width: 260px;
-        content: '';
-        position: absolute;
-        border-bottom: 1px solid #737B7D;
-        top: 140px;
-      }
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
 
       .id-checkbox {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
+        gap: 50px;
 
         .title {
+          width: 150px;
           font-family: 'Montserrat', sans-serif;
           font-size: 16px;
           font-weight: 400;
