@@ -26,6 +26,7 @@ import {switchPageReducers} from "./reducers/switch-page-reducers"
 import {checkAuthReducers} from "./reducers/check-auth-reducers"
 import {editProfileReducers} from "./reducers/profile-edit"
 import {searchReducer} from "./reducers/search-reducers"
+import {filterReducer} from "./reducers/filter-reducres"
 
 const reducer = combineReducers({
     productList: productListReducers,
@@ -52,7 +53,8 @@ const reducer = combineReducers({
     switchPage: switchPageReducers,
     checkAuth: checkAuthReducers,
     editProfile: editProfileReducers,
-    searching: searchReducer
+    searching: searchReducer,
+    filtering: filterReducer
 })
 
 const initialState = {switchPage: {mainPage: true}}

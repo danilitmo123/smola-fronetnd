@@ -8,12 +8,19 @@ import axiosAPI from "../components/api/axiosApi";
 import store from "../store";
 
 async function get(){
+    let paramString = '/?'
 
     if (store.getState().searching && store.getState().searching.searchResource) {
-        return await axiosAPI.get('resource/list/?search=' + store.getState().searching.searchResource)
-    } else {
-        return await axiosAPI.get('resource/list/')
+       paramString += 'search=' + store.getState().searching.searchResource + '&'
     }
+    if (store.getState().filtering && store.getState().filtering.filterResource){
+        for (let name in store.getState().filtering.filterResource){
+            paramString += name + '=' + store.getState().filtering.filterResource[name] + '&'
+        }
+    }
+
+    return await axiosAPI.get('resource/list' + paramString)
+
 }
 
 
