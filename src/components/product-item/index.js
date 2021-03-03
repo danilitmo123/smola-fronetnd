@@ -8,7 +8,7 @@ import './product-item.scss'
 const ProductItem = ({product}) => {
 
     const dispatch = useDispatch()
-
+    console.log(product.cost)
     const [price, setPrice] = useState(product.cost)
     const [selectCheckbox, setSelectCheckbox] = useState({})
     const [showDeleteBtn, setShowDeleteBtn] = useState(false)
