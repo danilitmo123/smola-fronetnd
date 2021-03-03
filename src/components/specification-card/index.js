@@ -28,7 +28,7 @@ const SpecificationCard = ({active, specification}) => {
             className={active ? "specification-card-wrapper active" : "specification-card-wrapper"}>
           <div className="header-specification-card">
             <div className="specification-card-title">{specification ? specification.name : ''}</div>
-            <button className={active ? "specification-card-wrapper active" : "specification-card-wrapper"}>x</button>
+            {/*<button className={active ? "specification-card-wrapper active" : "specification-card-wrapper"}>x</button>*/}
           </div>
           <div className="specification-card-info">
             <img src={photo} alt="" className={'specification-card-img'}/>

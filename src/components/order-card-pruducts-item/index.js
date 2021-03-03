@@ -16,11 +16,11 @@ const OrderCardProductsItem = ({data}) => {
         orderSpecification.specification.res_specs.map(resSpec => {
             let resource = resSpec.resource
             if (resourceDict.hasOwnProperty(resource.id)) {
-                resourceDict[resource.id] = resourceDict[resource.id] + resSpec.amount
+                resourceDict[resource.id] = resourceDict[resource.id] + resSpec.amount * orderSpecification.amount
                 // setResourceDict(resourceDict)
                 return
             } else {
-                resourceDict[resource.id] = resSpec.amount
+                resourceDict[resource.id] = resSpec.amount * orderSpecification.amount
                 // setResourceDict(resourceDict)
             }
             background = !!missingResources.includes(resource.id);

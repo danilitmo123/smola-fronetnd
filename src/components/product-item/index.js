@@ -42,6 +42,7 @@ const ProductItem = ({product}) => {
     }
 
     const deleteHandler = (e) => {
+        e.preventDefault()
         dispatch(removeAction(product.id))
     }
 
@@ -64,11 +65,11 @@ const ProductItem = ({product}) => {
                         type={'number'}
                         name={'price'}
                         onChange={e => setPrice(e.target.value)}
-                        value={parseFloat(price)}
+                        value={parseFloat(price).toFixed(2)}
                         className={'product-item price'}/>
                     <button type={'submit'}>✓</button>
                 </form>
-                <div className="product-item count">{product.amount ? parseInt(product.amount) : 0}</div>
+                <div className="product-item count">{product.amount ? parseFloat(product.amount) : 0}</div>
                 <div className="product-item diller">{product.provider ? product.provider.name : 'отсутствует'}</div>
                 <div className="product-item last-price-change">{getDate(dateCost)}</div>
                 <div className="product-item last-count-change">{getDate(dateCount)}</div>

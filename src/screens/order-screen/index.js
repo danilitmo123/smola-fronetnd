@@ -31,8 +31,6 @@ const OrderScreen = () => {
         dispatch(listOrders())
     }, [dispatch])
 
-    console.log("ORDER SCREEN render " + new Date())
-
     return (
         <div className="order-screen-wrapper">
             <div className="menu-wrapper">

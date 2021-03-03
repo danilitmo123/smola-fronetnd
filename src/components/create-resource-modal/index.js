@@ -47,6 +47,7 @@ const CreateResourceModal = ({active, setActive}) => {
                 setActive(false)
                 dispatch(listProducts())
                 reloadData()
+                setLoading(false)
             })
             .catch(error => {
                 setLoading(false)
@@ -101,7 +102,7 @@ const CreateResourceModal = ({active, setActive}) => {
                            onChange={e => setAmountLimit(parseFloat(e.target.value))}
                            value={amountLimit}/>
                 </div>
-                {loading ? <Loader/> : <button className={'filter-btn'} type={'submit'} onClick={setActive(false)}>Применить</button>}
+                {loading ? <Loader/> : <button className={'filter-btn'} type={'submit'}>Применить</button>}
             </form>
         </div>
     )

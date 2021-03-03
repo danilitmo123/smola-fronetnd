@@ -6,13 +6,20 @@ import {
 import axiosAPI from "../components/api/axiosApi";
 import store from "../store";
 
-async function get(){
+async function get() {
+    let paramString = '/?'
 
     if (store.getState().searching && store.getState().searching.searchOrder) {
-        return await axiosAPI.get('order/list/?search=' + store.getState().searching.searchOrder)
-    } else {
-        return await axiosAPI.get('order/list/')
+        paramString += 'search=' + store.getState().searching.searchOrder + '&'
     }
+    if (store.getState().filtering && store.getState().filtering.filterOrder) {
+        for (let name in store.getState().filtering.filterOrder) {
+            paramString += name + '=' + store.getState().filtering.filterOrder[name] + '&'
+        }
+    }
+
+    return await axiosAPI.get('order/list' + paramString)
+
 }
 
 export const listOrders = () => async (dispatch) => {

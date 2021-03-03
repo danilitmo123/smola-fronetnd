@@ -16,7 +16,7 @@ const OrderItem = ({order, onSelect}) => {
             case "RDY":
                 return "Собран";
             case "CNF":
-                return "Подтверждён";
+                return "Отгружен";
             case "CND":
                 return "Отменён";
             case "ARC":

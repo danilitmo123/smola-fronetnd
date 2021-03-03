@@ -25,7 +25,7 @@ const ResourceScreen = () => {
     return (
         <div className="home-screen-wrapper">
             <div className="menu-wrapper">
-                <div className="nav-item id">ID</div>
+                <div className="nav-item id">ID ресурса</div>
                 <div className="nav-item name">Название</div>
                 <div className="nav-item">Цена, руб</div>
                 <div className="nav-item count">Количество</div>

@@ -160,7 +160,7 @@ const CreateSpecificationModal = ({active, setActive}) => {
                     </div>
                 </div>
                 <div>
-                    {loading ? <Loader/> : <button className={'filter-btn'} type={'submit'} onClick={setActive(false)}>Применить</button>}
+                    {loading ? <Loader/> : <button className={'filter-btn'} type={'submit'}>Применить</button>}
                 </div>
             </form>
         </div>

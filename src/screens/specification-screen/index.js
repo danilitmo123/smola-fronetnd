@@ -36,7 +36,7 @@ const SpecificationScreen = () => {
     return (
         <div className="specification-screen-wrapper">
             <div className="menu-wrapper">
-                <div className="nav-item id">ID</div>
+                <div className="nav-item id">ID продукта</div>
                 <div className="nav-item name">Название</div>
                 <div className="nav-item self-cost">Себестоимость</div>
                 <div className="nav-item marja">Маржа</div>
@@ -44,7 +44,7 @@ const SpecificationScreen = () => {
                 <div className="nav-item best-price">Реком цена</div>
                 <div className="nav-item now-price">Текущая цена</div>
                 <div className="nav-item category">Категория</div>
-                <div className="nav-item">ID продукта</div>
+                {/*<div className="nav-item">ID продукта</div>*/}
             </div>
             {
                 loading ? <Loader/>
