@@ -59,7 +59,7 @@ const SpecificationResource = ({number, resourceList, onResourceAdd, onAmountCha
                        onChange={e => setResourceAmount(id, e.target.value)}/>
             </div>
             <div>
-                <button onClick={e => remove(id, indx)} className={'delete-spec-btn'}>x</button>
+                <button onClick={e => remove(id, indx)} className={'delete-spec-btn krestik'}>x</button>
             </div>
 
         </div>

@@ -74,10 +74,12 @@ const OrderCard = ({active, order}) => {
                             {currentCardData.missing_specifications.length === 0 ?
                                 <div>
                                     <button
+                                        className={'activate-btn'}
                                         disabled={!(currentCardData && currentCardData.status === 'INC')}
                                         onClick={e => manageAction(currentCardData.id, 'activate')}>Активировать
                                     </button>
                                     <button
+                                        className={'confirm-btn'}
                                         disabled={!(currentCardData && currentCardData.status === 'RDY')}
                                         onClick={e => {
                                             manageAction(currentCardData.id, 'confirm')

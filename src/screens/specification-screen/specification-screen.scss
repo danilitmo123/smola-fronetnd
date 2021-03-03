@@ -3,7 +3,7 @@
   position: relative;
   &:after {
     display: block;
-    width: 82vw;
+    width: 81vw;
     content: '';
     position: absolute;
     border-bottom: 1px solid #737B7D;
@@ -17,7 +17,7 @@
     z-index: 0;
 
     .id {
-      margin-left: 25px;
+      margin-left: 20px;
       margin-right: 90px;
     }
 
