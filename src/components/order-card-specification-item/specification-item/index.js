@@ -3,6 +3,8 @@ import axiosAPI from "../../api/axiosApi";
 import {useDispatch} from "react-redux";
 import {listOrders} from "../../../actions/order-list-actions";
 
+import './specification-item.scss'
+
 export const OrderSpecificationItem = ({orderId, orderSpec, active, background, reload}) => {
 
     const dispatch = useDispatch()

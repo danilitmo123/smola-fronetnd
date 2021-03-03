@@ -1,0 +1,19 @@
+.order-card-resources-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  .order-resource-id{
+    width: 50px;
+    margin-right: 90px;
+  }
+
+  .order-resource-name{
+    margin-right: 110px;
+  }
+
+  .order-resource-amount{
+    margin-right: 10px;
+  }
+
+}

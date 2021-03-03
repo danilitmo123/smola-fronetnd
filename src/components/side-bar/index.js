@@ -27,7 +27,7 @@ const SideBar = () => {
             <Link to={'/profile'} onClick={e => dispatch(action.switchProfileAction())} className={'Link'}>
                 <div className="profile-logo">
                     <img src={logo} alt={'profile-logo'}/>
-                    <div className="user">Филлип Пузырев<br/>smola20@info.ru</div>
+                    <div className="user">Профиль</div>
                 </div>
             </Link>
             <div className="side-nav-bar">

@@ -19,20 +19,25 @@
   }
 
   .profile-logo {
+    margin-left: -60px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 30px;
     
     &:hover {
       cursor: pointer;
     }
+
+    img {
+      width: 40px;
+    }
     
     .user {
-      margin-left: 5px;
+      margin-left: 10px;
       color: #737B7D;
       font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 500;
     }
   }

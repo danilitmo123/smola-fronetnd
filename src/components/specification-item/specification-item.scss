@@ -82,38 +82,45 @@
     }
 
     .id {
-      margin-right: 25px;
+      width: 70px;
+      margin-right: 110px;
     }
 
     .name {
       width: 200px;
-      text-align: center;
+      text-align: left;
       word-break: break-word;
-      margin-right: 70px;
+      margin-right: 5px;
     }
 
     .cost-price {
-      margin-right: 100px;
+      width: 100px;
+      text-align: left;
+      margin-right: 22px;
     }
 
     .marja {
-      margin-right: 75px;
+      width: 60px;
+      margin-right: 50px;
     }
 
     .confirm-button {
-      margin-right: 90px;
+      margin-right: 60px;
     }
 
     .coefficient {
-      width: 100px;
+
     }
 
     .best-price {
-      margin-right: 90px;
+      width: 60px;
+      margin-right: 70px;
     }
 
     .confirm-button-second {
-      margin-right: 70px;
+      width: 150px;
+      word-break: break-word;
+      margin-right: 50px;
     }
 
     .price {

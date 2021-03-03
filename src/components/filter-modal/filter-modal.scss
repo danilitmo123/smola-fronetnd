@@ -6,9 +6,6 @@
   top: 0;
   left: 0;
   z-index: 1;
-  //display: flex;
-  //justify-content: center;
-  //align-items: center;
   transition: 0.5s;
   opacity: 0;
   pointer-events: none;
@@ -19,6 +16,7 @@
   }
 
   .filter-wrapper {
+    width: 0;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -31,16 +29,16 @@
     padding: 20px;
     border: none;
     border-radius: 6px;
-    width: 250px;
-    transform: scale(0.5);
+    width: 350px;
+    transform: scale(0);
     transition: 0.4s all;
 
     &.active {
       transform: scale(1);
     }
     .filter-btn {
-      margin-top: 5px;
-      margin-left: 15px;
+      margin-top: 30px;
+      margin-left: 60px;
       background: #F1DB10;
       border: none;
       box-shadow: 0 0 12px rgba(16, 156, 241, 0.24);
@@ -65,9 +63,6 @@
 
     }
       .id-checkbox {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
 
         .title {
           font-family: 'Montserrat', sans-serif;
@@ -85,13 +80,10 @@
       flex-direction: column;
 
       .id-checkbox {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 50px;
+
 
         .title {
-          width: 150px;
+          width: 250px;
           font-family: 'Montserrat', sans-serif;
           font-size: 16px;
           font-weight: 400;
@@ -100,5 +92,46 @@
     }
 
 
+  }
+}
+
+.id-checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 50px;
+}
+
+.filtration {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.minus-wrapper {
+  .title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  margin-top: -20px;
+  width: 310px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ready-checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 310px;
+
+  .title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
   }
 }
