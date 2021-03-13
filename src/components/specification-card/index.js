@@ -5,7 +5,7 @@ import CardItem from "../specification-card-item/card-item";
 import Loader from "../spinner";
 import axiosAPI from "../api/axiosApi";
 
-const SpecificationCard = ({active, specification}) => {
+const SpecificationCard = ({onClose, active, specification}) => {
 
   const [currentCardData, setCurrentCardData] = useState(null)
   const [activeCard, setActiveCard] = useState(false)
@@ -24,8 +24,10 @@ const SpecificationCard = ({active, specification}) => {
             onClick={e => e.stopPropagation()}
             className={active ? "specification-card-wrapper active" : "specification-card-wrapper"}>
           <div className="header-specification-card">
-            <div className="specification-card-title">{specification ? specification.name : ''}</div>
-            {/*<button className={active ? "specification-card-wrapper active" : "specification-card-wrapper"}>x</button>*/}
+            <div className="specification-card-title">
+              {specification ? specification.name : ''}
+              <button onClick={onClose}>x</button>
+            </div>
           </div>
           <div className="specification-card-info">
             <div className="specification-card-store">
