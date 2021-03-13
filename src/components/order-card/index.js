@@ -52,6 +52,10 @@ const OrderCard = ({active, order}) => {
                         <div>
                             <div className="header-specification-card">
                                 <div className="specification-card-title">Товары</div>
+                                <div className="specification-card-id">
+                                    <div className="title">ID:</div>
+                                    <div>{order ? order.external_id : ''}</div>
+                                </div>
                             </div>
                             <div className="nav-card-products">
                                 <div className={'ID'}>ID</div>

@@ -13,13 +13,10 @@ const SpecificationCard = ({active, specification}) => {
   useEffect(() => {
     if (specification){
       axiosAPI.get('specification/' + specification.id).then((response => {
-        console.log(response)
         setCurrentCardData(response.data)
       }))
     }
   }, [specification])
-
-  console.log(specification)
 
   return (
       <div className="close-wrapper">
@@ -31,10 +28,45 @@ const SpecificationCard = ({active, specification}) => {
             {/*<button className={active ? "specification-card-wrapper active" : "specification-card-wrapper"}>x</button>*/}
           </div>
           <div className="specification-card-info">
-            <img src={photo} alt="" className={'specification-card-img'}/>
             <div className="specification-card-store">
-              <div className="about-store on-store">Собранных на складе <span>{currentCardData ? currentCardData.amount : null}</span> шт</div>
-              <div className="about-store on-collected">Можно собрать из имеющихся ресурсов <span>{currentCardData ? currentCardData.available_to_assemble : null}</span> шт</div>
+              <div className="about-store on-store">Собранных на складе: <span>{currentCardData ? currentCardData.amount : null}</span> шт</div>
+              <div className="about-store on-collected">Можно собрать из имеющихся ресурсов: <span>{currentCardData ? currentCardData.available_to_assemble : null}</span> шт</div>
+              <div className="about-store ">
+                <div>Себестоимость:</div>
+                <div>{specification ?
+                    parseFloat(specification.prime_cost)
+                    : 'нет'}</div>
+              </div>
+              <div className="about-store">
+                <div>Маржа:</div>
+                <div>{specification ?
+                      ((parseFloat(specification.price) - parseFloat(specification.prime_cost)) / parseFloat(specification.price))
+                          .toFixed(2) : 'нет'}
+                </div>
+              </div>
+              <div className="about-store">
+                <div>Коэффициент:</div>
+                <div>{specification ? parseFloat(specification.coefficient).toFixed(2) : 'нет'}</div>
+              </div>
+              <div className="about-store">
+                <div>Рекомендуемая цена:</div>
+                <div>{specification ? parseFloat(specification.coefficient * specification.prime_cost)
+                  .toFixed(1) : 'нет'}
+                </div>
+              </div>
+              <div className="about-store">
+                <div>Текущая цена:</div>
+                <div>{specification ? parseInt(specification.price) : 'нет'}</div>
+              </div>
+              <div className="about-store">
+                <div>Категория:</div>
+                <div> {specification ? specification.category ? specification.category.name : 'нет' : 'нет'}</div>
+              </div>
+              <div className="about-store">
+                <div>N/X:</div>
+                <div>{specification ? specification.amount_accuracy ? specification.amount_accuracy : 'нет' : 'нет'}
+                </div>
+              </div>
             </div>
           </div>
           <div className="info-resource-title-wrapper">

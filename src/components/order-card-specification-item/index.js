@@ -11,7 +11,6 @@ const OrderCardSpecificationItem = ({data, reload}) => {
     useEffect(() => {
         setItems([...data.order_specification.map(item => {
             background = !!data.missing_specifications.includes(item.specification.id);
-            console.log({item})
             return (<OrderSpecificationItem orderId={data.id} orderSpec={item} background={background}
                                             active={data.status === 'ACT' || data.status ===  'ASS'}  reload={reload}/>)
         })])

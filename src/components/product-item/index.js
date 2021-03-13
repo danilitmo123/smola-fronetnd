@@ -70,9 +70,10 @@ const ProductItem = ({product}) => {
                     <button type={'submit'}>✓</button>
                 </form>
                 <div className="product-item count">{product.amount ? parseFloat(product.amount) : 0}</div>
-                <div className="product-item diller">{product.provider ? product.provider.name : 'отсутствует'}</div>
+                <div className="product-item diller">{product.provider ? product.provider.name : 'нет'}</div>
                 <div className="product-item last-price-change">{getDate(dateCost)}</div>
                 <div className="product-item last-count-change">{getDate(dateCount)}</div>
+                <div className={'product-item comment'}>{product.comment ? product.comment : 'нет'}</div>
             </div>
             <form>
                 <button className={showDeleteBtn ? 'delete-btn active' : 'delete-btn'} onClick={deleteHandler}>Удалить</button>

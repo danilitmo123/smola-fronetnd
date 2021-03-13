@@ -42,7 +42,6 @@ const Header = () => {
     const changeSearchString = (string) => {
         setSearchString(string)
         if (specificationPage) {
-            console.log({string})
             dispatch({type: SPECIFICATION_SEARCH, payload: string})
             dispatch(listSpecifications())
         } else if (resourcePage) {
@@ -58,9 +57,6 @@ const Header = () => {
         await logoutUser();
         window.location.href = "/login/"
     };
-
-  console.log(mainPage)
-  console.log(profilePage)
 
     return (
         <div className="header-wrapper">
@@ -86,7 +82,7 @@ const Header = () => {
                             </div>
                             : orderPage ?
                             <div className="add-btn">
-                                <button onClick={() => setOrderModalActive(true)}>Добавить заказ</button>
+
                             </div>
                             : resourcePage ?
                                 <div className={'group-btn'}>

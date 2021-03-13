@@ -3,7 +3,7 @@
 
   .scroll-div {
     padding: 15px;
-    height: 230px;
+    height: 200px;
     overflow: scroll;
   }
 
@@ -31,7 +31,6 @@
       align-items: center;
       background-color: rgba(241, 219, 16, 0.3);
       padding: 15px;
-      margin-bottom: 20px;
 
       .specification-card-title {
         font-family: 'Montserrat', sans-serif;
@@ -46,22 +45,16 @@
       justify-content: flex-start;
       align-items: flex-start;
 
-      .specification-card-img {
-        box-shadow: 0px 5px 4px 0px rgba(34, 60, 80, 0.5);
-        margin-right: 15px;
-      }
 
       .about-store {
-        padding: 15px;
-        border-radius: 6px;
-        box-shadow: 0 0 10px rgba(34, 60, 80, 0.13);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        padding: 5px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 400;
-        font-size: 16px;
-      }
-
-      .on-store {
-        margin-bottom: 15px;
+        font-size: 14px;
       }
     }
 

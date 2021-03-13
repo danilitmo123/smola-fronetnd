@@ -68,3 +68,21 @@
   letter-spacing: 1px;
   box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
 }
+
+.header-specification-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.specification-card-id {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}

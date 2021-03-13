@@ -44,6 +44,7 @@ const SpecificationScreen = () => {
                 <div className="nav-item best-price">Реком цена</div>
                 <div className="nav-item now-price">Текущая цена</div>
                 <div className="nav-item category">Категория</div>
+                <div className={'nav-item accuracy'}>N/X</div>
                 {/*<div className="nav-item">ID продукта</div>*/}
             </div>
             {
