@@ -18,6 +18,8 @@ const SpecificationCard = ({active, specification}) => {
     }
   }, [specification])
 
+  console.log(specification)
+
   return (
       <div className="close-wrapper">
         <div
@@ -25,6 +27,7 @@ const SpecificationCard = ({active, specification}) => {
             className={active ? "specification-card-wrapper active" : "specification-card-wrapper"}>
           <div className="header-specification-card">
             <div className="specification-card-title">{specification ? specification.name : ''}</div>
+            <div>{specification ? specification.product_id : ''}</div>
             {/*<button className={active ? "specification-card-wrapper active" : "specification-card-wrapper"}>x</button>*/}
           </div>
           <div className="specification-card-info">
