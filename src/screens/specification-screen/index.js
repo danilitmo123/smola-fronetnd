@@ -62,6 +62,7 @@ const SpecificationScreen = () => {
                     </div>
             }
             <SpecificationCard
+                onClose={() => setSelectedItem(null)}
                 active={selectedItem != null}
                 specification={ specifications ?
                     Object.values(specifications)

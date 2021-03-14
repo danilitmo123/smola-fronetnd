@@ -2,15 +2,21 @@ import React, {useState} from 'react'
 import {useDispatch} from "react-redux";
 import './specification-item.scss'
 import {removeSpecAction} from "../../actions/remove-specifications-actions";
+import AmountSpecificationModal from "../amount-specification-modal";
 
 const SpecificationItem = ({onSelect, specification}) => {
     const dispatch = useDispatch()
     const [selectCheckbox, setSelectCheckbox] = useState({})
     const [showDeleteBtn, setShowDeleteBtn] = useState(false)
-    console.log(specification.price)
+    const [active, setActive] = useState(false)
 
     const onClick = () => {
-        onSelect(specification.id)
+      onSelect(specification.id)
+    }
+
+    const addBtnClick = (e) => {
+      setActive(true)
+      e.stopPropagation()
     }
 
     const deleteHandler = (e) => {
@@ -57,12 +63,15 @@ const SpecificationItem = ({onSelect, specification}) => {
                     className="product-item category">
                     {specification.category ? specification.category.name : 'нет'}
                 </div>
+                <div className="n-or-x">{specification ? specification.amount_accuracy : 'нет'}</div>
                 <form>
                     <button className={showDeleteBtn ? 'delete-btn active' : 'delete-btn'}
                             onClick={deleteHandler}
                     >Удалить</button>
                 </form>
+                <button onClick={addBtnClick} className={'collect-btn'}>Собрать</button>
             </div>
+          <AmountSpecificationModal id={specification.id} active={active} setActive={setActive}/>
         </div>
     )
 }

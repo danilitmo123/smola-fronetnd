@@ -7,7 +7,7 @@ import Loader from "../spinner";
 import {useDispatch} from "react-redux";
 import {listOrders} from "../../actions/order-list-actions";
 
-const OrderCard = ({active, order}) => {
+const OrderCard = ({active, order, onCLose}) => {
 
     const [currentCardData, setCurrentCardData] = useState(null)
     const dispatch = useDispatch()
@@ -56,6 +56,7 @@ const OrderCard = ({active, order}) => {
                                     <div className="title">ID:</div>
                                     <div>{order ? order.external_id : ''}</div>
                                 </div>
+                                <div className="close-card-btn" onClick={onCLose}>X</div>
                             </div>
                             <div className="nav-card-products">
                                 <div className={'ID'}>ID</div>
@@ -80,7 +81,7 @@ const OrderCard = ({active, order}) => {
                                     <button
                                         className={'activate-btn'}
                                         disabled={!(currentCardData && currentCardData.status === 'INC')}
-                                        onClick={e => manageAction(currentCardData.id, 'activate')}>Активировать
+                                        onClick={e => manageAction(currentCardData.id, 'activate')}>Разобрать
                                     </button>
                                     <button
                                         className={'confirm-btn'}

@@ -32,10 +32,23 @@
       background-color: rgba(241, 219, 16, 0.3);
       padding: 15px;
 
+      .id-in-card {
+        font-size: 24px;
+        font-family: 'Montserrat', sans-serif;
+      }
+
       .specification-card-title {
         font-family: 'Montserrat', sans-serif;
         font-size: 24px;
         font-weight: 500;
+
+        .close-card-btn {
+          border: none;
+          background: none;
+          color: #737B7D;
+          font-size: 24px;
+          font-family: 'Montserrat', sans-serif;
+        }
       }
     }
 

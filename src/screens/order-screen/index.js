@@ -53,6 +53,7 @@ const OrderScreen = () => {
                     </div>
             }
             <OrderCard
+                onClose={() => setSelectedItem(null)}
                 active={selectedItem != null}
                 order={
                     Object.values(orders)

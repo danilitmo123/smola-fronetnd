@@ -5,7 +5,7 @@ import CardItem from "../specification-card-item/card-item";
 import Loader from "../spinner";
 import axiosAPI from "../api/axiosApi";
 
-const SpecificationCard = ({active, specification}) => {
+const SpecificationCard = ({onClose, active, specification}) => {
 
   const [currentCardData, setCurrentCardData] = useState(null)
   const [activeCard, setActiveCard] = useState(false)
@@ -18,7 +18,7 @@ const SpecificationCard = ({active, specification}) => {
     }
   }, [specification])
 
-  console.log(specification)
+
 
   return (
       <div className="close-wrapper">
@@ -27,8 +27,10 @@ const SpecificationCard = ({active, specification}) => {
             className={active ? "specification-card-wrapper active" : "specification-card-wrapper"}>
           <div className="header-specification-card">
             <div className="specification-card-title">{specification ? specification.name : ''}</div>
-            <div>{specification ? specification.product_id : ''}</div>
-            {/*<button className={active ? "specification-card-wrapper active" : "specification-card-wrapper"}>x</button>*/}
+            <div className={'id-in-card'}>ID: {specification ? specification.product_id : ''}</div>
+            <div className="specification-card-title">
+              <button onClick={onClose} className={'close-card-btn'}>x</button>
+            </div>
           </div>
           <div className="specification-card-info">
             <div className="specification-card-store">
