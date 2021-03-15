@@ -18,6 +18,7 @@ const SpecificationCard = ({onClose, active, specification}) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [activeModal, setActiveModal] = useState(false)
+  let id = null
 
   useEffect(() => {
     if (specification){
@@ -26,6 +27,10 @@ const SpecificationCard = ({onClose, active, specification}) => {
       }))
     }
   }, [specification])
+
+  if(specification) {
+    id = specification.id
+  }
 
 
 
@@ -136,7 +141,7 @@ const SpecificationCard = ({onClose, active, specification}) => {
             </div>
           </div>
         </div>
-        <AmountSpecificationModal active={activeModal} setActive={setActiveModal} id={specification.id}/>
+        <AmountSpecificationModal active={activeModal} setActive={setActiveModal} id={id}/>
       </div>
   )
 }
