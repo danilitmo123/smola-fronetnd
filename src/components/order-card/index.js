@@ -7,7 +7,7 @@ import Loader from "../spinner";
 import {useDispatch} from "react-redux";
 import {listOrders} from "../../actions/order-list-actions";
 
-const OrderCard = ({active, order, onCLose}) => {
+const OrderCard = ({active, order, onClose}) => {
 
     const [currentCardData, setCurrentCardData] = useState(null)
     const dispatch = useDispatch()
@@ -56,7 +56,7 @@ const OrderCard = ({active, order, onCLose}) => {
                                     <div className="title">ID:</div>
                                     <div>{order ? order.external_id : ''}</div>
                                 </div>
-                                <div className="close-card-btn" onClick={onCLose}>X</div>
+                                <div className="close-card-btn" onClick={onClose}>X</div>
                             </div>
                             <div className="nav-card-products">
                                 <div className={'ID'}>ID</div>

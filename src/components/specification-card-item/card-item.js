@@ -2,13 +2,29 @@ import React from "react";
 
 import './card-item.scss'
 
-const CardItem = ({data}) => {
+const CardItem = ({data, response}) => {
+  console.log(data.resources)
+  console.log(response.data)
+  console.log(Object.values(response))
+
+  let id = []
+  let amount = null
+
+  if(response.data) {
+    id = response.data.map(i => i.id)
+    amount = response.data.map(i => {
+      return <div>{i.amount}</div>
+    })
+    console.log(amount)
+  }
+
+
 
   const items = data.resources.map(item => (
       <div className={'resource-item-wrapper'}>
         <div className={'resource-external-id'}>{item.resource.external_id}</div>
         <div className={'resource-name'}>{item.resource.name}</div>
-        <div className={'resource-amount'}>{parseInt(item.amount)}</div>
+        <div className={'resource-amount'}>{parseInt(item.amount)}{id ? id.includes(item.resource.id) ? 'da' : 'net': 'net'}</div>
       </div>
   ))
 

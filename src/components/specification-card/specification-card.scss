@@ -3,7 +3,7 @@
 
   .scroll-div {
     padding: 15px;
-    height: 200px;
+    height: 150px;
     overflow: scroll;
   }
 
@@ -48,6 +48,10 @@
           color: #737B7D;
           font-size: 24px;
           font-family: 'Montserrat', sans-serif;
+          
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }
@@ -118,4 +122,39 @@
       letter-spacing: 1px;
     }
   }
+}
+
+.create-order-input {
+  height: 20px;
+  width: 150px;
+  border: 1px solid #F1DB10;
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
+
+  &:hover,
+  &:focus{
+    outline: none;
+  }
+}
+
+.calculate-btn {
+  background: #F1DB10;
+  border: none;
+  box-shadow: 0 0 12px rgba(16, 156, 241, 0.24);
+  color: #ffffff;
+  border-radius: 4px;
+  width: 120px;
+  height: 30px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.calculate-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

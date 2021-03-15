@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from "react";
-import photo from '../../images/spec-card-img.png'
 import './specification-card.scss'
 import CardItem from "../specification-card-item/card-item";
 import Loader from "../spinner";
 import axiosAPI from "../api/axiosApi";
+import {listProducts} from "../../actions/product-actions";
 
 const SpecificationCard = ({onClose, active, specification}) => {
 
   const [currentCardData, setCurrentCardData] = useState(null)
-  const [activeCard, setActiveCard] = useState(false)
+  const [amount, setAmount] = useState(0)
+  const [resourceAmount, setResourceAmount] = useState({})
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     if (specification){
@@ -17,6 +20,32 @@ const SpecificationCard = ({onClose, active, specification}) => {
       }))
     }
   }, [specification])
+
+
+
+  const reloadData = () => {
+    setAmount(0.0)
+  }
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    setLoading(true)
+    axiosAPI.post('specification/manage-build/',
+        {
+          'id': specification.id,
+          'amount': amount,
+        }
+    )
+        .then(response => {
+          reloadData()
+          setResourceAmount(response)
+          setLoading(false)
+        })
+        .catch(error => {
+          setLoading(false)
+          setError(error.response.data)
+        })
+  }
 
 
 
@@ -72,6 +101,15 @@ const SpecificationCard = ({onClose, active, specification}) => {
                 <div>{specification ? specification.amount_accuracy ? specification.amount_accuracy : 'нет' : 'нет'}
                 </div>
               </div>
+              <div className="about-store">
+                <form onSubmit={submitHandler} className={'about-store'}>
+                  <input type="number" name="amount" id="amount"
+                         className={'create-order-input'}
+                         onChange={e => setAmount(e.target.value)}
+                         value={amount}/>
+                  <button className={'calculate-btn'} type={'submit'}>Расчет</button>
+                </form>
+              </div>
             </div>
           </div>
           <div className="info-resource-title-wrapper">
@@ -85,7 +123,7 @@ const SpecificationCard = ({onClose, active, specification}) => {
             </div>
             <div className={'scroll-div'}>
               { currentCardData ?
-                  <CardItem data={currentCardData}/>
+                  <CardItem data={currentCardData} response={resourceAmount}/>
                   : <Loader/>
               }
             </div>
