@@ -87,7 +87,6 @@ const FilterModal = ({active, setActive}) => {
         payload[prop] = filter[prop]
       }
     }
-    console.log({payload})
     if (specificationPage) {
       dispatch({
         type: SPECIFICATION_FILTER,

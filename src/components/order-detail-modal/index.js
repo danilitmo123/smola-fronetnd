@@ -16,9 +16,6 @@ export const OrderDetail = ({active, setActive, order_id}) => {
     }, [dispatch])
 
     const {error, loading, order} = orderDetail
-    console.log("order")
-    console.log(order)
-
 
     return (
         <div id={"order-detail"}>

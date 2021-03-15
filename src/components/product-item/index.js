@@ -54,7 +54,7 @@ const ProductItem = ({product}) => {
     setShowDeleteBtn(event.target.checked)
   }
 
-  console.log(product)
+
 
   return (
       <div className="product-item-wrapper">

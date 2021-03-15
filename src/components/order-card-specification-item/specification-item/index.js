@@ -20,7 +20,7 @@ export const OrderSpecificationItem = ({orderId, orderSpec, active, background, 
                 dispatch(listOrders())
             })
             .catch(error => {
-                console.log(error)
+
             })
     }
 

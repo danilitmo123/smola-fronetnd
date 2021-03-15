@@ -61,7 +61,6 @@ const CreateOrderModal = ({active, setActive}) => {
         for (let product in productDict) {
             productList.push({"product_id": product, "amount": productDict[product]})
         }
-        console.log({productList})
         setLoading(true)
         axiosAPI.post(
             'order/create/',

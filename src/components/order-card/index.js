@@ -39,7 +39,7 @@ const OrderCard = ({active, order, onClose}) => {
                 dispatch(listOrders())
             })
             .catch(error => {
-                console.log({error})
+
             })
     }
     return (

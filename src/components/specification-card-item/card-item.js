@@ -3,9 +3,6 @@ import React from "react";
 import './card-item.scss'
 
 const CardItem = ({data, response}) => {
-  console.log(data.resources)
-  console.log(response.data)
-  console.log(Object.values(response))
 
   let id = []
   let amount = null
@@ -15,7 +12,6 @@ const CardItem = ({data, response}) => {
     amount = response.data.map(i => {
       return <div>{i.amount}</div>
     })
-    console.log(amount)
   }
 
 
