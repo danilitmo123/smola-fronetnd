@@ -25,13 +25,14 @@ const ResourceScreen = () => {
     return (
         <div className="home-screen-wrapper">
             <div className="menu-wrapper">
-                <div className="nav-item id">ID ресурса</div>
+                <div className="nav-item id">ID</div>
                 <div className="nav-item name">Название</div>
-                <div className="nav-item">Цена, руб</div>
+                <div className="nav-item">Цена</div>
                 <div className="nav-item count">Количество</div>
                 <div className="nav-item">Поставщик</div>
                 <div className="nav-item last-change-price">Последнее изменение цены</div>
-                <div className="nav-item last-change-count">Последнее <br/> изменение количетсва</div>
+                <div className="nav-item last-change-count">Последнее <br/> изменение количества</div>
+                <div className="nav-item comment">Коммент</div>
             </div>
             {
                 loading ? <Loader/>

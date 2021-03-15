@@ -1,32 +1,22 @@
 import React, {useState} from 'react'
 import {useDispatch} from "react-redux";
-
 import './specification-item.scss'
-import {changeSpecPriceAction} from "../../actions/specification-price-actions";
-import {changeCoefficientAction} from '../../actions/coefficient-actions'
 import {removeSpecAction} from "../../actions/remove-specifications-actions";
-import {changePriceAction} from "../../actions/price-actions";
+import AmountSpecificationModal from "../amount-specification-modal";
 
 const SpecificationItem = ({onSelect, specification}) => {
     const dispatch = useDispatch()
-    const [coefficient, setCoefficient] = useState(specification.coefficient)
-    const [price, setPrice] = useState(specification.price)
     const [selectCheckbox, setSelectCheckbox] = useState({})
     const [showDeleteBtn, setShowDeleteBtn] = useState(false)
-
-
-    const submitCoefficientHandler = (e) => {
-        e.preventDefault()
-        dispatch(changeCoefficientAction(specification.id, coefficient))
-    }
-
-    const submitPriceHandler = (e) => {
-        e.preventDefault()
-        dispatch(changeSpecPriceAction(specification.id, price))
-    }
+    const [active, setActive] = useState(false)
 
     const onClick = () => {
-        onSelect(specification.id)
+      onSelect(specification.id)
+    }
+
+    const addBtnClick = (e) => {
+      setActive(true)
+      e.stopPropagation()
     }
 
     const deleteHandler = (e) => {
@@ -53,44 +43,35 @@ const SpecificationItem = ({onSelect, specification}) => {
                 </div>
                 <div className="product-item name">{specification.name}</div>
                 <div
-                    className="product-item cost-price">{specification.prime_cost ? parseFloat(specification.prime_cost).toFixed(2) : 'нет'}</div>
-
+                    className="product-item cost-price">{specification.prime_cost ?
+                    parseFloat(specification.prime_cost)
+                    : 'нет'}
+                </div>
                 <div
-                    className="product-item marja">{specification.prime_cost ? ((parseFloat(price) - parseFloat(specification.prime_cost)) / parseFloat(price)).toFixed(2) : 'нет'}</div>
-                <form className="form-wrapper" onSubmit={submitCoefficientHandler}>
-                    <input
-                        type={'number'}
-                        name={'coefficient'}
-                        step={0.05}
-                        onChange={e => setCoefficient(e.target.value)}
-                        value={parseFloat(coefficient)}
-                        className={'product-item price'}
-                        onClick={e => e.stopPropagation()}/>
-                    <button type={'submit'} onClick={e => e.stopPropagation()} className={'confirm-button'}>✓</button>
-                </form>
+                    className="product-item marja">{specification.prime_cost ?
+                    ((parseFloat(specification.price) - parseFloat(specification.prime_cost)) / parseFloat(specification.price))
+                        .toFixed(2) : 'нет'}
+                </div>
+                <div className="product-item coefficient">{parseFloat(specification.coefficient).toFixed(2)}</div>
                 <div
-                    className="product-item best-price">{parseFloat(coefficient * specification.prime_cost).toFixed(2)}</div>
-                <form className="form-wrapper" onSubmit={submitPriceHandler}>
-                    <input
-                        type={'number'}
-                        name={'price'}
-                        onChange={e => setPrice(e.target.value)}
-                        value={parseFloat(price).toFixed(2)}
-                        className={'product-item price'}
-                        onClick={e => e.stopPropagation()}/>
-                    <button type={'submit price-submit'} onClick={e => e.stopPropagation()}
-                            className={'confirm-button-second'}>✓
-                    </button>
-                </form>
+                    className="product-item best-price">
+                    {parseFloat(specification.coefficient * specification.prime_cost)
+                    .toFixed(1)}
+                </div>
+               <div className="product-item price">{parseInt(specification.price)}</div>
                 <div
-                    className="product-item category">{specification.category ? specification.category.name : 'нет'}</div>
-                {/*<div className="product-item product_id">{specification.product_id}</div>*/}
+                    className="product-item category">
+                    {specification.category ? specification.category.name : 'нет'}
+                </div>
+                <div className="n-or-x">{specification ? specification.amount_accuracy : 'нет'}</div>
                 <form>
                     <button className={showDeleteBtn ? 'delete-btn active' : 'delete-btn'}
-                            onClick={deleteHandler}>Удалить
-                    </button>
+                            onClick={deleteHandler}
+                    >Удалить</button>
                 </form>
+                <button onClick={addBtnClick} className={'collect-btn'}>Собрать</button>
             </div>
+          <AmountSpecificationModal id={specification.id} active={active} setActive={setActive}/>
         </div>
     )
 }

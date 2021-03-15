@@ -4,9 +4,26 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 50px;
 
   &:hover {
     cursor: pointer;
+  }
+
+  .collect-btn {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+    color: #737B7D;
+    position: absolute;
+    bottom: -30px;
+    left: 10px;
+    height: 20px;
+    width: 80px;
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(34, 60, 80, 0.13);
+    border: 1px solid #F1DB10;
   }
 
   .item-wrapper {
@@ -25,17 +42,35 @@
       align-items: center;
     }
 
+    .assemble-btn {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      color: #737B7D;
+      position: absolute;
+      bottom: -35px;
+      right: 50px;
+      height: 25px;
+      width: 100px;
+      border-radius: 6px;
+      box-shadow: 0 0 20px rgba(34, 60, 80, 0.13);
+      border: 1px solid #F1DB10;
+
+    }
+
     .delete-btn {
+      z-index: 10;
       font-family: 'Montserrat', sans-serif;
       background-color: #ffffff;
       font-size: 12px;
       font-weight: 500;
       color: #737B7D;
       position: absolute;
-      bottom: -30px;
+      bottom: -35px;
       right: 50px;
-      height: 20px;
-      width: 80px;
+      height: 25px;
+      width: 100px;
       border-radius: 6px;
       box-shadow: 0 0 20px rgba(34, 60, 80, 0.13);
       border: 1px solid #F1DB10;
@@ -83,25 +118,26 @@
 
     .id {
       width: 70px;
-      margin-right: 110px;
+      margin-right: 35px;
     }
 
     .name {
       width: 200px;
-      text-align: left;
+      text-align: center;
       word-break: break-word;
-      margin-right: 5px;
+      margin-right: 50px;
     }
 
     .cost-price {
       width: 100px;
-      text-align: left;
-      margin-right: 22px;
+      text-align: center;
+      margin-right: 40px;
     }
 
     .marja {
+      text-align: center;
       width: 60px;
-      margin-right: 50px;
+      margin-right: 85px;
     }
 
     .confirm-button {
@@ -109,32 +145,27 @@
     }
 
     .coefficient {
-
+      text-align: center;
+      margin-right: 120px;
     }
 
     .best-price {
+      text-align: center;
       width: 60px;
-      margin-right: 70px;
-    }
-
-    .confirm-button-second {
-      width: 150px;
-      word-break: break-word;
-      margin-right: 50px;
+      margin-right: 55px;
     }
 
     .price {
       text-align: center;
       width: 100px;
-
-      &:hover,
-      &:focus{
-        outline: none;
-      }
+      margin-right: 40px;
     }
 
     .category {
-      margin-right: 75px;
+      text-align: center;
+      margin-right: 25px;
+      width: 100px;
+      word-break: break-word;
     }
   }
 

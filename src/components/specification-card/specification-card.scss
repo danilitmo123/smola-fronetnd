@@ -3,7 +3,7 @@
 
   .scroll-div {
     padding: 15px;
-    height: 230px;
+    height: 150px;
     overflow: scroll;
   }
 
@@ -31,12 +31,28 @@
       align-items: center;
       background-color: rgba(241, 219, 16, 0.3);
       padding: 15px;
-      margin-bottom: 20px;
+
+      .id-in-card {
+        font-size: 24px;
+        font-family: 'Montserrat', sans-serif;
+      }
 
       .specification-card-title {
         font-family: 'Montserrat', sans-serif;
         font-size: 24px;
         font-weight: 500;
+
+        .close-card-btn {
+          border: none;
+          background: none;
+          color: #737B7D;
+          font-size: 24px;
+          font-family: 'Montserrat', sans-serif;
+          
+          &:hover {
+            cursor: pointer;
+          }
+        }
       }
     }
 
@@ -46,22 +62,16 @@
       justify-content: flex-start;
       align-items: flex-start;
 
-      .specification-card-img {
-        box-shadow: 0px 5px 4px 0px rgba(34, 60, 80, 0.5);
-        margin-right: 15px;
-      }
 
       .about-store {
-        padding: 15px;
-        border-radius: 6px;
-        box-shadow: 0 0 10px rgba(34, 60, 80, 0.13);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        padding: 5px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 400;
-        font-size: 16px;
-      }
-
-      .on-store {
-        margin-bottom: 15px;
+        font-size: 14px;
       }
     }
 
@@ -112,4 +122,39 @@
       letter-spacing: 1px;
     }
   }
+}
+
+.create-order-input {
+  height: 20px;
+  width: 150px;
+  border: 1px solid #F1DB10;
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 12px rgba(34, 60, 80, 0.13);
+
+  &:hover,
+  &:focus{
+    outline: none;
+  }
+}
+
+.calculate-btn {
+  background: #F1DB10;
+  border: none;
+  box-shadow: 0 0 12px rgba(16, 156, 241, 0.24);
+  color: #ffffff;
+  border-radius: 4px;
+  width: 120px;
+  height: 30px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.calculate-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

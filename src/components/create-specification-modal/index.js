@@ -23,6 +23,7 @@ const CreateSpecificationModal = ({active, setActive}) => {
     const [error, setError] = useState();
     const [loading, setLoading] = useState(false);
     const [counter, setCounter] = useState(0)
+    const [accuracy, setAccuracy] = useState('')
     const resourceList = useSelector(state => state.resourcesShortlist)
     const {resourceShortList} = resourceList
 
@@ -36,6 +37,7 @@ const CreateSpecificationModal = ({active, setActive}) => {
         setResourceListForOption([])
         setResourceList([])
         setResourceDict({})
+        setAccuracy('')
         setError(null)
         setLoading(false)
     }
@@ -67,7 +69,6 @@ const CreateSpecificationModal = ({active, setActive}) => {
         for (let resource in resource_dict) {
             resources_list.push({"id": resource, "amount": resource_dict[resource]})
         }
-        console.log(resources_list)
         setLoading(true)
         axiosAPI.post(
             'specification/create/',
@@ -78,7 +79,8 @@ const CreateSpecificationModal = ({active, setActive}) => {
                 'coefficient': coefficient,
                 'category_name': categoryName,
                 'resources_create': resources_list,
-                'amount': storageAmount
+                'amount': storageAmount,
+                'amount_accuracy': accuracy
             }
         )
             .then(response => {
@@ -150,6 +152,11 @@ const CreateSpecificationModal = ({active, setActive}) => {
                                className={'spec-modal-input'}
                                onChange={e => setCoefficient(parseFloat(e.target.value))}
                                value={coefficient}/>
+                        <label htmlFor="accuracy" className={'spec-modal-text'}>N/X</label>
+                        <select type='text' name='accuracy' id='accuracy'  onSelect={e => setAccuracy(e.currentTarget.value)}>
+                            <option>X</option>
+                            <option>N</option>
+                        </select>
                     </div>
                     <div className="add-block-resource">
                         <div className="second-title">Блок ресурсов</div>

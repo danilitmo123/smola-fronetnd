@@ -38,7 +38,7 @@ const OrderScreen = () => {
                 <div className="nav-item">Статус</div>
                 <div className="nav-item">Дата заказа</div>
                 <div className="nav-item">Источник заказа</div>
-                <div className="nav-item">Доступоность к сборке</div>
+                <div className="nav-item">Доступность к сборке</div>
             </div>
             {
                 loading ? <Loader/>
@@ -53,6 +53,7 @@ const OrderScreen = () => {
                     </div>
             }
             <OrderCard
+                onClose={() => setSelectedItem(null)}
                 active={selectedItem != null}
                 order={
                     Object.values(orders)
