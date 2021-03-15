@@ -23,8 +23,10 @@
     border-radius: 12px;
     background-color: white;
     width: 950px;
+    height: 700px;
     transform: scale(0.5);
     transition: 0.4s all;
+    overflow: scroll;
 
     .add-resource-wrapper {
       display: flex;

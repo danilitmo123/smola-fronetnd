@@ -29,10 +29,5 @@ export const OrderSpecificationItem = ({orderId, orderSpec, active, background, 
             <div className={'order-resource-id'}>{orderSpec.specification.id}</div>
             <div className={'order-resource-name'}>{orderSpec.specification.name}</div>
             <div className={'order-resource-amount'}>{orderSpec.amount}</div>
-            <input type="checkbox" disabled={!active} checked={orderSpec.assembled} onClick={e => {
-                if (active) {
-                    assemble()
-                }
-            }}/>
         </div>)
 }

@@ -52,13 +52,13 @@ const SpecificationItem = ({onSelect, specification}) => {
                     ((parseFloat(specification.price) - parseFloat(specification.prime_cost)) / parseFloat(specification.price))
                         .toFixed(2) : 'нет'}
                 </div>
-                <div className="product-item coefficient">{parseFloat(specification.coefficient).toFixed(2)}</div>
+                <div className="product-item coefficient">{specification.coefficient ? parseFloat(specification.coefficient).toFixed(2) : 'нет'}</div>
                 <div
                     className="product-item best-price">
-                    {parseFloat(specification.coefficient * specification.prime_cost)
-                    .toFixed(1)}
+                    {specification.coefficient ? parseFloat(specification.coefficient * specification.prime_cost)
+                        .toFixed(1) : 'нет'}
                 </div>
-               <div className="product-item price">{parseInt(specification.price)}</div>
+               <div className="product-item price">{specification.price ? parseInt(specification.price) : 'нет'}</div>
                 <div
                     className="product-item category">
                     {specification.category ? specification.category.name : 'нет'}

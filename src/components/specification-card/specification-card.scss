@@ -3,7 +3,7 @@
 
   .scroll-div {
     padding: 15px;
-    height: 150px;
+    height: 130px;
     overflow: scroll;
   }
 
@@ -12,7 +12,7 @@
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 99;
+    z-index: 0;
     width: 37%;
     height: 100vh;
     background-color: #fff;
@@ -33,13 +33,15 @@
       padding: 15px;
 
       .id-in-card {
-        font-size: 24px;
+        font-size: 18px;
         font-family: 'Montserrat', sans-serif;
       }
 
       .specification-card-title {
         font-family: 'Montserrat', sans-serif;
-        font-size: 24px;
+        font-size: 12px;
+        max-width: 300px;
+        word-break: break-word;
         font-weight: 500;
 
         .close-card-btn {
@@ -157,4 +159,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.close-card-btn {
+  width: 15px;
 }

@@ -6,6 +6,7 @@
     display: block;
     width: 80vw;
     content: '';
+    z-index: -1;
     position: absolute;
     border-bottom: 1px solid #737B7D;
     top: 30px !important;

@@ -47,7 +47,7 @@ axiosAPI.interceptors.response.use(
                 const refresh = localStorage.getItem("refresh_token");
                 if (refresh) {
                     const tokenParts = JSON.parse(window.atob(refresh.split(".")[1]));
-                    const now = Math.ceil(Date.now() / 1000);
+                    const now = Math.ceil(Date.now() / 1000)
 
                     if (tokenParts.exp > now) {
                         try {

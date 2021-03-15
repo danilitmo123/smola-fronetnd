@@ -6,6 +6,7 @@ import axiosAPI from "../api/axiosApi";
 import Loader from "../spinner";
 import {useDispatch} from "react-redux";
 import {listOrders} from "../../actions/order-list-actions";
+import close from "../../images/cancel.svg";
 
 const OrderCard = ({active, order, onClose}) => {
 
@@ -51,12 +52,14 @@ const OrderCard = ({active, order, onClose}) => {
                     currentCardData ? currentCardData.order_specification.length ?
                         <div>
                             <div className="header-specification-card">
-                                <div className="specification-card-title">Товары</div>
+                                <div className="order-card-title">Товары</div>
                                 <div className="specification-card-id">
                                     <div className="title">ID:</div>
                                     <div>{order ? order.external_id : ''}</div>
                                 </div>
-                                <div className="close-card-btn" onClick={onClose}>X</div>
+                                <div className="specification-card-title">
+                                    <img onClick={onClose} src={close} className={'close-card-btn'}/>
+                                </div>
                             </div>
                             <div className="nav-card-products">
                                 <div className={'ID'}>ID</div>
@@ -69,7 +72,7 @@ const OrderCard = ({active, order, onClose}) => {
                                 }
                             </div>
                             <div className="header-specification-card">
-                                <div className="specification-card-title">Ресурсы</div>
+                                <div className="order-card-title">Ресурсы</div>
                             </div>
                             <div className={'order-card-resource-item'}>
                                 {
