@@ -91,6 +91,7 @@ const CreateSpecificationModal = ({active, setActive}) => {
             .catch(error => {
                 setLoading(false)
                 setError(error.response.data)
+                console.log({error})
                 setResourceList([])
             });
     }
@@ -153,9 +154,9 @@ const CreateSpecificationModal = ({active, setActive}) => {
                                onChange={e => setCoefficient(parseFloat(e.target.value))}
                                value={coefficient}/>
                         <label htmlFor="accuracy" className={'spec-modal-text'}>N/X</label>
-                        <select type='text' name='accuracy' id='accuracy'  onSelect={e => setAccuracy(e.currentTarget.value)}>
-                            <option>X</option>
-                            <option>N</option>
+                        <select name='accuracy' id='accuracy'  onChange={e => setAccuracy(e.currentTarget.value)}>
+                            <option value={'X'}>X</option>
+                            <option value={'N'}>N</option>
                         </select>
                     </div>
                     <div className="add-block-resource">

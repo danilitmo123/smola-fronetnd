@@ -9,7 +9,7 @@ const SpecificationCard = ({onClose, active, specification}) => {
 
   const [currentCardData, setCurrentCardData] = useState(null)
   const [amount, setAmount] = useState(0)
-  const [resourceAmount, setResourceAmount] = useState({})
+  const [resourceAmountResponseData, setResourceAmountResponseData] = useState({})
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
@@ -38,7 +38,7 @@ const SpecificationCard = ({onClose, active, specification}) => {
     )
         .then(response => {
           reloadData()
-          setResourceAmount(response)
+          setResourceAmountResponseData(response.data)
           setLoading(false)
         })
         .catch(error => {
@@ -123,7 +123,7 @@ const SpecificationCard = ({onClose, active, specification}) => {
             </div>
             <div className={'scroll-div'}>
               { currentCardData ?
-                  <CardItem data={currentCardData} response={resourceAmount}/>
+                  <CardItem data={currentCardData} responseData={resourceAmountResponseData}/>
                   : <Loader/>
               }
             </div>
