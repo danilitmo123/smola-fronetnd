@@ -26,7 +26,7 @@ export const OrderSpecificationItem = ({orderId, orderSpec, active, background, 
 
     return (
         <div className={background ? 'order-card-resources-wrapper active' : 'order-card-resources-wrapper'}>
-            <div className={'order-resource-id'}>{orderSpec.specification.id}</div>
+            <div className={'order-resource-id'}>{orderSpec.specification.product_id}</div>
             <div className={'order-resource-name'}>{orderSpec.specification.name}</div>
             <div className={'order-resource-amount'}>{orderSpec.amount}</div>
         </div>)
