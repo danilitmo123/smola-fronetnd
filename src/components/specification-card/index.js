@@ -5,7 +5,6 @@ import Loader from "../spinner";
 import axiosAPI from "../api/axiosApi";
 import {useDispatch} from "react-redux";
 import close from '../../images/cancel.svg'
-import {listProducts} from "../../actions/product-actions";
 import AmountSpecificationModal from "../amount-specification-modal";
 
 const SpecificationCard = ({onClose, active, specification}) => {
@@ -24,6 +23,7 @@ const SpecificationCard = ({onClose, active, specification}) => {
     if (specification){
       axiosAPI.get('specification/' + specification.id).then((response => {
         setCurrentCardData(response.data)
+        setResourceAmountResponseData({})
       }))
     }
   }, [specification])
@@ -32,6 +32,11 @@ const SpecificationCard = ({onClose, active, specification}) => {
     id = specification.id
   }
 
+
+  const onCloseThis = (e) => {
+    setResourceAmountResponseData({})
+    onClose(e)
+  }
 
 
   const reloadData = () => {
@@ -67,7 +72,7 @@ const SpecificationCard = ({onClose, active, specification}) => {
             <div className="specification-card-title">{specification ? specification.name : ''}</div>
             <div className={'id-in-card'}>ID: {specification ? specification.product_id : ''}</div>
             <div className="specification-card-title">
-              <img onClick={onClose} src={close} className={'close-card-btn'}/>
+              <img onClick={onCloseThis} src={close} className={'close-card-btn'}/>
             </div>
           </div>
           <div className="specification-card-info">

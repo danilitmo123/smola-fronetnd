@@ -23,7 +23,7 @@ const CreateSpecificationModal = ({active, setActive}) => {
     const [error, setError] = useState();
     const [loading, setLoading] = useState(false);
     const [counter, setCounter] = useState(0)
-    const [accuracy, setAccuracy] = useState('')
+    const [accuracy, setAccuracy] = useState('X')
     const resourceList = useSelector(state => state.resourcesShortlist)
     const {resourceShortList} = resourceList
 
