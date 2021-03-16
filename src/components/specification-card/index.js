@@ -53,7 +53,7 @@ const SpecificationCard = ({onClose, active, specification}) => {
             }
         )
             .then(response => {
-                reloadData()
+                // reloadData()
                 setResourceAmountResponseData(response.data)
                 setLoading(false)
             })

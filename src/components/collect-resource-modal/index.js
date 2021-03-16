@@ -98,9 +98,9 @@ const CollectResourceModal = ({active, setActive, initData, deactivateResourceMo
                            className={'create-resource-input'}
                            onChange={e => setTimeStamp(e.target.value)}
                            value={timeStamp}/>
-                    <label htmlFor="comment" className={'resource-create-title'}>Комментарий</label>
-                    <input type="text" name={'comment'} id={'comment'}
-                           className={'create-resource-input'}
+                    <label htmlFor="comment" className={'resource-delivery-comment'}>Комментарий</label>
+                    <textarea name={'comment'} id={'comment'}
+                           className={'create-resource-input create-delivery-comment-input'}
                            onChange={e => setComment(e.target.value)}
                            value={comment}/>
 

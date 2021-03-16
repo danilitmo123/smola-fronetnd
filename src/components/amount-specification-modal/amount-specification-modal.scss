@@ -71,7 +71,19 @@
   }
 }
 
+.create-delivery-comment-input {
+  min-height: 60px;
+}
+
 .resource-create-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin-right: 20px;
+  margin-left: 30px;
+}
+
+.resource-delivery-comment{
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 16px;

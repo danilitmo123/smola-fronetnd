@@ -66,12 +66,12 @@ const SpecificationItem = ({onSelect, specification}) => {
                 </div>
                 <div
                     className="product-item marja">{specification.prime_cost ?
-                    ((parseFloat(price) - parseFloat(specification.prime_cost)) / parseFloat(specification.price))
+                    (((parseFloat(price) - parseFloat(specification.prime_cost)) / parseFloat(price)) * 100)
                         .toFixed(2) : 'нет'}
                 </div>
 
                 <div
-                    className="product-item coefficient">{specification.coefficient ? parseFloat(specification.coefficient).toFixed(2) : 'нет'}</div>
+                    className="product-item coefficient">{specification.coefficient ? parseFloat(specification.coefficient * 100).toFixed(2) : 'нет'}</div>
                 <div
                     className="product-item best-price">
                     {specification.coefficient ? parseFloat(specification.coefficient * specification.prime_cost)
@@ -86,7 +86,9 @@ const SpecificationItem = ({onSelect, specification}) => {
                         value={parseFloat(price).toFixed(2)}
                         className={'product-item price'}
                         onClick={e => e.stopPropagation()}/>
-                    <button type={'submit price-submit'} onClick={e => e.stopPropagation()} className={'confirm-button-second'}>✓</button>
+                    <button type={'submit price-submit'} onClick={e => e.stopPropagation()}
+                            className={'confirm-button-second'}>✓
+                    </button>
                 </form>
                 <div
                     className="product-item category">

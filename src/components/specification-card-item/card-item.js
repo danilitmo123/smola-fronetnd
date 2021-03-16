@@ -4,20 +4,18 @@ import './card-item.scss'
 
 const CardItem = ({data, responseData}) => {
     let amountDict = {}
-    let classes = true
+    let redAlertDict = {}
 
     if (responseData) {
         Object.values(responseData).map(pair => {
             amountDict[pair.id] = pair.amount
-            if (pair.amount < 0) {
-                classes = false
-            }
+            redAlertDict[pair.id] = pair && pair.amount < 0;
         })
     }
 
 
     const items = data.resources.map(item => (
-        <div className={classes ? 'resource-item-wrapper' : 'resource-item-wrapper active'}>
+        <div className={redAlertDict[item.resource.id]? 'resource-item-wrapper active' : 'resource-item-wrapper'}>
             <div className={'resource-external-id'}>{item.resource.external_id}</div>
             <div className={'resource-name'}>{item.resource.name}</div>
             <div className={'resource-amount'}>{parseInt(item.amount)}</div>
