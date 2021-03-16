@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import Loader from "../spinner";
 import axiosAPI from "../api/axiosApi";
 import {listProducts} from "../../actions/product-actions";
+import {listSpecifications} from "../../actions/specification-actions";
 
 
 const AmountSpecificationModal = ({active, setActive, id}) => {
@@ -29,7 +30,7 @@ const AmountSpecificationModal = ({active, setActive, id}) => {
     )
         .then(response => {
           setActive(false)
-          dispatch(listProducts())
+          dispatch(listSpecifications())
           reloadData()
           setLoading(false)
         })
